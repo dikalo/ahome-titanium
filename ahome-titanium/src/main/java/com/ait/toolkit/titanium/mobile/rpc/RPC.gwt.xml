@@ -1,0 +1,19 @@
+<module>
+	
+	  <inherits name="com.google.gwt.http.HTTP"/>
+	  <inherits name="com.google.gwt.user.AsyncProxy"/>
+	  <inherits name="com.google.gwt.user.RemoteService"/>
+      <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
+	
+	<replace-with class="com.ait.toolkit.titanium.mobile.client.core.rebind/TiCoreDOMImpl">
+      <when-type-is class="com.google.gwt.user.client.impl.DOMImpl"/>
+      <when-property-is name="user.agent" value="timobile"/>
+    </replace-with>
+	
+	<replace-with class="com.ait.toolkit.titanium.mobile.client.core.rebind/TiCoreDOMImpl">
+      <when-type-is class="com.google.gwt.dom.client.DOMImpl"/>
+      <when-property-is name="user.agent" value="timobile"/>
+    </replace-with>
+	
+    
+</module>

@@ -1,0 +1,3 @@
+<module>
+	 <inherits name='com.emitrom.ti4j.core.Core'/> 
+</module>

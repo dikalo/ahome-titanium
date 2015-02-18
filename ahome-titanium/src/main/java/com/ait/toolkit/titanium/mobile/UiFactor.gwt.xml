@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+
+	<!-- Determine if we are on native or web platform -->
+	<define-property name="platform" values="native,web" />
+	<collapse-property name="platform" values="*" />
+
+	<property-provider name="platform">
+  <![CDATA[
+       if(!((typeof ($wnd) != 'undefined') || (typeof (window) != 'undefined'))){
+            
+       }else{
+          
+       }
+  ]]>
+	</property-provider>
+
+</module>

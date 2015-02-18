@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	 <!--  inherits name="com.google.gwt.user.UserAgent"/-->
+	 <inherits name="com.google.gwt.i18n.I18N"/>
+	 <inherits name="com.google.gwt.safehtml.SafeHtml" />
+	 <inherits name="com.google.gwt.json.JSON" />
+	 <inherits name='com.ait.toolkit.data.Data'/>
+	 <inherits name='com.ait.toolkit.titanium.mobile.rpc.RPC'/>	 
+</module>
