@@ -20,21 +20,22 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class ActivityEvent extends TiEvent {
 
-    public static final String CREATE = "create";
-    public static final String DESTROY = "destroy";
-    public static final String PAUSE = "pause";
-    public static final String RESUME = "resume";
-    public static final String RESUMED = "resumed";
-    public static final String START = "start";
-    public static final String STOP = "stop";
+	public static final String CREATE = "create";
+	public static final String DESTROY = "destroy";
+	public static final String PAUSE = "pause";
+	public static final String RESUME = "resume";
+	public static final String RESUMED = "resumed";
+	public static final String START = "start";
+	public static final String STOP = "stop";
+	public static final String TASK_REMOVE = "taskremove";
 
-    protected ActivityEvent() {
+	protected ActivityEvent() {
 
-    }
+	}
 
-    @SuppressWarnings("unused")
-    private ActivityEvent(JavaScriptObject obj) {
-        jsObj = obj;
-    }
+	@SuppressWarnings("unused")
+	private ActivityEvent(JavaScriptObject obj) {
+		jsObj = obj;
+	}
 
 }

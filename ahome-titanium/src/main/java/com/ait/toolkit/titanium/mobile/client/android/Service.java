@@ -19,6 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.ResumeHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StartHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StopHandler;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.TaskRemoveHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -30,86 +31,97 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Service extends EventDispatcher {
 
-    public Service(Intent intent) {
-        jsObj = Android.get().createService(intent).getJsObj();
-    }
+	public Service(Intent intent) {
+		jsObj = Android.get().createService(intent).getJsObj();
+	}
 
-    private Service(JavaScriptObject obj) {
-        jsObj = obj;
-    }
+	private Service(JavaScriptObject obj) {
+		jsObj = obj;
+	}
 
-    /**
-     * Start the Service. Effective only if jso instance of
-     * Titanium.Android.Service was created with Titanium.Android.createService.
-     */
-    public native void start() /*-{
+	/**
+	 * Start the Service. Effective only if jso instance of
+	 * Titanium.Android.Service was created with Titanium.Android.createService.
+	 */
+	public native void start() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.start();
-    }-*/;
+	}-*/;
 
-    /**
-     * Stop jso running instance of the Service.
-     */
-    public native void stop() /*-{
+	/**
+	 * Stop jso running instance of the Service.
+	 */
+	public native void stop() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.stop();
-    }-*/;
+	}-*/;
 
-    /**
-     * The Titanium.Android.Intent used to start or bind to the Service.
-     * 
-     * @return
-     */
-    public native Intent getIntent() /*-{
+	/**
+	 * The Titanium.Android.Intent used to start or bind to the Service.
+	 * 
+	 * @return
+	 */
+	public native Intent getIntent() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.intent;
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.android.Intent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
-    }-*/;
+	}-*/;
 
-    /**
-     * A service can be started more than once -- jso number (based on an
-     * incrementing integer) indicates which "start number" in the sequence the
-     * current service instance is.
-     * 
-     * @return
-     */
-    public native int getServiceInstanceId() /*-{
+	/**
+	 * A service can be started more than once -- jso number (based on an
+	 * incrementing integer) indicates which "start number" in the sequence the
+	 * current service instance is.
+	 * 
+	 * @return
+	 */
+	public native int getServiceInstanceId() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.serviceInstanceId;
-    }-*/;
+	}-*/;
 
-    public native void addResumeHandler(ResumeHandler handler)/*-{
+	public native void addResumeHandler(ResumeHandler handler)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
 						@com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::RESUME,
 						function(e) {
-							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ResizeEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.activity.ResumeHandler::onResume(Lcom/ait/toolkit/titanium/mobile/client/core/events/activity/ActivityEvent;)(eventObject);
 						});
-    }-*/;
+	}-*/;
 
-    public native void addStartHandler(StartHandler handler)/*-{
+	public native void addStartHandler(StartHandler handler)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
 						@com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::START,
 						function(e) {
-							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ResizeEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StartHandler::onStart(Lcom/ait/toolkit/titanium/mobile/client/core/events/activity/ActivityEvent;)(eventObject);
 						});
-    }-*/;
+	}-*/;
 
-    public native void addStopHandler(StopHandler handler)/*-{
+	public native void addStopHandler(StopHandler handler)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
 						@com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::STOP,
 						function(e) {
-							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ResizeEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StopHandler::onStop(Lcom/ait/toolkit/titanium/mobile/client/core/events/activity/ActivityEvent;)(eventObject);
 						});
-    }-*/;
+	}-*/;
+
+	public native void addTaskRemoveHandler(TaskRemoveHandler handler)/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso
+				.addEventListener(
+						@com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::TASK_REMOVE,
+						function(e) {
+							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.activity.ActivityEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StopHandler::onStop(Lcom/ait/toolkit/titanium/mobile/client/core/events/activity/ActivityEvent;)(eventObject);
+						});
+	}-*/;
 
 }
