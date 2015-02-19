@@ -69,7 +69,7 @@ public class GMapRegionType extends BaseModel {
         return JsoHelper.getAttributeAsDouble(jsObj, "longitudeDelta");
     }
 
-    static JsArray<JavaScriptObject> fromList(List<GMapRegionType> values) {
+    static JsArray<JavaScriptObject> fromListOfMapRegionType(List<GMapRegionType> values) {
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
         for (GMapRegionType type : values) {
             peers.push(type.getJsObj());
@@ -77,7 +77,7 @@ public class GMapRegionType extends BaseModel {
         return peers;
     }
 
-    static List<GMapRegionType> fromArray(JavaScriptObject obj) {
+    static List<GMapRegionType> fromArrayOfJsObjects(JavaScriptObject obj) {
         int size = JsoHelper.arrayLength(obj);
         List<GMapRegionType> toReturn = new ArrayList<GMapRegionType>();
         for (int i = 0; i < size; i++) {

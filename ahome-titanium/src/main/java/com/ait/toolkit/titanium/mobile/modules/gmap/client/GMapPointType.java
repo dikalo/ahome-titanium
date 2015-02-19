@@ -53,7 +53,7 @@ public class GMapPointType extends BaseModel {
         return JsoHelper.getAttributeAsDouble(jsObj, "longitude");
     }
 
-    static JsArray<JavaScriptObject> fromList(List<GMapPointType> values) {
+    static JsArray<JavaScriptObject> fromListOfMapPointType(List<GMapPointType> values) {
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
         for (GMapPointType type : values) {
             peers.push(type.getJsObj());
@@ -61,7 +61,7 @@ public class GMapPointType extends BaseModel {
         return peers;
     }
 
-    static List<GMapPointType> fromArray(JavaScriptObject obj) {
+    static List<GMapPointType> fromArrayOfMapPointTypeJsObjects(JavaScriptObject obj) {
         int size = JsoHelper.arrayLength(obj);
         List<GMapPointType> toReturn = new ArrayList<GMapPointType>();
         for (int i = 0; i < size; i++) {

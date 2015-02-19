@@ -27,108 +27,109 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class JSONParser {
 
-    static final JavaScriptObject typeMap = initTypeMap();
+	static final JavaScriptObject typeMap = initTypeMap();
 
-    /**
-     * Evaluates a trusted JSON string and returns its JSONValue representation.
-     * CAUTION! This method calls the JavaScript <code>eval()</code> function,
-     * which can execute arbitrary script. DO NOT pass an untrusted string into
-     * this method.
-     * 
-     * <p>
-     * This method has been deprecated. Please call either
-     * {@link #parseStrict(String)} (for inputs that strictly follow the JSON
-     * specification) or {@link #parseLenient(String)}. The implementation of
-     * this method calls parseLenient.
-     * 
-     * @param jsonString
-     *            a JSON object to parse
-     * @return a JSONValue that has been built by parsing the JSON string
-     * @throws NullPointerException
-     *             if <code>jsonString</code> is <code>null</code>
-     * @throws IllegalArgumentException
-     *             if <code>jsonString</code> is empty
-     * 
-     * @deprecated use {@link #parseStrict(String)} or
-     *             {@link #parseLenient(String)}
-     */
-    @Deprecated
-    public static JSONValue parse(String jsonString) {
-        return parseLenient(jsonString);
-    }
+	/**
+	 * Evaluates a trusted JSON string and returns its JSONValue representation.
+	 * CAUTION! This method calls the JavaScript <code>eval()</code> function,
+	 * which can execute arbitrary script. DO NOT pass an untrusted string into
+	 * this method.
+	 * 
+	 * <p>
+	 * This method has been deprecated. Please call either
+	 * {@link #parseStrict(String)} (for inputs that strictly follow the JSON
+	 * specification) or {@link #parseLenient(String)}. The implementation of
+	 * this method calls parseLenient.
+	 * 
+	 * @param jsonString
+	 *            a JSON object to parse
+	 * @return a JSONValue that has been built by parsing the JSON string
+	 * @throws NullPointerException
+	 *             if <code>jsonString</code> is <code>null</code>
+	 * @throws IllegalArgumentException
+	 *             if <code>jsonString</code> is empty
+	 * 
+	 * @deprecated use {@link #parseStrict(String)} or
+	 *             {@link #parseLenient(String)}
+	 */
+	@Deprecated
+	public static JSONValue parse(String jsonString) {
+		return parseLenient(jsonString);
+	}
 
-    /**
-     * Evaluates a trusted JSON string and returns its JSONValue representation.
-     * CAUTION! This method calls the JavaScript {@code eval()} function, which
-     * can execute arbitrary script. DO NOT pass an untrusted string into this
-     * method.
-     * 
-     * @param jsonString
-     *            a JSON object to parse
-     * @return a JSONValue that has been built by parsing the JSON string
-     * @throws NullPointerException
-     *             if <code>jsonString</code> is <code>null</code>
-     * @throws IllegalArgumentException
-     *             if <code>jsonString</code> is empty
-     */
-    public static JSONValue parseLenient(String jsonString) {
-        return parse(jsonString, false);
-    }
+	/**
+	 * Evaluates a trusted JSON string and returns its JSONValue representation.
+	 * CAUTION! This method calls the JavaScript {@code eval()} function, which
+	 * can execute arbitrary script. DO NOT pass an untrusted string into this
+	 * method.
+	 * 
+	 * @param jsonString
+	 *            a JSON object to parse
+	 * @return a JSONValue that has been built by parsing the JSON string
+	 * @throws NullPointerException
+	 *             if <code>jsonString</code> is <code>null</code>
+	 * @throws IllegalArgumentException
+	 *             if <code>jsonString</code> is empty
+	 */
+	public static JSONValue parseLenient(String jsonString) {
+		return parse(jsonString, false);
+	}
 
-    /**
-     * Evaluates a JSON string and returns its JSONValue representation. Where
-     * possible, the browser's {@code JSON.parse function} is used. For older
-     * browsers including IE6 and IE7 that lack a {@code JSON.parse} function,
-     * the input is validated as described in RFC 4627 for safety and passed to
-     * {@code eval()}.
-     * 
-     * @param jsonString
-     *            a JSON object to parse
-     * @return a JSONValue that has been built by parsing the JSON string
-     * @throws NullPointerException
-     *             if <code>jsonString</code> is <code>null</code>
-     * @throws IllegalArgumentException
-     *             if <code>jsonString</code> is empty
-     */
-    public static JSONValue parseStrict(String jsonString) {
-        return parse(jsonString, true);
-    }
+	/**
+	 * Evaluates a JSON string and returns its JSONValue representation. Where
+	 * possible, the browser's {@code JSON.parse function} is used. For older
+	 * browsers including IE6 and IE7 that lack a {@code JSON.parse} function,
+	 * the input is validated as described in RFC 4627 for safety and passed to
+	 * {@code eval()}.
+	 * 
+	 * @param jsonString
+	 *            a JSON object to parse
+	 * @return a JSONValue that has been built by parsing the JSON string
+	 * @throws NullPointerException
+	 *             if <code>jsonString</code> is <code>null</code>
+	 * @throws IllegalArgumentException
+	 *             if <code>jsonString</code> is empty
+	 */
+	public static JSONValue parseStrict(String jsonString) {
+		return parse(jsonString, true);
+	}
 
-    static void throwJSONException(String message) {
-        throw new JSONException(message);
-    }
+	static void throwJSONException(String message) {
+		throw new JSONException(message);
+	}
 
-    static void throwUnknownTypeException(String typeString) {
-        throw new JSONException("Unexpected typeof result '" + typeString + "'; please report this bug to the GWT team");
-    }
+	static void throwUnknownTypeException(String typeString) {
+		throw new JSONException("Unexpected typeof result '" + typeString
+				+ "'; please report this bug to the GWT team");
+	}
 
-    /**
-     * Called from {@link #initTypeMap()}.
-     */
-    private static JSONValue createBoolean(boolean v) {
-        return JSONBoolean.getInstance(v);
-    }
+	/**
+	 * Called from {@link #initTypeMap()}.
+	 */
+	private static JSONValue createBoolean(boolean v) {
+		return JSONBoolean.getInstance(v);
+	}
 
-    /**
-     * Called from {@link #initTypeMap()}.
-     */
-    private static JSONValue createNumber(double v) {
-        return new JSONNumber(v);
-    }
+	/**
+	 * Called from {@link #initTypeMap()}.
+	 */
+	private static JSONValue createNumber(double v) {
+		return new JSONNumber(v);
+	}
 
-    /**
-     * Called from {@link #initTypeMap()}. If we get here, <code>o</code> is
-     * either <code>null</code> (not <code>undefined</code>) or a JavaScript
-     * object.
-     */
-    private static JSONValue createObject(Object o) {
-        if (!TiUtils.isWebMode()) {
-            return _createObjectForTi(o);
-        }
-        return _createObject(o);
-    }
+	/**
+	 * Called from {@link #initTypeMap()}. If we get here, <code>o</code> is
+	 * either <code>null</code> (not <code>undefined</code>) or a JavaScript
+	 * object.
+	 */
+	private static JSONValue createObject(Object o) {
+		if (!TiUtils.isWebMode()) {
+			return _createObjectForTi(o);
+		}
+		return _createObject(o);
+	}
 
-    private static native JSONValue _createObject(Object o) /*-{
+	private static native JSONValue _createObject(Object o) /*-{
 		if (!o) {
 			return @com.google.gwt.json.client.JSONNull::getInstance()();
 		}
@@ -136,7 +137,8 @@ public class JSONParser {
 		if (v !== o) {
 			// It was a primitive wrapper, unwrap it and try again.
 			var func = @com.google.gwt.json.client.JSONParser::typeMap[typeof v];
-			return func ? func(v)
+			return func
+					? func(v)
 					: @com.google.gwt.json.client.JSONParser::throwUnknownTypeException(Ljava/lang/String;)(typeof v);
 		} else if (o instanceof Array || o instanceof $wnd.Array) {
 			// Looks like an Array; wrap as JSONArray.
@@ -149,14 +151,14 @@ public class JSONParser {
 			// Subobjects will be created on demand.
 			return @com.google.gwt.json.client.JSONObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 		}
-    }-*/;
+	}-*/;
 
-    /**
-     * Called from {@link #initTypeMap()}. If we get here, <code>o</code> is
-     * either <code>null</code> (not <code>undefined</code>) or a JavaScript
-     * object.
-     */
-    private static native JSONValue _createObjectForTi(Object o) /*-{
+	/**
+	 * Called from {@link #initTypeMap()}. If we get here, <code>o</code> is
+	 * either <code>null</code> (not <code>undefined</code>) or a JavaScript
+	 * object.
+	 */
+	private static native JSONValue _createObjectForTi(Object o) /*-{
 		if (!o) {
 			return @com.google.gwt.json.client.JSONNull::getInstance()();
 		}
@@ -164,7 +166,8 @@ public class JSONParser {
 		if (v !== o) {
 			// It was a primitive wrapper, unwrap it and try again.
 			var func = @com.google.gwt.json.client.JSONParser::typeMap[typeof v];
-			return func ? func(v)
+			return func
+					? func(v)
 					: @com.google.gwt.json.client.JSONParser::throwUnknownTypeException(Ljava/lang/String;)(typeof v);
 		} else if (o instanceof Array) {
 			// Looks like an Array; wrap as JSONArray.
@@ -177,40 +180,40 @@ public class JSONParser {
 			// Subobjects will be created on demand.
 			return @com.google.gwt.json.client.JSONObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 		}
-    }-*/;
+	}-*/;
 
-    /**
-     * Called from {@link #initTypeMap()}.
-     */
-    private static JSONValue createString(String v) {
-        return new JSONString(v);
-    }
+	/**
+	 * Called from {@link #initTypeMap()}.
+	 */
+	private static JSONValue createString(String v) {
+		return new JSONString(v);
+	}
 
-    /**
-     * Called from {@link #initTypeMap()}. This method returns a
-     * <code>null</code> pointer, representing JavaScript <code>undefined</code>
-     * .
-     */
-    private static JSONValue createUndefined() {
-        return null;
-    }
+	/**
+	 * Called from {@link #initTypeMap()}. This method returns a
+	 * <code>null</code> pointer, representing JavaScript <code>undefined</code>
+	 * .
+	 */
+	private static JSONValue createUndefined() {
+		return null;
+	}
 
-    /**
-     * This method converts <code>jsonString</code> into a JSONValue. In strict
-     * mode (strict == true), one of two code paths is taken: 1) Call JSON.parse
-     * if available, or 2) Validate the input and call eval()
-     * 
-     * In lenient mode (strict == false), eval() is called without validation.
-     * 
-     * @param strict
-     *            if true, parse in strict mode.
-     */
-    private static native JSONValue evaluate(String json, boolean strict) /*-{
+	/**
+	 * This method converts <code>jsonString</code> into a JSONValue. In strict
+	 * mode (strict == true), one of two code paths is taken: 1) Call JSON.parse
+	 * if available, or 2) Validate the input and call eval()
+	 * 
+	 * In lenient mode (strict == false), eval() is called without validation.
+	 * 
+	 * @param strict
+	 *            if true, parse in strict mode.
+	 */
+	private static native JSONValue evaluate(String json, boolean strict) /*-{
 		// Note: we cannot simply call JsonUtils.unsafeEval because it is unable
 		// to return a result for inputs whose outermost type is 'string' in
 		// dev mode.
 		var v;
-		if (strict && @com.google.gwt.core.client.JsonUtils::hasJsonParse) {
+		if (strict) {
 			try {
 				v = JSON.parse(json);
 			} catch (e) {
@@ -231,11 +234,12 @@ public class JSONParser {
 			}
 		}
 		var func = @com.google.gwt.json.client.JSONParser::typeMap[typeof v];
-		return func ? func(v)
+		return func
+				? func(v)
 				: @com.google.gwt.json.client.JSONParser::throwUnknownTypeException(Ljava/lang/String;)(typeof v);
-    }-*/;
+	}-*/;
 
-    private static native JavaScriptObject initTypeMap() /*-{
+	private static native JavaScriptObject initTypeMap() /*-{
     return {
       "boolean": @com.google.gwt.json.client.JSONParser::createBoolean(Z),
       "number": @com.google.gwt.json.client.JSONParser::createNumber(D),
@@ -246,23 +250,23 @@ public class JSONParser {
     }
   }-*/;
 
-    private static JSONValue parse(String jsonString, boolean strict) {
-        if (jsonString == null) {
-            throw new NullPointerException();
-        }
-        if (jsonString.length() == 0) {
-            throw new IllegalArgumentException("empty argument");
-        }
-        try {
-            return evaluate(jsonString, strict);
-        } catch (JavaScriptException ex) {
-            throw new JSONException(ex);
-        }
-    }
+	private static JSONValue parse(String jsonString, boolean strict) {
+		if (jsonString == null) {
+			throw new NullPointerException();
+		}
+		if (jsonString.length() == 0) {
+			throw new IllegalArgumentException("empty argument");
+		}
+		try {
+			return evaluate(jsonString, strict);
+		} catch (JavaScriptException ex) {
+			throw new JSONException(ex);
+		}
+	}
 
-    /**
-     * Not instantiable.
-     */
-    private JSONParser() {
-    }
+	/**
+	 * Not instantiable.
+	 */
+	private JSONParser() {
+	}
 }

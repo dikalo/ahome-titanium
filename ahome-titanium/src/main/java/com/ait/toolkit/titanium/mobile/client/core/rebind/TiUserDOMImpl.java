@@ -80,11 +80,7 @@ public class TiUserDOMImpl extends DOMImpl {
 
     }
 
-    @Override
-    protected void disposeEventSystem() {
-        // TODO Auto-generated method stub
-
-    }
+   
 
     @Override
     protected void initEventSystem() {

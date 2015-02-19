@@ -28,7 +28,7 @@ import com.google.gwt.uibinder.rebind.XMLElement;
  * 
  * This handles all panels that support a single-argument add() method.
  */
-public class HasWidgetsParser implements ElementParser {
+public class HasViewParser implements ElementParser {
 
     public void parse(XMLElement elem, String fieldName, JClassType type, UiBinderWriter writer)
                     throws UnableToCompleteException {

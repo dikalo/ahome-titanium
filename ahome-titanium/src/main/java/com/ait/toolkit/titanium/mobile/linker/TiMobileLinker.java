@@ -46,7 +46,7 @@ public class TiMobileLinker extends AbstractLinker {
 		ArtifactSet toReturn = new ArtifactSet(artifacts);
 		DefaultTextOutput out = new DefaultTextOutput(true);
 		long compilationTime = System.currentTimeMillis();
-		out.print("(function(){");
+		out.print("exports.start = function(){");
 		out.newline();
 
 		// get compilation result
@@ -83,10 +83,11 @@ public class TiMobileLinker extends AbstractLinker {
 		out.newline();
 		out.print("gwtOnLoad(null,'" + context.getModuleName() + "',null);");
 		out.newline();
-		out.print("})();");
+		out.print("};");
 		out.newline();
 
-		toReturn.add(emitString(logger, out.toString(), context.getModuleName() + ".js"));
+		//toReturn.add(emitString(logger, out.toString(), context.getModuleName() + ".js"));
+		toReturn.add(emitString(logger, out.toString(), "ti4j.js"));
 
 		// toReturn.add(emitString(logger, Long.toString(compilationTime),
 		// APP_COMPILATION_FILE_NAME));

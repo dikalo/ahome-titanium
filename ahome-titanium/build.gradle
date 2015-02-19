@@ -17,7 +17,7 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.6
 
 archivesBaseName = 'titanium4j'
 version = '4.0.0-SNAPSHOT'
@@ -45,7 +45,7 @@ sourceSets {
 }
 
 dependencies {
-    compile(group: 'com.ahome-it', name: 'ahome-core', version: '1.0.0-SNAPSHOT')
+    compile(group: 'com.ahome-it', name: 'ahome-core', version: '1.0.1-SNAPSHOT')
 }
 
 uploadArchives {
