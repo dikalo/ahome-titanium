@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TouchCancelHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TouchEndHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TouchMoveHandler;

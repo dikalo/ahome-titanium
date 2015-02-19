@@ -21,7 +21,7 @@ import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.data.client.Bean;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TableRowClickHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TableRowDblClickHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TableRowDeleteHandler;
@@ -982,7 +982,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.ClickEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1013,7 +1013,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableRowClickEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1031,7 +1031,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableRowDblClickEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1046,7 +1046,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableRowDeleteEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1061,7 +1061,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableRowDoubleTapEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1076,7 +1076,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableViewDragEndEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;
@@ -1091,7 +1091,7 @@ public class TableView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableViewDragStartEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;

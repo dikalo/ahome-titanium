@@ -13,7 +13,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.core.handlers.ui;
+package com.ait.toolkit.titanium.mobile.client.core.handlers;
 
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -68,10 +68,10 @@ public class CallbackRegistration implements HandlerRegistration {
 	 * Unregisters the event listener from the object
 	 */
 	public native void unregister() /*-{
-		var obj = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::getEventDispatcher()();
+		var obj = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::getEventDispatcher()();
 		var objjso = obj.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var action = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::getActionString()();
-		var jso = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::getJso()();
+		var action = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::getActionString()();
+		var jso = this.@com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::getJso()();
 		objjso.removeEventListener(action, jso);
 	}-*/;
 }

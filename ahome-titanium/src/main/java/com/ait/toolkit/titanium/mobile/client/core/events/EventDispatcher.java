@@ -17,7 +17,9 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler;
-import com.google.gwt.core.client.JavaScriptObject;
+import com.ait.toolkit.titanium.mobile.client.ui.TabGroup;
+import com.ait.toolkit.titanium.mobile.client.ui.View;
+import com.ait.toolkit.titanium.mobile.client.ui.Window;
 
 /**
  * Base class of all objects that are able to dispatch events
@@ -29,29 +31,6 @@ public abstract class EventDispatcher extends JsObject {
 
 	}
 
-	private final native void addEventListener(String event, JavaScriptObject listener) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.addEventListener(event, listener);
-	}-*/;
-
-	/**
-	 * Remove a previously added event listener
-	 * 
-	 * @param event
-	 *            , name of the event
-	 * @param listener
-	 *            , EventListner passed in addEventListener
-	 */
-	@Deprecated
-	public final void removeEventListner(String event, TiEventListener<? extends TiEvent> listener) {
-		removeEventListener(event, listener.getJsoPeer());
-	}
-
-	private final native void removeEventListener(String event, JavaScriptObject listener) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.removeEventListener(event, listener);
-	}-*/;
-
 	public native void addEventHandler(String event, EventHandler handler)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
@@ -62,19 +41,6 @@ public abstract class EventDispatcher extends JsObject {
 							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler::onEvent(Lcom/ait/toolkit/titanium/mobile/client/core/events/TiEvent;)(eventObject);
 						});
 	}-*/;
-
-	/**
-	 * Adds an event listener for the instance to receive view triggered events
-	 * 
-	 * @param event
-	 *            , name of the event
-	 * @param listener
-	 *            , callback function to invoke when the event is fired
-	 */
-	@Deprecated
-	public void addEventListener(String event, TiEventListener<? extends TiEvent> listener) {
-		addEventListener(event, listener.getJsoPeer());
-	}
 
 	/**
 	 * Fires a synthesized event to the views listener
@@ -90,6 +56,36 @@ public abstract class EventDispatcher extends JsObject {
 				.fireEvent(
 						name,
 						eventObject.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	/**
+	 * The Window whose Activity lifecycle should be triggered on the proxy.
+	 * 
+	 * @param value
+	 */
+	public static native void setLifeCycleContainer(Window value) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso
+				.setLifeCycleContainer(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	/**
+	 * The TabGroup whose Activity lifecycle should be triggered on the proxy.
+	 * 
+	 * @param value
+	 */
+	public static native void setLifeCycleContainer(TabGroup value) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso
+				.setLifeCycleContainer(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	public native View getLifeCycleContainer()/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var o = jso.lifeCycleContainer;
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.View::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
 	public void fireEvent(String eventName) {

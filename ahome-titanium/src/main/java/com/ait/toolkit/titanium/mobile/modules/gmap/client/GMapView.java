@@ -18,8 +18,8 @@ package com.ait.toolkit.titanium.mobile.modules.gmap.client;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.ui.View;
 
 /**
@@ -209,7 +209,7 @@ public class GMapView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.modules.gmap.client.PinchChangedDragStateEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
     }-*/;
@@ -225,7 +225,7 @@ public class GMapView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.modules.gmap.client.RegionChangedEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
     }-*/;

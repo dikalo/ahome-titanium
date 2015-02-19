@@ -28,43 +28,43 @@ import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
  */
 public class GMapRoute extends EventDispatcher {
 
-    public GMapRoute() {
-        jsObj = GMap.get().createRoute();
-    }
+	public GMapRoute() {
+		jsObj = GMap.get().createRoute();
+	}
 
-    public native String getColor()/*-{
+	public native String getColor()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.color;
-    }-*/;
+	}-*/;
 
-    public native void setColor(String value)/*-{
+	public native void setColor(String value)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
-    }-*/;
+	}-*/;
 
-    public native double getWidth()/*-{
+	public native double getWidth()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.width;
-    }-*/;
+	}-*/;
 
-    public native void setWidth(double value)/*-{
+	public native void setWidth(double value)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.width = value;
-    }-*/;
+	}-*/;
 
-    public native List<GMapPointType> getPoints()/*-{
+	public native List<GMapPointType> getPoints()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.points;
-		return @com.ait.toolkit.titanium.mobile.modules.gmap.client.GMapPointType::fromArray(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-    }-*/;
+		return @com.ait.toolkit.titanium.mobile.modules.gmap.client.GMapPointType::fromArrayOfMapPointTypeJsObjects(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+	}-*/;
 
-    public native void setPoints(List<GMapPointType> values)/*-{
+	public native void setPoints(List<GMapPointType> values)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.points = @com.ait.toolkit.titanium.mobile.modules.gmap.client.GMapPointType::fromList(Ljava/util/List;)(values);
-    }-*/;
+	}-*/;
 
-    public void setPoints(GMapPointType... mapPointTypes) {
-        setPoints(Arrays.asList(mapPointTypes));
-    }
+	public void setPoints(GMapPointType... mapPointTypes) {
+		setPoints(Arrays.asList(mapPointTypes));
+	}
 
 }

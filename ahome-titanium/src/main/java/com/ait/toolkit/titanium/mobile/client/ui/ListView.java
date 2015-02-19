@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ListViewItemClickHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.fx.TableViewAnimation;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -232,7 +232,7 @@ public class ListView extends View {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.ListViewItemClickEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
     }-*/;

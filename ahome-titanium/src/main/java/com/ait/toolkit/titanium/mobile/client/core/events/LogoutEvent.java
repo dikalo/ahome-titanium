@@ -17,9 +17,9 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 public class LogoutEvent extends TiEvent {
 
-    public static final String LOGOUT = "logout";
+	public static final String EVENT_NAME = "logout";
 
-    protected LogoutEvent() {
+	protected LogoutEvent() {
 
-    }
+	}
 }

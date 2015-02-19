@@ -17,9 +17,6 @@ package com.ait.toolkit.titanium.mobile.client.gesture;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
-import com.ait.toolkit.titanium.mobile.client.core.events.OrientationChangeEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.ShakeEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.OrientationChangeHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ShakeHandler;
 
@@ -29,25 +26,21 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.ShakeHandler;
  */
 public class Gesture extends TiModule {
 
-    private static Gesture instance = null;
+	private static Gesture instance = null;
 
-    public static Gesture get() {
-        if (instance == null) {
-            instance = new Gesture();
-        }
-        return instance;
-    }
+	public static Gesture get() {
+		if (instance == null) {
+			instance = new Gesture();
+		}
+		return instance;
+	}
 
-    private Gesture() {
-        createPeer();
-    }
+	private Gesture() {
+		createPeer();
+	}
 
-    @Deprecated
-    public void addOrientationchangeHandler(TiEventListener<OrientationChangeEvent> listener) {
-        addEventListener(OrientationChangeEvent.ORIENTATION_CHANGE, listener);
-    }
-
-    public native void addOrientationchangeHandler(OrientationChangeHandler handler) /*-{
+	public native void addOrientationchangeHandler(
+			OrientationChangeHandler handler) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -56,14 +49,9 @@ public class Gesture extends TiModule {
 							var obj = @com.ait.toolkit.titanium.mobile.client.core.events.OrientationChangeEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							callback.@com.ait.toolkit.titanium.mobile.client.core.handlers.OrientationChangeHandler::onOrientationChange(Lcom/ait/toolkit/titanium/mobile/client/core/events/OrientationChangeEvent;)(obj);
 						});
-    }-*/;
+	}-*/;
 
-    @Deprecated
-    public void addShakeHandler(TiEventListener<ShakeEvent> listener) {
-        addEventListener(ShakeEvent.SHAKE, listener);
-    }
-
-    public native void addShakeHandler(ShakeHandler handler) /*-{
+	public native void addShakeHandler(ShakeHandler handler) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -72,10 +60,10 @@ public class Gesture extends TiModule {
 							var obj = @com.ait.toolkit.titanium.mobile.client.core.events.ShakeEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							callback.@com.ait.toolkit.titanium.mobile.client.core.handlers.ShakeHandler::onShake(Lcom/ait/toolkit/titanium/mobile/client/core/events/ShakeEvent;)(obj);
 						});
-    }-*/;
+	}-*/;
 
-    @Override
-    public void createPeer() {
-        jsObj = TiFactory.createNativeGestureModule();
-    }
+	@Override
+	public void createPeer() {
+		jsObj = TiFactory.createNativeGestureModule();
+	}
 }

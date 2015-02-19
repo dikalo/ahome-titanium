@@ -16,7 +16,7 @@
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.PostLayoutEventHandler;
 
 /**
@@ -39,7 +39,7 @@ public abstract class UIObject extends EventDispatcher {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.TiEvent::POST_LAYOUT;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
 	}-*/;

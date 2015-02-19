@@ -17,51 +17,51 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 public class LoginEvent extends TiEvent {
 
-    public static final String LOGIN = "login";
+	public static final String EVENT_NAME = "login";
 
-    protected LoginEvent() {
+	protected LoginEvent() {
 
-    }
+	}
 
-    /**
-     * the user id returned by Facebook if the login was successful.
-     */
-    public final native int getUid() /*-{
+	/**
+	 * the user id returned by Facebook if the login was successful.
+	 */
+	public final native int getUid() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.uid;
-    }-*/;
+	}-*/;
 
-    /**
-     * true if the login was successful
-     */
-    public final native boolean isSuccess() /*-{
+	/**
+	 * true if the login was successful
+	 */
+	public final native boolean isSuccess() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.success;
-    }-*/;
+	}-*/;
 
-    /**
-     * data returned by Facebook when we query for the uid (using graph path
-     * "me") after successful login. Data is in JSON format. Includes
-     * information such as user name, locale and gender.
-     */
-    public final native <T> T getData() /*-{
+	/**
+	 * data returned by Facebook when we query for the uid (using graph path
+	 * "me") after successful login. Data is in JSON format. Includes
+	 * information such as user name, locale and gender.
+	 */
+	public final native <T> T getData() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.data;
-    }-*/;
+	}-*/;
 
-    /**
-     * error message if success was false
-     */
-    public final native String getError() /*-{
+	/**
+	 * error message if success was false
+	 */
+	public final native String getError() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.error;
-    }-*/;
+	}-*/;
 
-    /**
-     * true if the user cancelled the request by closing the dialog
-     */
-    public final native boolean isCancelled() /*-{
+	/**
+	 * true if the user cancelled the request by closing the dialog
+	 */
+	public final native boolean isCancelled() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.cancelled;
-    }-*/;
+	}-*/;
 }

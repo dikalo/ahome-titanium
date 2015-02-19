@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ait.toolkit.core.client.JsoHelper;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TableRowClickHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.interfaces.HasTitle;
 import com.ait.toolkit.titanium.mobile.client.ui.style.Font;
@@ -341,7 +341,7 @@ public class TableViewRow extends View implements HasTitle {
 		};
 		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.tableview.TableRowClickEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
-		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.ui.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
+		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
 
     }-*/;

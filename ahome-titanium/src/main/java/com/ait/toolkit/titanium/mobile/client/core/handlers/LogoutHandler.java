@@ -13,13 +13,11 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
+package com.ait.toolkit.titanium.mobile.client.core.handlers;
 
-import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.SwipeHandler;
+import com.ait.toolkit.titanium.mobile.client.core.events.LogoutEvent;
+import com.google.gwt.event.shared.EventHandler;
 
-public interface HasSwipeHandlers {
-
-    public abstract CallbackRegistration addSwipeHandler(SwipeHandler handler);
-
+public interface LogoutHandler extends EventHandler {
+	public void onLogout(LogoutEvent event);
 }
