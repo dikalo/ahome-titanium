@@ -24,10 +24,13 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
- * Native implementation associated with {@link com.google.gwt.user.client.History}. User classes should not use this class directly.
+ * Native implementation associated with
+ * {@link com.google.gwt.user.client.History}. User classes should not use this
+ * class directly.
  * 
  * <p>
- * This base version uses the HTML5 standard window.onhashchange event to determine when the URL hash identifier changes.
+ * This base version uses the HTML5 standard window.onhashchange event to
+ * determine when the URL hash identifier changes.
  * </p>
  */
 public class HistoryImpl implements HasValueChangeHandlers<String> {
@@ -39,13 +42,15 @@ public class HistoryImpl implements HasValueChangeHandlers<String> {
 	}
 
 	/**
-	 * Sets whether the IE6 history implementation will update the URL hash when creating a new item. This should be used only for applications with large DOM structures that are
-	 * suffering from performance problems when creating a new history item on IE6 and 7.
+	 * Sets whether the IE6 history implementation will update the URL hash when
+	 * creating a new item. This should be used only for applications with large
+	 * DOM structures that are suffering from performance problems when creating
+	 * a new history item on IE6 and 7.
 	 * 
-	 * @deprecated This is no longer necessary, as the underlying performance problem has been solved. It is now a no-op.
+	 * @deprecated This is no longer necessary, as the underlying performance
+	 *             problem has been solved. It is now a no-op.
 	 */
 	@Deprecated
-	@SuppressWarnings("unused")
 	public static void setUpdateHashOnIE6(boolean updateHash) {
 	}
 
@@ -58,12 +63,14 @@ public class HistoryImpl implements HasValueChangeHandlers<String> {
 	private HandlerManager handlers = new HandlerManager(null);
 
 	/**
-	 * Adds a {@link ValueChangeEvent} handler to be informed of changes to the browser's history stack.
+	 * Adds a {@link ValueChangeEvent} handler to be informed of changes to the
+	 * browser's history stack.
 	 * 
 	 * @param handler
 	 *            the handler
 	 */
-	public HandlerRegistration addValueChangeHandler(ValueChangeHandler<String> handler) {
+	public HandlerRegistration addValueChangeHandler(
+			ValueChangeHandler<String> handler) {
 		return handlers.addHandler(ValueChangeEvent.getType(), handler);
 	}
 
@@ -148,7 +155,8 @@ public class HistoryImpl implements HasValueChangeHandlers<String> {
 	}-*/;
 
 	/**
-	 * The standard updateHash implementation assigns to location.hash() with an encoded history token.
+	 * The standard updateHash implementation assigns to location.hash() with an
+	 * encoded history token.
 	 */
 	protected native void nativeUpdate(String historyToken) /*-{
 		$wnd.location.hash = this.@com.google.gwt.user.client.impl.HistoryImpl::encodeFragment(Ljava/lang/String;)(historyToken);

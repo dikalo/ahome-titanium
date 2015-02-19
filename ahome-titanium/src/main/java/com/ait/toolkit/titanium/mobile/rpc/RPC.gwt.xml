@@ -1,7 +1,6 @@
 <module>
-	
 	  <inherits name="com.google.gwt.http.HTTP"/>
-	  <inherits name="com.google.gwt.user.AsyncProxy"/>
+	  <inherits name="com.google.gwt.user.AsyncCallback"/>
 	  <inherits name="com.google.gwt.user.RemoteService"/>
       <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
 	
@@ -14,6 +13,4 @@
       <when-type-is class="com.google.gwt.dom.client.DOMImpl"/>
       <when-property-is name="user.agent" value="timobile"/>
     </replace-with>
-	
-    
 </module>
