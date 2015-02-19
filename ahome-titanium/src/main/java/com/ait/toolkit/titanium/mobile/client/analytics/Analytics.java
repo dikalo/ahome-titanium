@@ -27,6 +27,27 @@ import com.google.gwt.core.client.JsDate;
  * Analytics product. It can be used to augment additional context or
  * application-specific information which can then be accessed during analysis
  * using Analytics.
+ * 
+ * <p>
+ * Use the <code>featureEvent</code> method to generate custom events that you
+ * can view through the Analytics product. You can specify a name for the
+ * feature event which is visible through Analytics.
+ * <p>
+ * <b>NOTE</b> The analytics module lets you transmit some data that is stored,
+ * but not made accessible through the Analytics UI. To access this data, you
+ * must sign up for the optional raw data export service.
+ * 
+ * <p>
+ * The following types of data are stored but not made available through the
+ * Analytics UI:
+ * <ul>
+ * <li>Navigation events.</li>
+ * <li>Extra data added to feature events (the data parameter).</li>
+ * </ul>
+ * <p>
+ * Viewing navigation events in the Analytics UI will be supported in a future
+ * version of the Analytics product. There is no plan to support the other event
+ * types, and they should not be used.
  */
 public class Analytics extends TiModule {
 
