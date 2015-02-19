@@ -28,19 +28,19 @@ import com.google.gwt.dev.About;
 import com.google.gwt.dev.util.DefaultTextOutput;
 
 /**
- * PrimaryLinker for Titanium4j Mobile. This linker removes unnecessary GWT
- * stuff to make the generated JS work inside Titanium. Use this linker when
- * working on a project targeting titanium and other platform
+ * Linker for Titanium4j Mobile. This linker removes unnecessary GWT stuff to
+ * make the generated JS work inside Titanium. Use this linker when working on a
+ * titanium only project.
  */
-@LinkerOrder(LinkerOrder.Order.PRE)
-public class TiMobilePreLinker extends AbstractLinker {
+@LinkerOrder(LinkerOrder.Order.POST)
+public class TiMobilePostLinker extends AbstractLinker {
 
 	// private final String APP_COMPILATION_FILE_NAME =
 	// "applicationCompileDateTime.txt";
 
 	@Override
 	public String getDescription() {
-		return "Ahome-Titanium  Mobile Linker";
+		return "Ahome-Titanium  Mobile Primary Linker";
 	}
 
 	public ArtifactSet link(TreeLogger logger, LinkerContext context,
@@ -49,7 +49,7 @@ public class TiMobilePreLinker extends AbstractLinker {
 		ArtifactSet toReturn = new ArtifactSet(artifacts);
 		DefaultTextOutput out = new DefaultTextOutput(true);
 		long compilationTime = System.currentTimeMillis();
-		out.print("(function(){");
+		out.print("exports.start = function(){");
 		out.newline();
 
 		// get compilation result
@@ -87,11 +87,13 @@ public class TiMobilePreLinker extends AbstractLinker {
 		out.newline();
 		out.print("gwtOnLoad(null,'" + context.getModuleName() + "',null);");
 		out.newline();
-		out.print("})();");
+		out.print("};");
 		out.newline();
 
-		toReturn.add(emitString(logger, out.toString(), context.getModuleName()
-				+ ".js"));
+		// toReturn.add(emitString(logger, out.toString(),
+		// context.getModuleName() + ".js"));
+		toReturn.add(emitString(logger, out.toString(), "ti4j.js"));
+
 		// toReturn.add(emitString(logger, Long.toString(compilationTime),
 		// APP_COMPILATION_FILE_NAME));
 

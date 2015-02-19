@@ -2,7 +2,7 @@
 <module>
 	 <inherits name='com.ait.toolkit.titanium.mobile.MobileCore'/> 
 
-    <define-linker name="ahomeTiMobilePreLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobilePreLinker"/>
-     <add-linker name="ahomeTiMobilePreLinker"/>
+    <define-linker name="ahomeTiMobilePostLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobilePostLinker"/>
+     <add-linker name="ahomeTiMobilePostLinker"/>
 
 </module>
