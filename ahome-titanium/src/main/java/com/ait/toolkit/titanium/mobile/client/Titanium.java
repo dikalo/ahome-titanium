@@ -23,6 +23,9 @@ import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ClickHandler;
 import com.ait.toolkit.titanium.mobile.client.platform.Platform;
 import com.ait.toolkit.titanium.mobile.client.ui.AlertDialog;
+import com.ait.toolkit.titanium.mobile.client.ui.TabGroup;
+import com.ait.toolkit.titanium.mobile.client.ui.View;
+import com.ait.toolkit.titanium.mobile.client.ui.Window;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -53,11 +56,13 @@ public class Titanium {
 	 * @param listener
 	 *            , callback function to invoke when the event is fired
 	 */
-	public static void addEventListener(String event, TiEventListener<?> listener) {
+	public static void addEventListener(String event,
+			TiEventListener<?> listener) {
 		addEventListener(event, listener.getJsoPeer());
 	}
 
-	private static native void addEventListener(String event, JavaScriptObject listener) /*-{
+	private static native void addEventListener(String event,
+			JavaScriptObject listener) /*-{
 		Titanium.addEventListener(event, listener);
 	}-*/;
 
@@ -71,12 +76,20 @@ public class Titanium {
 	 * Creates a new buffer based on the params
 	 * 
 	 * @param params
-	 *            , Key value pairs. You can include: value, an optional initial value which will be encoded and placed in the buffer. If value is a Number, type must also be set.
-	 *            This is simply a convenient way of calling Titanium.Codec.encodeString or <code>Titanium.Codec.encodeNumber</code> and placing the encoded value in the returned
-	 *            buffer. length: the length of the buffer, with a default of 0 unless value is specified, in which case the length of the encoded value. type, the type of data
-	 *            encoding to use with value, with Titanium.Codec.CHARSET_UTF8 being the default if value is a String, else this argument is required in the case of value being a
-	 *            number. byteOrder, the byte order of this buffer, with the default being the OS native byte order is used by default (see
-	 *            <code>Titanium.Codec.getNativeByteOrder</code>).
+	 *            , Key value pairs. You can include: value, an optional initial
+	 *            value which will be encoded and placed in the buffer. If value
+	 *            is a Number, type must also be set. This is simply a
+	 *            convenient way of calling Titanium.Codec.encodeString or
+	 *            <code>Titanium.Codec.encodeNumber</code> and placing the
+	 *            encoded value in the returned buffer. length: the length of
+	 *            the buffer, with a default of 0 unless value is specified, in
+	 *            which case the length of the encoded value. type, the type of
+	 *            data encoding to use with value, with
+	 *            Titanium.Codec.CHARSET_UTF8 being the default if value is a
+	 *            String, else this argument is required in the case of value
+	 *            being a number. byteOrder, the byte order of this buffer, with
+	 *            the default being the OS native byte order is used by default
+	 *            (see <code>Titanium.Codec.getNativeByteOrder</code>).
 	 * 
 	 * @return Titanium.Buffer
 	 */
@@ -90,12 +103,20 @@ public class Titanium {
 	 * Creates a new buffer based on the params
 	 * 
 	 * @param params
-	 *            , Key value pairs. You can include: value, an optional initial value which will be encoded and placed in the buffer. If value is a Number, type must also be set.
-	 *            This is simply a convenient way of calling Titanium.Codec.encodeString or <code>Titanium.Codec.encodeNumber</code> and placing the encoded value in the returned
-	 *            buffer. length: the length of the buffer, with a default of 0 unless value is specified, in which case the length of the encoded value. type, the type of data
-	 *            encoding to use with value, with Titanium.Codec.CHARSET_UTF8 being the default if value is a String, else this argument is required in the case of value being a
-	 *            number. byteOrder, the byte order of this buffer, with the default being the OS native byte order is used by default (see
-	 *            <code>Titanium.Codec.getNativeByteOrder</code>).
+	 *            , Key value pairs. You can include: value, an optional initial
+	 *            value which will be encoded and placed in the buffer. If value
+	 *            is a Number, type must also be set. This is simply a
+	 *            convenient way of calling Titanium.Codec.encodeString or
+	 *            <code>Titanium.Codec.encodeNumber</code> and placing the
+	 *            encoded value in the returned buffer. length: the length of
+	 *            the buffer, with a default of 0 unless value is specified, in
+	 *            which case the length of the encoded value. type, the type of
+	 *            data encoding to use with value, with
+	 *            Titanium.Codec.CHARSET_UTF8 being the default if value is a
+	 *            String, else this argument is required in the case of value
+	 *            being a number. byteOrder, the byte order of this buffer, with
+	 *            the default being the OS native byte order is used by default
+	 *            (see <code>Titanium.Codec.getNativeByteOrder</code>).
 	 * 
 	 * @return Titanium.Buffer
 	 */
@@ -166,13 +187,17 @@ public class Titanium {
 	 * @param listener
 	 *            , EventListner passed in addEventListener
 	 */
-	public static void removeEventListner(String event, TiEventListener<?> listener) {
+	public static void removeEventListner(String event,
+			TiEventListener<?> listener) {
 		removeEventListener(event, listener.getJsoPeer());
 	}
 
 	/**
-	 * Titanium has a built-in convenience function alert which can be used as a shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a message box. Note that unlike
-	 * a web browser-based version of alert, the method is asynchronous. However, only one alert dialog will be visible and modal at a time.
+	 * Titanium has a built-in convenience function alert which can be used as a
+	 * shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a
+	 * message box. Note that unlike a web browser-based version of alert, the
+	 * method is asynchronous. However, only one alert dialog will be visible
+	 * and modal at a time.
 	 * 
 	 * @param message
 	 *            , the message to display
@@ -187,8 +212,11 @@ public class Titanium {
 	};
 
 	/**
-	 * Titanium has a built-in convenience function alert which can be used as a shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a message box. Note that unlike
-	 * a web browser-based version of alert, the method is asynchronous. However, only one alert dialog will be visible and modal at a time.
+	 * Titanium has a built-in convenience function alert which can be used as a
+	 * shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a
+	 * message box. Note that unlike a web browser-based version of alert, the
+	 * method is asynchronous. However, only one alert dialog will be visible
+	 * and modal at a time.
 	 * 
 	 * @param message
 	 *            , the message to display
@@ -204,8 +232,11 @@ public class Titanium {
 	};
 
 	/**
-	 * Titanium has a built-in convenience function alert which can be used as a shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a message box. Note that unlike
-	 * a web browser-based version of alert, the method is asynchronous. However, only one alert dialog will be visible and modal at a time.
+	 * Titanium has a built-in convenience function alert which can be used as a
+	 * shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a
+	 * message box. Note that unlike a web browser-based version of alert, the
+	 * method is asynchronous. However, only one alert dialog will be visible
+	 * and modal at a time.
 	 * 
 	 * @param title
 	 *            , the title of the message
@@ -223,8 +254,11 @@ public class Titanium {
 	}
 
 	/**
-	 * Titanium has a built-in convenience function alert which can be used as a shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a message box. Note that unlike
-	 * a web browser-based version of alert, the method is asynchronous. However, only one alert dialog will be visible and modal at a time.
+	 * Titanium has a built-in convenience function alert which can be used as a
+	 * shortcut to <code>Titanium.UI.createAlertDialog</code> for creating a
+	 * message box. Note that unlike a web browser-based version of alert, the
+	 * method is asynchronous. However, only one alert dialog will be visible
+	 * and modal at a time.
 	 * 
 	 * @param title
 	 *            , the title of the message
@@ -242,7 +276,8 @@ public class Titanium {
 		alert.show();
 	}
 
-	private static native void removeEventListener(String event, JavaScriptObject listener) /*-{
+	private static native void removeEventListener(String event,
+			JavaScriptObject listener) /*-{
 		Titanium.removeEventListener(event, listener);
 	}-*/;
 
@@ -279,8 +314,9 @@ public class Titanium {
 	}-*/;
 
 	/**
-	 * Gets the compilation time of the Titanium4j library in milliseconds This method internally uses <code>System.currentTimeMillis()</code>, so the result might be system
-	 * dependant.
+	 * Gets the compilation time of the Titanium4j library in milliseconds This
+	 * method internally uses <code>System.currentTimeMillis()</code>, so the
+	 * result might be system dependant.
 	 */
 	public static native double getCompilationTime()/*-{
 		return $ti4jCompilationDate;
@@ -294,5 +330,32 @@ public class Titanium {
 	public static boolean isDevMode() {
 		return !GWT.isScript() && GWT.isClient();
 	}
+
+	/**
+	 * The Window whose Activity lifecycle should be triggered on the proxy.
+	 * 
+	 * @param value
+	 */
+	public static native void setLifeCycleContainer(Window value) /*-{
+		Titanium
+				.setLifeCycleContainer(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	/**
+	 * The TabGroup whose Activity lifecycle should be triggered on the proxy.
+	 * 
+	 * @param value
+	 */
+	public static native void setLifeCycleContainer(TabGroup value) /*-{
+		Titanium
+				.setLifeCycleContainer(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	public native View getLifeCycleContainer()/*-{
+		var o = Titanium.lifeCycleContainer;
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.View::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
+	}-*/;
 
 }
