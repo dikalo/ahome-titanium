@@ -39,7 +39,7 @@ public abstract class TiMobileBaseLinker extends AbstractLinker {
 		out.newline();
 		out.print("if(typeof(window)!='undefined'){$wnd=window;$doc=$wnd.document;}");
 		out.newline();
-		out.print("if(typeof(navigator)=='undefined'){navigator={};$doc={};$doc.documentMode=''; }");
+		out.print("if(typeof(navigator)=='undefined'){navigator={};navigator.userAgent='timobile';$doc={};$doc.documentMode=''; }");
 		out.newline();
 		out.print("var $gwt_version = \"" + About.getGwtVersionNum() + "\";");
 		out.newlineOpt();
