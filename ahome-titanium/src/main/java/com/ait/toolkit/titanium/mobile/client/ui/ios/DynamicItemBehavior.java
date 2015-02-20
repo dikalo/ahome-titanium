@@ -47,7 +47,7 @@ public class DynamicItemBehavior extends Behavior {
 		return jso.angularResistance;
 	}-*/;
 
-	public native void setAngularResistance(boolean value) /*-{
+	public native void setAngularResistance(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.angularResistance = value;
 	}-*/;
@@ -57,7 +57,7 @@ public class DynamicItemBehavior extends Behavior {
 		return jso.density;
 	}-*/;
 
-	public native void setDensity(boolean value) /*-{
+	public native void setDensity(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.density = value;
 	}-*/;
@@ -67,7 +67,7 @@ public class DynamicItemBehavior extends Behavior {
 		return jso.angularResistance;
 	}-*/;
 
-	public native void setElasticity(boolean value) /*-{
+	public native void setElasticity(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.elasticity = value;
 	}-*/;
@@ -77,7 +77,7 @@ public class DynamicItemBehavior extends Behavior {
 		return jso.friction;
 	}-*/;
 
-	public native void setFriction(boolean value) /*-{
+	public native void setFriction(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.friction = value;
 	}-*/;
@@ -87,30 +87,9 @@ public class DynamicItemBehavior extends Behavior {
 		return jso.resistance;
 	}-*/;
 
-	public native void setResistance(boolean value) /*-{
+	public native void setResistance(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.resistance = value;
-	}-*/;
-
-	public native boolean isTreatReferenceAsBoundary() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.getTreatReferenceAsBoundary();
-	}-*/;
-
-	public native boolean setTreatReferenceAsBoundary(boolean value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.setTreatReferenceAsBoundary(value);
-	}-*/;
-
-	public native void removeAllBoundaries() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.removeAllBoundaries();
-	}-*/;
-
-	public native void removeBoundary(BoundaryIdentifier value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.removeBoundary(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
 	}-*/;
 
 	public native void addAngularVelocityForItem(View item, double velocity) /*-{

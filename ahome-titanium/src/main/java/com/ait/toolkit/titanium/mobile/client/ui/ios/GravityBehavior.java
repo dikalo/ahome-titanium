@@ -20,27 +20,18 @@ import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * Continuous or instantaneous force to apply to an item.
+ * Gravitational force to apply to an item.Continuous or instantaneous force to
+ * apply to an item.
  */
-public class PushBehavior extends Behavior {
+public class GravityBehavior extends Behavior {
 
-	public PushBehavior() {
+	public GravityBehavior() {
 		createPeer();
 	}
 
-	PushBehavior(JavaScriptObject proxy) {
+	GravityBehavior(JavaScriptObject proxy) {
 		jsObj = proxy;
 	}
-
-	public native boolean isActive() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.active;
-	}-*/;
-
-	public native void setActive(boolean value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.active = value;
-	}-*/;
 
 	public native double getAngle() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -62,39 +53,29 @@ public class PushBehavior extends Behavior {
 		jso.magnitude = value;
 	}-*/;
 
-	public native Point getPushDirection() /*-{
+	public native Point getGravityDirection() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var o = jso.pushDirection;
+		var o = jso.gravityDirection;
 		return o == null
 				? null
 				: @com.ait.toolkit.titanium.mobile.client.ui.Point::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
-	public native void setPushDirection(Point value) /*-{
+	public native void setGravityDirection(Point value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.pushDirection = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-	}-*/;
-
-	public native String getPushMode() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.pushMode;
-	}-*/;
-
-	public native void setPushMode(String value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.pushMode = value;
+		jso.gravityDirection = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 	}-*/;
 
 	public void createPeer() {
 		jsObj = create();
 	}
 
-	public static PushBehavior from(JsObject proxy) {
-		return new PushBehavior(proxy.getJsObj());
+	public static GravityBehavior from(JsObject proxy) {
+		return new GravityBehavior(proxy.getJsObj());
 	}
 
 	private static native JavaScriptObject create() /*-{
-		return Titanium.UI.iOS.createPushBehavior();
+		return Titanium.UI.iOS.createGravityBehavior();
 	}-*/;
 
 }
