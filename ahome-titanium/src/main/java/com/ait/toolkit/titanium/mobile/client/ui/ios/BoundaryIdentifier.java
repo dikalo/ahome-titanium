@@ -13,54 +13,43 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.ui;
+package com.ait.toolkit.titanium.mobile.client.ui.ios;
 
 import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class Point extends JsObject {
+/**
+ * Dynamic behavior to support collisions between items and boundaries.
+ */
+public class BoundaryIdentifier extends JsObject {
 
-	public Point() {
-		jsObj = create(0, 0);
+	BoundaryIdentifier(JavaScriptObject proxy) {
+		jsObj = proxy;
 	}
 
-	public Point(double x, double y) {
-		jsObj = create(x, y);
-	}
-
-	public Point(JavaScriptObject obj) {
-		jsObj = obj;
-	}
-
-	public native double getX() /*-{
+	/**
+	 * @return Returns true if the animator is running else false.
+	 */
+	public native String getIdentifier() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.x;
+		return jso.identifier;
 	}-*/;
 
-	public native double getY() /*-{
+	public native Point getPoint1() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.y;
+		var o = jso.point1;
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.Point::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
-	private static native JavaScriptObject create(double xCoordinate,
-			double yCoordinate) /*-{
-		var r = {};
-		r.x = xCoordinate;
-		r.y = yCoordinate;
-		return r;
-	}-*/;
-
-	public native void setX(double value) /*-{
+	public native Point getPoint2() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.x = value;
+		var o = jso.point2;
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.Point::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
-	public native void setY(double value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.y = value;
-	}-*/;
-
-	public static Point from(JsObject proxy) {
-		return new Point(proxy.getJsObj());
-	}
 }

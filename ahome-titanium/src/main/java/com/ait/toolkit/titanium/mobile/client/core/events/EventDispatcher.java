@@ -80,6 +80,11 @@ public abstract class EventDispatcher extends JsObject {
 				.setLifeCycleContainer(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
 	}-*/;
 
+	public native String getApiName()/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.apiName;
+	}-*/;
+
 	public native View getLifeCycleContainer()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var o = jso.lifeCycleContainer;

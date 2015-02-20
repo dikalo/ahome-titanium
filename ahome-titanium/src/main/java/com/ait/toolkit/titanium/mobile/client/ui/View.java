@@ -84,7 +84,7 @@ public class View extends UIObject implements HasWidgets, Animatable,
 		createPeer();
 	}
 
-	View(JavaScriptObject obj) {
+	public View(JavaScriptObject obj) {
 		jsObj = obj;
 	}
 
