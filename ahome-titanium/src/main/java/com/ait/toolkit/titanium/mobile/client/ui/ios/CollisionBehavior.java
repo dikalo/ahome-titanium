@@ -22,7 +22,6 @@ import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.behavior.BoundaryCollisionHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.behavior.ItemCollisionHandler;
-import com.ait.toolkit.titanium.mobile.client.ui.View;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -62,15 +61,6 @@ public class CollisionBehavior extends Behavior {
 		return attributes;
 	}
 
-	public List<View> getItems() {
-		List<View> views = new ArrayList<View>();
-		JsArray<JavaScriptObject> values = _getItems();
-		for (int i = 0; i < values.length(); i++) {
-			views.add(new View(values.get(i)));
-		}
-		return views;
-	}
-
 	public native boolean isTreatReferenceAsBoundary() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.getTreatReferenceAsBoundary();
@@ -90,12 +80,6 @@ public class CollisionBehavior extends Behavior {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.removeBoundary(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
-	}-*/;
-
-	public native void removeItem(View value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.removeItem(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
 	}-*/;
 
 	public native void setReferenceInsets(ReferenceInsets value) /*-{
@@ -148,11 +132,6 @@ public class CollisionBehavior extends Behavior {
 	private native JsArray<JavaScriptObject> _getBoundaryIdentifiers() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.boundaryIdentifiers;
-	}-*/;
-
-	private native JsArray<JavaScriptObject> _getItems() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.getItems();
 	}-*/;
 
 	public void createPeer() {

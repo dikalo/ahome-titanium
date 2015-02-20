@@ -15,8 +15,13 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ios;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
+import com.ait.toolkit.titanium.mobile.client.ui.View;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 
 /**
  * Provides support for the built-in iOS dynamic animations
@@ -39,5 +44,30 @@ public class Behavior extends EventDispatcher {
 	Behavior(JavaScriptObject proxy) {
 		jsObj = proxy;
 	}
+
+	public native void addItem(View value) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.addItem(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	public native void removeItem(View value) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso
+				.removeItem(value.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+	}-*/;
+
+	public List<View> getItems() {
+		List<View> views = new ArrayList<View>();
+		JsArray<JavaScriptObject> values = _getItems();
+		for (int i = 0; i < values.length(); i++) {
+			views.add(new View(values.get(i)));
+		}
+		return views;
+	}
+
+	private native JsArray<JavaScriptObject> _getItems() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.getItems();
+	}-*/;
 
 }
