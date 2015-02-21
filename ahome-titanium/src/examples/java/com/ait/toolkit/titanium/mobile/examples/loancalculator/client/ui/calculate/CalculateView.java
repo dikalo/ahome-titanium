@@ -83,7 +83,8 @@ public class CalculateView extends View {
 		interstRateLabel.setFont(new Font(14, "Helvetica", FontWeight.BOLD));
 		this.add(interstRateLabel);
 
-		loanLengthLabel = new Label("Loan length (" + numberMonths + " months) :");
+		loanLengthLabel = new Label("Loan length (" + numberMonths
+				+ " months) :");
 		loanLengthLabel.setWidth(100);
 		loanLengthLabel.setHeight("auto");
 		loanLengthLabel.setTop(200);
@@ -116,10 +117,10 @@ public class CalculateView extends View {
 		amountTextField.setWidth(140);
 		amountTextField.setTop(100);
 		amountTextField.setRight(20);
-		amountTextField.setBorderStyle(UI.get().INPUT_BORDERSTYLE_ROUNDED());
-		amountTextField.setReturnKeyType(UI.get().RETURNKEY_DONE());
+		amountTextField.setBorderStyle(UI.INPUT_BORDERSTYLE_ROUNDED);
+		amountTextField.setReturnKeyType(UI.RETURNKEY_DONE);
 		amountTextField.setHintText("1000.00");
-		amountTextField.setKeyboardType(UI.get().KEYBOARD_PHONE_PAD());
+		amountTextField.setKeyboardType(UI.KEYBOARD_PHONE_PAD);
 		amountTextField.setKeyboardToolbar(flexSpace, doneButton);
 		this.add(amountTextField);
 
@@ -128,9 +129,9 @@ public class CalculateView extends View {
 		interestRateTextField.setWidth(140);
 		interestRateTextField.setTop(150);
 		interestRateTextField.setRight(20);
-		interestRateTextField.setBorderStyle(UI.get().INPUT_BORDERSTYLE_ROUNDED());
-		interestRateTextField.setReturnKeyType(UI.get().RETURNKEY_DONE());
-		interestRateTextField.setKeyboardType(UI.get().KEYBOARD_PHONE_PAD());
+		interestRateTextField.setBorderStyle(UI.INPUT_BORDERSTYLE_ROUNDED);
+		interestRateTextField.setReturnKeyType(UI.RETURNKEY_DONE);
+		interestRateTextField.setKeyboardType(UI.KEYBOARD_PHONE_PAD);
 		interestRateTextField.setKeyboardToolbar(flexSpace, doneButton);
 		interestRateTextField.setValue(Double.toString(interestRate));
 
@@ -165,7 +166,8 @@ public class CalculateView extends View {
 			public void onChange(SliderEvent event) {
 				API.get().info(Double.toString(lengthSlider.getValue()));
 				numberMonths = (int) Math.round(lengthSlider.getValue());
-				loanLengthLabel.setText("Loan length (" + numberMonths + " months) :");
+				loanLengthLabel.setText("Loan length (" + numberMonths
+						+ " months) :");
 			}
 		});
 		this.add(lengthSlider);
@@ -174,15 +176,20 @@ public class CalculateView extends View {
 		Button calculateBtn = new Button("", new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				if (amountTextField.getValue().isEmpty() || amountTextField.getValue().equalsIgnoreCase("") || amountTextField.getValue() == null) {
-					Titanium.alert("Loan Calculator", "Please enter the loan amount");
+				if (amountTextField.getValue().isEmpty()
+						|| amountTextField.getValue().equalsIgnoreCase("")
+						|| amountTextField.getValue() == null) {
+					Titanium.alert("Loan Calculator",
+							"Please enter the loan amount");
 				} else {
 					double amount = Double.valueOf(amountTextField.getValue());
 					double totalInterest = (amount * (interestRate / 100) * numberMonths) / 12;
 					API.get().info("Totalinterest :" + totalInterest);
 
 					OptionDialog optionDialog = new OptionDialog();
-					optionDialog.setTitle("Total interest on this loan equals to : " + Math.round(totalInterest) + " $");
+					optionDialog
+							.setTitle("Total interest on this loan equals to : "
+									+ Math.round(totalInterest) + " $");
 					optionDialog.setOptions("Okay");
 					optionDialog.show();
 				}
@@ -202,8 +209,11 @@ public class CalculateView extends View {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				if (amountTextField.getValue().isEmpty() || amountTextField.getValue().equalsIgnoreCase("") || amountTextField.getValue() == null) {
-					Titanium.alert("Loan Calculator", "Please enter the loan amount");
+				if (amountTextField.getValue().isEmpty()
+						|| amountTextField.getValue().equalsIgnoreCase("")
+						|| amountTextField.getValue() == null) {
+					Titanium.alert("Loan Calculator",
+							"Please enter the loan amount");
 				} else {
 					double amount = Double.valueOf(amountTextField.getValue());
 					totalInterest = (amount * (interestRate / 100) * numberMonths) / 12;
@@ -228,7 +238,8 @@ public class CalculateView extends View {
 			openChartWindow();
 		} else {
 			OptionDialog optionDialog = new OptionDialog();
-			optionDialog.setTitle("Total repayments on this loan equates to $" + value + ". Do you want to view  this on a chart ? ");
+			optionDialog.setTitle("Total repayments on this loan equates to $"
+					+ value + ". Do you want to view  this on a chart ? ");
 			optionDialog.setOptions("Okay", "No");
 			optionDialog.addClickHandler(new DialogClickHandler() {
 				@Override
@@ -254,7 +265,8 @@ public class CalculateView extends View {
 			@Override
 			public void run() {
 				TiEvent event = new TiEvent();
-				event.setEventData(new ChartValueHolder(totalRepayments, totalInterest));
+				event.setEventData(new ChartValueHolder(totalRepayments,
+						totalInterest));
 				App.get().fireEvent("loanEvent", event);
 				API.get().info("Loan event handled !");
 			}
