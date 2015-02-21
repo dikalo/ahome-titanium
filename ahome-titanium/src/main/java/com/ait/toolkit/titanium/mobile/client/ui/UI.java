@@ -190,6 +190,32 @@ public class UI extends TiModule {
 	public static final int TEXT_AUTOCAPITALIZATION_NONE = TEXT_AUTOCAPITALIZATION_NONE();
 	public static final int TEXT_AUTOCAPITALIZATION_SENTENCES = TEXT_AUTOCAPITALIZATION_SENTENCES();
 	public static final int TEXT_AUTOCAPITALIZATION_WORDS = TEXT_AUTOCAPITALIZATION_WORDS();
+	public static final String TEXT_STYLE_BODY = TEXT_STYLE_BODY();
+	public static final String TEXT_STYLE_CAPTION1 = TEXT_STYLE_CAPTION1();
+	public static final String TEXT_STYLE_CAPTION2 = TEXT_STYLE_CAPTION2();
+	public static final String TEXT_STYLE_FOOTNOTE = TEXT_STYLE_FOOTNOTE();
+	public static final String TEXT_STYLE_HEADLINE = TEXT_STYLE_HEADLINE();
+	public static final String TEXT_STYLE_SUBHEADLINE = TEXT_STYLE_SUBHEADLINE();
+	public static final int TEXT_VERTICAL_ALIGNMENT_BOTTOM = TEXT_VERTICAL_ALIGNMENT_BOTTOM();
+	public static final int TEXT_VERTICAL_ALIGNMENT_CENTER = TEXT_VERTICAL_ALIGNMENT_CENTER();
+	public static final int TEXT_VERTICAL_ALIGNMENT_TOP = TEXT_VERTICAL_ALIGNMENT_TOP();
+	public static final String UNIT_CM = UNIT_CM();
+	public static final String UNIT_DIP = UNIT_DIP();
+	public static final String UNIT_IN = UNIT_IN();
+	public static final String UNIT_MM = UNIT_MM();
+	public static final int UNKNOW = UNKNOWN();
+	public static final int UPSIDE_PORTRAIT = UPSIDE_PORTRAIT();
+	public static final int URL_ERROR_BAD_URL = URL_ERROR_BAD_URL();
+	public static final int UPSIDE_AUTHENTICATION = URL_ERROR_AUTHENTICATION();
+	public static final int URL_ERROR_CONNECT = URL_ERROR_CONNECT();
+	public static final int URL_ERROR_FILE = URL_ERROR_FILE();
+	public static final int URL_ERROR_FILE_NOT_FOUND = URL_ERROR_FILE_NOT_FOUND();
+	public static final int URL_ERROR_HOST_LOOKUP = URL_ERROR_HOST_LOOKUP();
+	public static final int URL_ERROR_REDIRECT_LOOP = URL_ERROR_REDIRECT_LOOP();
+	public static final int URL_ERROR_SSL_FAILED = URL_ERROR_SSL_FAILED();
+	public static final int URL_ERROR_TIMEOUT = URL_ERROR_TIMEOUT();
+	public static final int URL_ERROR_UNKNOWN = URL_ERROR_UNKNOWN();
+	public static final int URL_ERROR_UNSUPPORTED_SCHEME = URL_ERROR_UNSUPPORTED_SCHEME();
 
 	private static UI instance = null;
 
@@ -213,9 +239,18 @@ public class UI extends TiModule {
 	 * @return This sets the background color of the master uiview (when there
 	 *         are no windows/tab groups on it)
 	 */
+	public native double convertUnits(String fromValue, String toUnits) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.convertUnits(fromValue, toUnits);
+	}-*/;
+
+	/**
+	 * @return This sets the background color of the master uiview (when there
+	 *         are no windows/tab groups on it)
+	 */
 	public native String getBackgroundColor() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.backgroundColor;
+		return jso.backgroundColor;
 	}-*/;
 
 	/**
@@ -226,7 +261,9 @@ public class UI extends TiModule {
 	public native Tab getCurrentTab()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = obj.currentTab;
-		return @com.ait.toolkit.titanium.mobile.client.ui.Tab::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return obj == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.Tab::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	public native void setCurrentTab(Tab tab)/*-{
@@ -240,7 +277,9 @@ public class UI extends TiModule {
 	public native Window getCurrentWindow()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = obj.currentWindow;
-		return @com.ait.toolkit.titanium.mobile.client.ui.Window::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return obj == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.ui.Window::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	public native void setBackgroundColor(String value) /*-{
@@ -254,7 +293,7 @@ public class UI extends TiModule {
 	 */
 	public native String getBackgroundImage() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.backgroundImage;
+		return jso.backgroundImage;
 	}-*/;
 
 	public native void setBackgroundImage(String value) /*-{
@@ -860,6 +899,30 @@ public class UI extends TiModule {
 				: 0;
 	}-*/;
 
+	private static native final String TEXT_STYLE_BODY() /*-{
+		return Titanium.UI.TEXT_STYLE_BODY;
+	}-*/;
+
+	private static native final String TEXT_STYLE_CAPTION1() /*-{
+		return Titanium.UI.TEXT_STYLE_CAPTION1;
+	}-*/;
+
+	private static native final String TEXT_STYLE_CAPTION2() /*-{
+		return Titanium.UI.TEXT_STYLE_CAPTION2;
+	}-*/;
+
+	private static native final String TEXT_STYLE_FOOTNOTE() /*-{
+		return Titanium.UI.TEXT_STYLE_FOOTNOTE;
+	}-*/;
+
+	private static native final String TEXT_STYLE_HEADLINE() /*-{
+		return Titanium.UI.TEXT_STYLE_HEADLINE;
+	}-*/;
+
+	private static native final String TEXT_STYLE_SUBHEADLINE() /*-{
+		return Titanium.UI.TEXT_STYLE_SUBHEADLINE;
+	}-*/;
+
 	private static native final int TEXT_VERTICAL_ALIGNMENT_BOTTOM() /*-{
 		return Titanium.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM
 				? Titanium.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM
@@ -934,29 +997,35 @@ public class UI extends TiModule {
 				: 0;
 	}-*/;
 
-	public native final String UNIT_CM() /*-{
+	private static native final String UNIT_CM() /*-{
 		return Titanium.UI.UNIT_CM ? Titanium.UI.UNIT_CM : "";
 	}-*/;
 
-	public native final String UNIT_DIP() /*-{
+	private static native final String UNIT_DIP() /*-{
 		return Titanium.UI.UNIT_DIP ? Titanium.UI.UNIT_DIP : "";
 	}-*/;
 
-	public native final String UNIT_IN() /*-{
-		return Titanium.UI.UNIT_IN ? Titanium.UI.UNIT_IN : "";
+	private static native final String UNIT_IN() /*-{
+		Titanium.UI.UNIT_IN ? Titanium.UI.UNIT_IN : "";
 	}-*/;
 
-	public native final String UNIT_MM() /*-{
+	private static native final String UNIT_MM() /*-{
 		return Titanium.UI.UNIT_MM ? Titanium.UI.UNIT_MM : "";
 	}-*/;
 
-	public native final String UNIT_PX() /*-{
+	private static native final String UNIT_PX() /*-{
 		return Titanium.UI.UNIT_PX ? Titanium.UI.UNIT_PX : "";
 	}-*/;
 
-	private static native final int URL_ERROR_BAR_URL() /*-{
-		return Titanium.UI.URL_ERROR_BAR_URL
-				? Titanium.UI.URL_ERROR_BAR_URL
+	private static native final int URL_ERROR_AUTHENTICATION() /*-{
+		return Titanium.UI.URL_ERROR_AUTHENTICATION
+				? Titanium.UI.URL_ERROR_AUTHENTICATION
+				: 0;
+	}-*/;
+
+	private static native final int URL_ERROR_BAD_URL() /*-{
+		return Titanium.UI.URL_ERROR_BAD_URL
+				? Titanium.UI.URL_ERROR_BAD_URL
 				: 0;
 	}-*/;
 
@@ -979,6 +1048,12 @@ public class UI extends TiModule {
 	private static native final int URL_ERROR_HOST_LOOKUP() /*-{
 		return Titanium.UI.URL_ERROR_HOST_LOOKUP
 				? Titanium.UI.URL_ERROR_HOST_LOOKUP
+				: 0;
+	}-*/;
+
+	private static native final int URL_ERROR_REDIRECT_LOOP() /*-{
+		return Titanium.UI.URL_ERROR_REDIRECT_LOOP
+				? Titanium.UI.URL_ERROR_REDIRECT_LOOP
 				: 0;
 	}-*/;
 
