@@ -24,13 +24,13 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Gravitational force to apply to an item.Continuous or instantaneous force to
  * apply to an item.
  */
-public class GravityBehavior extends Behavior {
+public class ViewAttachmentBehavior extends Behavior {
 
-	public GravityBehavior() {
+	public ViewAttachmentBehavior() {
 		createPeer();
 	}
 
-	GravityBehavior(JavaScriptObject proxy) {
+	ViewAttachmentBehavior(JavaScriptObject proxy) {
 		jsObj = proxy;
 	}
 
@@ -120,12 +120,12 @@ public class GravityBehavior extends Behavior {
 		jsObj = create();
 	}
 
-	public static GravityBehavior from(JsObject proxy) {
-		return new GravityBehavior(proxy.getJsObj());
+	public static ViewAttachmentBehavior from(JsObject proxy) {
+		return new ViewAttachmentBehavior(proxy.getJsObj());
 	}
 
 	private static native JavaScriptObject create() /*-{
-		return Titanium.UI.iOS.createGravityBehavior();
+		return Titanium.UI.iOS.createViewAttachmentBehavior();
 	}-*/;
 
 }
