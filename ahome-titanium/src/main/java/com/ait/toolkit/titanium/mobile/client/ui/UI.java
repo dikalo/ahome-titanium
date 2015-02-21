@@ -115,6 +115,82 @@ import com.google.gwt.core.client.JsArrayString;
  */
 public class UI extends TiModule {
 
+	public static final int ANIMATION_CURVE_EASE_IN = ANIMATION_CURVE_EASE_IN();
+	public static final int ANIMATION_CURVE_EASE_OUT = ANIMATION_CURVE_EASE_OUT();
+	public static final int ANIMATION_CURVE_EASE_IN_OUT = ANIMATION_CURVE_EASE_IN_OUT();
+	public static final int ANIMATION_CURVE_LINEAR = ANIMATION_CURVE_LINEAR();
+	public static final int AUTOLINK_ALL = AUTOLINK_ALL();
+	public static final int AUTOLINK_CALENDAR = AUTOLINK_CALENDAR();
+	public static final int AUTOLINK_EMAIL_ADDRESS = AUTOLINK_EMAIL_ADDRESS();
+	public static final int AUTOLINK_MAP_ADDRESS = AUTOLINK_MAP_ADDRESS();
+	public static final int AUTOLINK_NONE = AUTOLINK_NONE();
+	public static final int EXTENTEND_EDGE_ALL = EXTENTEND_EDGE_ALL();
+	public static final int EXTENTEND_EDGE_BOTTOM = EXTENTEND_EDGE_BOTTOM();
+	public static final int EXTENTEND_EDGE_LEFT = EXTENTEND_EDGE_LEFT();
+	public static final int EXTENTEND_EDGE_NODE = EXTENTEND_EDGE_NONE();
+	public static final int EXTENTEND_EDGE_RIGHT = EXTENTEND_EDGE_RIGHT();
+	public static final int EXTENTEND_EDGE_TOP = EXTENTEND_EDGE_TOP();
+	public static final int FACE_UP = FACE_UP();
+	public static final int FACE_DOWN = FACE_DOWN();
+	public static final String INHERIT = INHERIT();
+	public static final String FILL = FILL();
+	public static final int INPUT_BORDERSTYLE_BEZEL = INPUT_BORDERSTYLE_BEZEL();
+	public static final int INPUT_BORDERSTYLE_LINE = INPUT_BORDERSTYLE_LINE();
+	public static final int INPUT_BORDERSTYLE_NONE = INPUT_BORDERSTYLE_NONE();
+	public static final int INPUT_BORDERSTYLE_ROUNDED = INPUT_BORDERSTYLE_ROUNDED();
+	public static final int INPUT_BUTTONMODE_ALWAYS = INPUT_BUTTONMODE_ALWAYS();
+	public static final int INPUT_BUTTONMODE_NEVER = INPUT_BUTTONMODE_NEVER();
+	public static final int INPUT_BUTTONMODE_ONBLUR = INPUT_BUTTONMODE_ONBLUR();
+	public static final int INPUT_BUTTONMODE_ONFOCUS = INPUT_BUTTONMODE_ONFOCUS();
+	public static final int KEYBOARD_APPEARANCE_ALERT = KEYBOARD_APPEARANCE_ALERT();
+	public static final int KEYBOARD_APPEARANCE_DEFAULT = KEYBOARD_APPEARANCE_DEFAULT();
+	public static final int KEYBOARD_DECIMAL_PAD = KEYBOARD_DECIMAL_PAD();
+	public static final int KEYBOARD_DEFAULT = KEYBOARD_DEFAULT();
+	public static final int KEYBOARD_ASCII = KEYBOARD_ASCII();
+	public static final int KEYBOARD_EMAIL = KEYBOARD_EMAIL();
+	public static final int KEYBOARD_NAMEPHONE_PAD = KEYBOARD_NAMEPHONE_PAD();
+	public static final int KEYBOARD_NUMBER_PAD = KEYBOARD_NUMBER_PAD();
+	public static final int KEYBOARD_NUMBERS_PUNCTUATION = KEYBOARD_NUMBERS_PUNCTUATION();
+	public static final int KEYBOARD_PHONE_PAD = KEYBOARD_PHONE_PAD();
+	public static final int KEYBOARD_URL = KEYBOARD_URL();
+	public static final int LANDSCAPE_LEFT = LANDSCAPE_LEFT();
+	public static final int LANDSCAPE_RIGHT = LANDSCAPE_RIGHT();
+	public static final int LIST_ACCESSSSORY_TYPE_CHECKMARK = LIST_ACCESSSSORY_TYPE_CHECKMARK();
+	public static final int LIST_ACCESSSSORY_TYPE_DETAIL = LIST_ACCESSSSORY_TYPE_DETAIL();
+	public static final int LIST_ACCESSSSORY_TYPE_DISCLOSURE = LIST_ACCESSSSORY_TYPE_DISCLOSURE();
+	public static final int LIST_ACCESSSSORY_TYPE_NONE = LIST_ACCESSSSORY_TYPE_NONE();
+	public static final int LIST_ITEM_TEMPLATE_CONTACTS = LIST_ITEM_TEMPLATE_CONTACTS();
+	public static final int LIST_ITEM_TEMPLATE_DEFAULT = LIST_ITEM_TEMPLATE_DEFAULT();
+	public static final int LIST_ITEM_TEMPLATE_SETTINGS = LIST_ITEM_TEMPLATE_SETTINGS();
+	public static final int LIST_ITEM_TEMPLATE_SUBTITLE = LIST_ITEM_TEMPLATE_SUBTITLE();
+	public static final int NOTIFICATION_DURATION_LONG = NOTIFICATION_DURATION_LONG();
+	public static final int NOTIFICATION_DURATION_SHORT = NOTIFICATION_DURATION_SHORT();
+	public static final int PICKER_TYPE_COUNT_DOWN_TIMER = PICKER_TYPE_COUNT_DOWN_TIMER();
+	public static final int PICKER_TYPE_DATE = PICKER_TYPE_DATE();
+	public static final int PICKER_TYPE_DATE_AND_TIME = PICKER_TYPE_DATE_AND_TIME();
+	public static final int PICKER_TYPE_PLAIN = PICKER_TYPE_PLAIN();
+	public static final int PICKER_TYPE_TIME = PICKER_TYPE_TIME();
+	public static final int PORTRAIT = PORTRAIT();
+	public static final int RETURNKEY_DEFAULT = RETURNKEY_DEFAULT();
+	public static final int RETURNKEY_DONE = RETURNKEY_DONE();
+	public static final int RETURNKEY_EMERGENCY_CALL = RETURNKEY_EMERGENCY_CALL();
+	public static final int RETURNKEY_GO = RETURNKEY_GO();
+	public static final int RETURNKEY_GOOGLE = RETURNKEY_GOOGLE();
+	public static final int RETURNKEY_JOIN = RETURNKEY_JOIN();
+	public static final int RETURNKEY_NEXT = RETURNKEY_NEXT();
+	public static final int RETURNKEY_ROUTE = RETURNKEY_ROUTE();
+	public static final int RETURNKEY_SEARCH = RETURNKEY_SEARCH();
+	public static final int RETURNKEY_SEND = RETURNKEY_SEND();
+	public static final int RETURNKEY_YAHOO = RETURNKEY_YAHOO();
+	public static final String SIZE = SIZE();
+	public static final int TEXT_ALIGNMENT_CENTER = TEXT_ALIGNMENT_CENTER();
+	public static final int TEXT_ALIGNMENT_LEFT = TEXT_ALIGNMENT_LEFT();
+	public static final int TEXT_ALIGNMENT_RIGHT = TEXT_ALIGNMENT_RIGHT();
+	public static final int TEXT_AUTOCAPITALIZATION_ALL = TEXT_AUTOCAPITALIZATION_ALL();
+	public static final int TEXT_AUTOCAPITALIZATION_NONE = TEXT_AUTOCAPITALIZATION_NONE();
+	public static final int TEXT_AUTOCAPITALIZATION_SENTENCES = TEXT_AUTOCAPITALIZATION_SENTENCES();
+	public static final int TEXT_AUTOCAPITALIZATION_WORDS = TEXT_AUTOCAPITALIZATION_WORDS();
+
 	private static UI instance = null;
 
 	public static UI get() {
@@ -480,379 +556,379 @@ public class UI extends TiModule {
 		return Titanium.UI.createListSection();
 	}-*/;
 
-	public native final int ANIMATION_CURVE_EASE_IN() /*-{
+	private static native final int ANIMATION_CURVE_EASE_IN() /*-{
 		return Titanium.UI.ANIMATION_CURVE_EASE_IN
 				? Titanium.UI.ANIMATION_CURVE_EASE_IN
 				: 0;
 	}-*/;
 
-	public native final int ANIMATION_CURVE_EASE_IN_OUT() /*-{
+	private static native final int ANIMATION_CURVE_EASE_IN_OUT() /*-{
 		return Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
 				? Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
 				: 0;
 	}-*/;
 
-	public native final int ANIMATION_CURVE_EASE_OUT() /*-{
+	private static native final int ANIMATION_CURVE_EASE_OUT() /*-{
 		return Titanium.UI.ANIMATION_CURVE_EASE_OUT
 				? Titanium.UI.ANIMATION_CURVE_EASE_OUT
 				: 0;
 	}-*/;
 
-	public native final int ANIMATION_CURVE_LINEAR() /*-{
+	private static native final int ANIMATION_CURVE_LINEAR() /*-{
 		return Titanium.UI.ANIMATION_CURVE_LINEAR
 				? Titanium.UI.ANIMATION_CURVE_LINEAR
 				: 0;
 	}-*/;
 
-	public native final int AUTOLINK_ALL() /*-{
+	private static native final int AUTOLINK_ALL() /*-{
 		return Titanium.UI.AUTOLINK_ALL ? Titanium.UI.AUTOLINK_ALL : 0;
 	}-*/;
 
-	public native final int AUTOLINK_CALENDAR() /*-{
+	private static native final int AUTOLINK_CALENDAR() /*-{
 		return Titanium.UI.AUTOLINK_CALENDAR ? AUTOLINK_CALENDAR : 0;
 	}-*/;
 
-	public native final int AUTOLINK_EMAIL_ADDRESS() /*-{
+	private static native final int AUTOLINK_EMAIL_ADDRESS() /*-{
 		return Titanium.UI.AUTOLINK_EMAIL_ADDRESS ? AUTOLINK_EMAIL_ADDRESS : 0;
 	}-*/;
 
-	public native final int AUTOLINK_MAP_ADDRESS() /*-{
+	private static native final int AUTOLINK_MAP_ADDRESS() /*-{
 		return Titanium.UI.AUTOLINK_MAP_ADDRESS ? AUTOLINK_MAP_ADDRESS : 0;
 	}-*/;
 
-	public native final int AUTOLINK_NONE() /*-{
+	private static native final int AUTOLINK_NONE() /*-{
 		return Titanium.UI.AUTOLINK_NONE ? AUTOLINK_NONE : 0;
 	}-*/;
 
-	public native final int AUTOLINK_PHONE_NUMBERS() /*-{
+	private static native final int AUTOLINK_PHONE_NUMBERS() /*-{
 		return Titanium.UI.AUTOLINK_PHONE_NUMBERS ? AUTOLINK_PHONE_NUMBERS : 0;
 	}-*/;
 
-	public native final int AUTOLINK_URLS() /*-{
+	private static native final int AUTOLINK_URLS() /*-{
 		return Titanium.UI.AUTOLINK_URLS ? AUTOLINK_URLS : 0;
 	}-*/;
 
-	public native final int INPUT_BORDERSTYLE_BEZEL() /*-{
+	private static native final int INPUT_BORDERSTYLE_BEZEL() /*-{
 		return Titanium.UI.INPUT_BORDERSTYLE_BEZEL
 				? Titanium.UI.INPUT_BORDERSTYLE_BEZEL
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BORDERSTYLE_LINE() /*-{
+	private static native final int INPUT_BORDERSTYLE_LINE() /*-{
 		return Titanium.UI.INPUT_BORDERSTYLE_LINE
 				? Titanium.UI.INPUT_BORDERSTYLE_LINE
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BORDERSTYLE_NONE() /*-{
+	private static native final int INPUT_BORDERSTYLE_NONE() /*-{
 		return Titanium.UI.INPUT_BORDERSTYLE_NONE
 				? Titanium.UI.INPUT_BORDERSTYLE_NONE
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BORDERSTYLE_ROUNDED() /*-{
+	private static native final int INPUT_BORDERSTYLE_ROUNDED() /*-{
 		return Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 				? Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BUTTONMODE_ALWAYS() /*-{
+	private static native final int INPUT_BUTTONMODE_ALWAYS() /*-{
 		return Titanium.UI.INPUT_BUTTONMODE_ALWAYS
 				? Titanium.UI.INPUT_BUTTONMODE_ALWAYS
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BUTTONMODE_NEVER() /*-{
+	private static native final int INPUT_BUTTONMODE_NEVER() /*-{
 		return Titanium.UI.INPUT_BUTTONMODE_NEVER
 				? Titanium.UI.INPUT_BUTTONMODE_NEVER
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BUTTONMODE_ONBLUR() /*-{
+	private static native final int INPUT_BUTTONMODE_ONBLUR() /*-{
 		return Titanium.UI.INPUT_BUTTONMODE_ONBLUR
 				? Titanium.UI.INPUT_BUTTONMODE_ONBLUR
 				: 0;
 	}-*/;
 
-	public native final int INPUT_BUTTONMODE_ONFOCUS() /*-{
+	private static native final int INPUT_BUTTONMODE_ONFOCUS() /*-{
 		return Titanium.UI.INPUT_BUTTONMODE_ONFOCUS
 				? Titanium.UI.INPUT_BUTTONMODE_ONFOCUS
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_APPEARANCE_ALERT() /*-{
+	private static native final int KEYBOARD_APPEARANCE_ALERT() /*-{
 		return Titanium.UI.KEYBOARD_APPEARANCE_ALERT
 				? Titanium.UI.KEYBOARD_APPEARANCE_ALERT
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_APPEARANCE_DEFAULT() /*-{
+	private static native final int KEYBOARD_APPEARANCE_DEFAULT() /*-{
 		return Titanium.UI.KEYBOARD_APPEARANCE_DEFAULT
 				? Titanium.UI.KEYBOARD_APPEARANCE_DEFAULT
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_ASCII() /*-{
+	private static native final int KEYBOARD_ASCII() /*-{
 		return Titanium.UI.KEYBOARD_ASCII
 				? Titanium.UI.KEYBOARD_APPEARANCE_DEFAULT
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_DEFAULT() /*-{
+	private static native final int KEYBOARD_DEFAULT() /*-{
 		return Titanium.UI.KEYBOARD_DEFAULT ? Titanium.UI.KEYBOARD_DEFAULT : 0;
 	}-*/;
 
-	public native final int KEYBOARD_EMAIL() /*-{
+	private static native final int KEYBOARD_EMAIL() /*-{
 		return Titanium.UI.KEYBOARD_EMAIL ? Titanium.UI.KEYBOARD_EMAIL : 0;
 	}-*/;
 
-	public native final int KEYBOARD_NAMEPHONE_PAD() /*-{
+	private static native final int KEYBOARD_NAMEPHONE_PAD() /*-{
 		return Titanium.UI.KEYBOARD_NAMEPHONE_PAD
 				? Titanium.UI.KEYBOARD_NAMEPHONE_PAD
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_DECIMAL_PAD() /*-{
+	private static native final int KEYBOARD_DECIMAL_PAD() /*-{
 		return Titanium.UI.KEYBOARD_DECIMAL_PAD
 				? Titanium.UI.KEYBOARD_DECIMAL_PAD
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_NUMBERS_PUNCTUATION() /*-{
+	private static native final int KEYBOARD_NUMBERS_PUNCTUATION() /*-{
 		return Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
 				? Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_NUMBER_PAD() /*-{
+	private static native final int KEYBOARD_NUMBER_PAD() /*-{
 		return Titanium.UI.KEYBOARD_NUMBER_PAD
 				? Titanium.UI.KEYBOARD_NUMBER_PAD
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_PHONE_PAD() /*-{
+	private static native final int KEYBOARD_PHONE_PAD() /*-{
 		return Titanium.UI.KEYBOARD_PHONE_PAD
 				? Titanium.UI.KEYBOARD_PHONE_PAD
 				: 0;
 	}-*/;
 
-	public native final int KEYBOARD_URL() /*-{
+	private static native final int KEYBOARD_URL() /*-{
 		return Titanium.UI.KEYBOARD_URL ? Titanium.UI.KEYBOARD_URL : 0;
 	}-*/;
 
-	public native final int LANDSCAPE_LEFT() /*-{
+	private static native final int LANDSCAPE_LEFT() /*-{
 		return Titanium.UI.LANDSCAPE_LEFT ? Titanium.UI.LANDSCAPE_LEFT : 0;
 	}-*/;
 
-	public native final int LANDSCAPE_RIGHT() /*-{
+	private static native final int LANDSCAPE_RIGHT() /*-{
 		return Titanium.UI.LANDSCAPE_RIGHT ? Titanium.UI.LANDSCAPE_RIGHT : 0;
 	}-*/;
 
-	public native final int NOTIFICATION_DURATION_LONG() /*-{
+	private static native final int NOTIFICATION_DURATION_LONG() /*-{
 		return Titanium.UI.NOTIFICATION_DURATION_LONG
 				? Titanium.UI.NOTIFICATION_DURATION_LONG
 				: 0;
 	}-*/;
 
-	public native final int NOTIFICATION_DURATION_SHORT() /*-{
+	private static native final int NOTIFICATION_DURATION_SHORT() /*-{
 		return Titanium.UI.NOTIFICATION_DURATION_SHORT
 				? Titanium.UI.NOTIFICATION_DURATION_SHORT
 				: 0;
 	}-*/;
 
-	public native final int PICKER_TYPE_COUNT_DOWN_TIMER() /*-{
+	private static native final int PICKER_TYPE_COUNT_DOWN_TIMER() /*-{
 		return Titanium.UI.PICKER_TYPE_COUNT_DOWN_TIMER
 				? Titanium.UI.PICKER_TYPE_COUNT_DOWN_TIMER
 				: 0;
 	}-*/;
 
-	public native final int PICKER_TYPE_DATE() /*-{
+	private static native final int PICKER_TYPE_DATE() /*-{
 		return Titanium.UI.PICKER_TYPE_DATE ? Titanium.UI.PICKER_TYPE_DATE : 0;
 	}-*/;
 
-	public native final int PICKER_TYPE_DATE_AND_TIME() /*-{
+	private static native final int PICKER_TYPE_DATE_AND_TIME() /*-{
 		return Titanium.UI.PICKER_TYPE_DATE_AND_TIME
 				? Titanium.UI.PICKER_TYPE_DATE_AND_TIME
 				: 0;
 	}-*/;
 
-	public native final int PICKER_TYPE_PLAIN() /*-{
+	private static native final int PICKER_TYPE_PLAIN() /*-{
 		return Titanium.UI.PICKER_TYPE_PLAIN
 				? Titanium.UI.PICKER_TYPE_PLAIN
 				: 0;
 	}-*/;
 
-	public native final int PICKER_TYPE_TIME() /*-{
+	private static native final int PICKER_TYPE_TIME() /*-{
 		return Titanium.UI.PICKER_TYPE_TIME ? Titanium.UI.PICKER_TYPE_TIME : 0;
 	}-*/;
 
-	public native final int PORTRAIT() /*-{
+	private static native final int PORTRAIT() /*-{
 		return Titanium.UI.PORTRAIT ? Titanium.UI.PORTRAIT : 0;
 	}-*/;
 
-	public native final int RETURNKEY_DEFAULT() /*-{
+	private static native final int RETURNKEY_DEFAULT() /*-{
 		return Titanium.UI.RETURNKEY_DEFAULT
 				? Titanium.UI.RETURNKEY_DEFAULT
 				: 0;
 	}-*/;
 
-	public native final int RETURNKEY_DONE() /*-{
+	private static native final int RETURNKEY_DONE() /*-{
 		return Titanium.UI.RETURNKEY_DONE ? Titanium.UI.RETURNKEY_DONE : 0;
 	}-*/;
 
-	public native final int RETURNKEY_EMERGENCY_CALL() /*-{
+	private static native final int RETURNKEY_EMERGENCY_CALL() /*-{
 		return Titanium.UI.RETURNKEY_EMERGENCY_CALL
 				? Titanium.UI.RETURNKEY_EMERGENCY_CALL
 				: 0;
 	}-*/;
 
-	public native final int RETURNKEY_GO() /*-{
+	private static native final int RETURNKEY_GO() /*-{
 		return Titanium.UI.RETURNKEY_GO ? Titanium.UI.RETURNKEY_GO : 0;
 	}-*/;
 
-	public native final int RETURNKEY_GOOGLE() /*-{
+	private static native final int RETURNKEY_GOOGLE() /*-{
 		return Titanium.UI.RETURNKEY_GOOGLE ? Titanium.UI.RETURNKEY_GOOGLE : 0;
 	}-*/;
 
-	public native final int RETURNKEY_JOIN() /*-{
+	private static native final int RETURNKEY_JOIN() /*-{
 		return Titanium.UI.RETURNKEY_JOIN ? Titanium.UI.RETURNKEY_JOIN : 0;
 	}-*/;
 
-	public native final int RETURNKEY_NEXT() /*-{
+	private static native final int RETURNKEY_NEXT() /*-{
 		return Titanium.UI.RETURNKEY_NEXT ? Titanium.UI.RETURNKEY_NEXT : 0;
 	}-*/;
 
-	public native final int RETURNKEY_ROUTE() /*-{
+	private static native final int RETURNKEY_ROUTE() /*-{
 		return Titanium.UI.RETURNKEY_ROUTE ? Titanium.UI.RETURNKEY_ROUTE : 0;
 	}-*/;
 
-	public native final int RETURNKEY_SEARCH() /*-{
+	private static native final int RETURNKEY_SEARCH() /*-{
 		return Titanium.UI.RETURNKEY_SEARCH ? Titanium.UI.RETURNKEY_SEARCH : 0;
 	}-*/;
 
-	public native final int RETURNKEY_SEND() /*-{
+	private static native final int RETURNKEY_SEND() /*-{
 		return Titanium.UI.RETURNKEY_SEND ? Titanium.UI.RETURNKEY_SEND : 0;
 	}-*/;
 
-	public native final int RETURNKEY_YAHOO() /*-{
+	private static native final int RETURNKEY_YAHOO() /*-{
 		return Titanium.UI.RETURNKEY_YAHOO ? Titanium.UI.RETURNKEY_YAHOO : 0;
 	}-*/;
 
-	public native final int SIZE() /*-{
-		return Titanium.UI.SIZE ? Titanium.UI.SIZE : 0;
+	private static native final String SIZE() /*-{
+		return Titanium.UI.SIZE ? Titanium.UI.SIZE : "";
 	}-*/;
 
-	public native final int TEXT_ALIGNMENT_CENTER() /*-{
+	private static native final int TEXT_ALIGNMENT_CENTER() /*-{
 		return Titanium.UI.TEXT_ALIGNMENT_CENTER
 				? Titanium.UI.TEXT_ALIGNMENT_CENTER
 				: 0;
 	}-*/;
 
-	public native final int TEXT_ALIGNMENT_LEFT() /*-{
+	private static native final int TEXT_ALIGNMENT_LEFT() /*-{
 		return Titanium.UI.TEXT_ALIGNMENT_LEFT
 				? Titanium.UI.TEXT_ALIGNMENT_LEFT
 				: 0;
 	}-*/;
 
-	public native final int TEXT_ALIGNMENT_RIGHT() /*-{
+	private static native final int TEXT_ALIGNMENT_RIGHT() /*-{
 		return Titanium.UI.TEXT_ALIGNMENT_RIGHT
 				? Titanium.UI.TEXT_ALIGNMENT_RIGHT
 				: 0;
 	}-*/;
 
-	public native final int TEXT_AUTOCAPITALIZATION_ALL() /*-{
+	private static native final int TEXT_AUTOCAPITALIZATION_ALL() /*-{
 		return Titanium.UI.TEXT_AUTOCAPITALIZATION_ALL
 				? Titanium.UI.TEXT_AUTOCAPITALIZATION_ALL
 				: 0;
 	}-*/;
 
-	public native final int TEXT_AUTOCAPITALIZATION_NONE() /*-{
+	private static native final int TEXT_AUTOCAPITALIZATION_NONE() /*-{
 		return Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE
 				? Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE
 				: 0;
 	}-*/;
 
-	public native final int TEXT_AUTOCAPITALIZATION_SENTENCES() /*-{
+	private static native final int TEXT_AUTOCAPITALIZATION_SENTENCES() /*-{
 		return Titanium.UI.TEXT_AUTOCAPITALIZATION_SENTENCES
 				? Titanium.UI.TEXT_AUTOCAPITALIZATION_SENTENCES
 				: 0;
 	}-*/;
 
-	public native final int TEXT_AUTOCAPITALIZATION_WORDS() /*-{
+	private static native final int TEXT_AUTOCAPITALIZATION_WORDS() /*-{
 		return Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS
 				? Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS
 				: 0;
 	}-*/;
 
-	public native final int TEXT_VERTICAL_ALIGNMENT_BOTTOM() /*-{
+	private static native final int TEXT_VERTICAL_ALIGNMENT_BOTTOM() /*-{
 		return Titanium.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM
 				? Titanium.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM
 				: 0;
 	}-*/;
 
-	public native final int TEXT_VERTICAL_ALIGNMENT_CENTER() /*-{
+	private static native final int TEXT_VERTICAL_ALIGNMENT_CENTER() /*-{
 		return Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER
 				? Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER
 				: 0;
 	}-*/;
 
-	public native final int TEXT_VERTICAL_ALIGNMENT_TOP() /*-{
+	private static native final int TEXT_VERTICAL_ALIGNMENT_TOP() /*-{
 		return Titanium.UI.TEXT_VERTICAL_ALIGNMENT_TOP
 				? Titanium.UI.TEXT_VERTICAL_ALIGNMENT_TOP
 				: 0;
 	}-*/;
 
-	public native final int UNKNOWN() /*-{
+	private static native final int UNKNOWN() /*-{
 		return Titanium.UI.UNKNOWN ? Titanium.UI.UNKNOWN : 0;
 	}-*/;
 
-	public native final int UPSIDE_PORTRAIT() /*-{
+	private static native final int UPSIDE_PORTRAIT() /*-{
 		return Titanium.UI.UPSIDE_PORTRAIT ? Titanium.UI.UPSIDE_PORTRAIT : 0;
 	}-*/;
 
-	public native final int LIST_ACCESSSSORY_TYPE_CHECKMARK() /*-{
+	private static native final int LIST_ACCESSSSORY_TYPE_CHECKMARK() /*-{
 		return Titanium.UI.LIST_ACCESSSSORY_TYPE_CHECKMARK
 				? Titanium.UI.LIST_ACCESSSSORY_TYPE_CHECKMARK
 				: 0;
 	}-*/;
 
-	public native final int LIST_ACCESSSSORY_TYPE_DETAIL() /*-{
+	private static native final int LIST_ACCESSSSORY_TYPE_DETAIL() /*-{
 		return Titanium.UI.LIST_ACCESSSSORY_TYPE_DETAIL
 				? Titanium.UI.LIST_ACCESSSSORY_TYPE_DETAIL
 				: 0;
 	}-*/;
 
-	public native final int LIST_ACCESSSSORY_TYPE_DISCLOSURE() /*-{
+	private static native final int LIST_ACCESSSSORY_TYPE_DISCLOSURE() /*-{
 		return Titanium.UI.LIST_ACCESSSSORY_TYPE_DISCLOSURE
 				? Titanium.UI.LIST_ACCESSSSORY_TYPE_DISCLOSURE
 				: 0;
 	}-*/;
 
-	public native final int LIST_ACCESSSSORY_TYPE_NONE() /*-{
+	private static native final int LIST_ACCESSSSORY_TYPE_NONE() /*-{
 		return Titanium.UI.LIST_ACCESSSSORY_TYPE_NONE
 				? Titanium.UI.LIST_ACCESSSSORY_TYPE_NONE
 				: 0;
 	}-*/;
 
-	public native final int LIST_ITEM_TEMPLATE_CONTACTS() /*-{
+	private static native final int LIST_ITEM_TEMPLATE_CONTACTS() /*-{
 		return Titanium.UI.LIST_ITEM_TEMPLATE_CONTACTS
 				? Titanium.UI.LIST_ITEM_TEMPLATE_CONTACTS
 				: 0;
 	}-*/;
 
-	public native final int LIST_ITEM_TEMPLATE_DEFAULT() /*-{
+	private static native final int LIST_ITEM_TEMPLATE_DEFAULT() /*-{
 		return Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT
 				? Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT
 				: 0;
 	}-*/;
 
-	public native final int LIST_ITEM_TEMPLATE_SETTINGS() /*-{
+	private static native final int LIST_ITEM_TEMPLATE_SETTINGS() /*-{
 		return Titanium.UI.LIST_ITEM_TEMPLATE_SETTINGS
 				? Titanium.UI.LIST_ITEM_TEMPLATE_SETTINGS
 				: 0;
 	}-*/;
 
-	public native final int LIST_ITEM_TEMPLATE_SUBTITLE() /*-{
+	private static native final int LIST_ITEM_TEMPLATE_SUBTITLE() /*-{
 		return Titanium.UI.LIST_ITEM_TEMPLATE_SUBTITLE
 				? Titanium.UI.LIST_ITEM_TEMPLATE_SUBTITLE
 				: 0;
@@ -878,72 +954,98 @@ public class UI extends TiModule {
 		return Titanium.UI.UNIT_PX ? Titanium.UI.UNIT_PX : "";
 	}-*/;
 
-	public native final int URL_ERROR_BAR_URL() /*-{
+	private static native final int URL_ERROR_BAR_URL() /*-{
 		return Titanium.UI.URL_ERROR_BAR_URL
 				? Titanium.UI.URL_ERROR_BAR_URL
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_CONNECT() /*-{
+	private static native final int URL_ERROR_CONNECT() /*-{
 		return Titanium.UI.URL_ERROR_CONNECT
 				? Titanium.UI.URL_ERROR_CONNECT
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_FILE() /*-{
+	private static native final int URL_ERROR_FILE() /*-{
 		return Titanium.UI.URL_ERROR_FILE ? Titanium.UI.URL_ERROR_FILE : 0;
 	}-*/;
 
-	public native final int URL_ERROR_FILE_NOT_FOUND() /*-{
+	private static native final int URL_ERROR_FILE_NOT_FOUND() /*-{
 		return Titanium.UI.URL_ERROR_FILE_NOT_FOUND
 				? Titanium.UI.URL_ERROR_FILE_NOT_FOUND
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_HOST_LOOKUP() /*-{
+	private static native final int URL_ERROR_HOST_LOOKUP() /*-{
 		return Titanium.UI.URL_ERROR_HOST_LOOKUP
 				? Titanium.UI.URL_ERROR_HOST_LOOKUP
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_SSL_FAILED() /*-{
+	private static native final int URL_ERROR_SSL_FAILED() /*-{
 		return Titanium.UI.URL_ERROR_SSL_FAILED
 				? Titanium.UI.URL_ERROR_SSL_FAILED
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_TIMEOUT() /*-{
+	private static native final int URL_ERROR_TIMEOUT() /*-{
 		return Titanium.UI.URL_ERROR_TIMEOUT
 				? Titanium.UI.URL_ERROR_TIMEOUT
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_UNKNOWN() /*-{
+	private static native final int URL_ERROR_UNKNOWN() /*-{
 		return Titanium.UI.URL_ERROR_UNKNOWN
 				? Titanium.UI.URL_ERROR_UNKNOWN
 				: 0;
 	}-*/;
 
-	public native final int URL_ERROR_UNSUPPORTED_SCHEME() /*-{
+	private static native final int URL_ERROR_UNSUPPORTED_SCHEME() /*-{
 		return Titanium.UI.URL_ERROR_UNSUPPORTED_SCHEME
 				? Titanium.UI.URL_ERROR_UNSUPPORTED_SCHEME
 				: 0;
 	}-*/;
 
-	public native final int FACE_DOWN() /*-{
+	private static native final int FACE_DOWN() /*-{
 		return Titanium.UI.FACE_DOWN ? Titanium.UI.FACE_DOWN : 0;
 	}-*/;
 
-	public native final int FACE_UP() /*-{
+	private static native final int FACE_UP() /*-{
 		return Titanium.UI.FACE_UP ? Titanium.UI.FACE_UP : 0;
 	}-*/;
 
-	public native final String FILL() /*-{
+	private static native final String FILL() /*-{
 		return Titanium.UI.FILL ? Titanium.UI.FILL : 0;
 	}-*/;
 
-	public native final String INHERIT() /*-{
+	private static native final String INHERIT() /*-{
 		return Titanium.UI.INHERIT ? Titanium.UI.INHERIT : 0;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_ALL() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_ALL
+				? Titanium.UI.EXTENTEND_EDGE_ALL
+				: 0;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_BOTTOM() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_BOTTOM;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_LEFT() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_LEFT;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_NONE() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_NONE;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_RIGHT() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_RIGHT;
+	}-*/;
+
+	private static native final int EXTENTEND_EDGE_TOP() /*-{
+		return Titanium.UI.EXTENTEND_EDGE_TOP;
 	}-*/;
 
 }

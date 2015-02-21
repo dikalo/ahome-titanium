@@ -18,10 +18,9 @@ package com.ait.toolkit.titanium.mobile.client.ui;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
-import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.DialogClickHandler;
+import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.RefreshStartHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.ios.AttributedString;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayString;
 
 /**
  * The RefreshControl is a representation of the native UIRefreshControl.
@@ -56,12 +55,7 @@ public class RefreshControl extends EventDispatcher {
 		jso.tintColor = value;
 	}-*/;
 
-	/**
-	 * @return An index to indicate which button should be the cancel button. if
-	 *         no button should be the cancel button, use -1. if there is a
-	 *         cancel button, it must be the last button for use on ipad.
-	 */
-	public native AttributedString getAttributedString() /*-{
+	public native AttributedString getTitle() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var o = jso.attributedString;
 		return o == null
@@ -69,102 +63,40 @@ public class RefreshControl extends EventDispatcher {
 				: @com.ait.toolkit.titanium.mobile.client.ui.ios.AttributedString::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
-	public native void setCancel(int value) /*-{
+	/**
+	 * Tells the control that a refresh operation was started programmatically.
+	 * <p
+	 * Call this method when an external event source triggers a programmatic
+	 * refresh of your table. This method updates the state of the refresh
+	 * control to reflect the in-progress refresh operation. When the refresh
+	 * operation ends, be sure to call the endRefreshing method to return the
+	 * control to its default state.
+	 */
+	public native void beginRefreshing() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.cancel = value;
+		return jso.beginRefreshing();
 	}-*/;
 
 	/**
-	 * @return The destructive button (indicated by a visual clue in the ui)
+	 * Tells the control that a refresh operation has ended.
+	 * <p>
+	 * Call this method at the end of any refresh operation (whether it was
+	 * initiated programmatically or by the user) to return the refresh control
+	 * to its default state.
 	 */
-	public native int getDestructive() /*-{
+	public native void endRefreshing() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.destructive;
+		return jso.endRefreshing();
 	}-*/;
 
-	public native void setDestructive(int value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.destructive = value;
-	}-*/;
-
-	/**
-	 * @return Array of button names as strings
-	 */
-	public native JsArrayString getOptions() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.options;
-	}-*/;
-
-	public void setOptions(String... values) {
-		JsArrayString strings = JsArrayString.createArray().cast();
-		for (String s : values) {
-			strings.push(s);
-		}
-		setOptions(strings);
-	}
-
-	public native void setOptions(JsArrayString value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.options = value;
-	}-*/;
-
-	/**
-	 * @return Set an initially selected option. only valid when options has
-	 *         been specified. (android only)
-	 * @platforms android
-	 */
-	public native int getSelectedIndex() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.selectedIndex;
-	}-*/;
-
-	public native void setSelectedIndex(int value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.selectedIndex = value;
-	}-*/;
-
-	/**
-	 * @return The title of the dialog
-	 */
-	public native String getTitle() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.title;
-	}-*/;
-
-	public native void setTitle(String value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.title = value;
-	}-*/;
-
-	/**
-	 * @return The key in the locale file to use for the title property
-	 */
-	public native String getTitleId() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.titleid;
-	}-*/;
-
-	public native void setTitleId(String value) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.titleid = value;
-	}-*/;
-
-	/**
-	 * Cause the dialog to become visible
-	 */
-	public native void show() /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.show();
-	}-*/;
-
-	public native CallbackRegistration addClickHandler(
-			DialogClickHandler handler) /*-{
+	public native CallbackRegistration addRefreshStartHandler(
+			RefreshStartHandler handler) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
-			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.dialog.DialogClickEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-			handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.DialogClickHandler::onClick(Lcom/ait/toolkit/titanium/mobile/client/core/events/ui/dialog/DialogClickEvent;)(eventObject);
+			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.RefreshStartEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+			handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.RefreshStartHandler::onRefreshStart(Lcom/ait/toolkit/titanium/mobile/client/core/events/ui/RefreshStartEvent;)(eventObject);
 		};
-		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.ClickEvent::EVENT_NAME;
+		var name = @com.ait.toolkit.titanium.mobile.client.core.events.ui.RefreshStartEvent::EVENT_NAME;
 		var v = jso.addEventListener(name, listener);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
