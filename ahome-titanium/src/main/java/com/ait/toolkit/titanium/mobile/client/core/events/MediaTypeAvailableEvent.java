@@ -17,48 +17,53 @@
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
+import com.google.gwt.core.client.JavaScriptObject;
 
 public class MediaTypeAvailableEvent extends TiEvent {
 
-    public static final String MEDIA_TYPE_AVAILABLE = "mediaTypesAvailable";
+	public static final String MEDIA_TYPE_AVAILABLE = "mediaTypesAvailable";
 
-    protected MediaTypeAvailableEvent() {
+	protected MediaTypeAvailableEvent() {
 
-    }
+	}
 
-    /**
-     * media types
-     */
-    public final native Object getMediaTypes() /*-{
+	protected MediaTypeAvailableEvent(JavaScriptObject peer) {
+		jsObj = peer;
+	}
+
+	/**
+	 * media types
+	 */
+	public final native Object getMediaTypes() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.mediaTypes;
-    }-*/;
+	}-*/;
 
-    /**
-     * the y point of the event, in receiving view coordinates
-     */
-    public final native double getY() /*-{
+	/**
+	 * the y point of the event, in receiving view coordinates
+	 */
+	public final native double getY() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		return jso.y;
-    }-*/;
+	}-*/;
 
-    /**
-     * the x point of the event in receiving view coordiantes
-     */
-    public final native double getX() /*-{
+	/**
+	 * the x point of the event in receiving view coordiantes
+	 */
+	public final native double getX() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		return jso.x;
-    }-*/;
+	}-*/;
 
-    /**
-     * a dictionary with properties x and y describing the point of the event in
-     * screen coordinates
-     */
-    public final native Point getGlobalPoint() /*-{
+	/**
+	 * a dictionary with properties x and y describing the point of the event in
+	 * screen coordinates
+	 */
+	public final native Point getGlobalPoint() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		var obj = jso.globalPoint;
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.ui.Point::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
-    }-*/;
+	}-*/;
 
 }

@@ -15,12 +15,18 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class LoginEvent extends TiEvent {
 
 	public static final String EVENT_NAME = "login";
 
 	protected LoginEvent() {
 
+	}
+
+	protected LoginEvent(JavaScriptObject obj) {
+		jsObj = obj;
 	}
 
 	/**

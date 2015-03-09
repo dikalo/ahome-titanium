@@ -18,6 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.ait.toolkit.titanium.mobile.client.ui.View;
+import com.google.gwt.core.client.JavaScriptObject;
 
 public class ItemCollisionEvent extends TiEvent {
 
@@ -25,6 +26,10 @@ public class ItemCollisionEvent extends TiEvent {
 
 	protected ItemCollisionEvent() {
 
+	}
+
+	protected ItemCollisionEvent(JavaScriptObject peer) {
+		jsObj = peer;
 	}
 
 	public String getType() {

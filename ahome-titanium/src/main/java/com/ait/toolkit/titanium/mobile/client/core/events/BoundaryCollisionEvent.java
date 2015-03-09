@@ -18,6 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.ait.toolkit.titanium.mobile.client.ui.View;
+import com.google.gwt.core.client.JavaScriptObject;
 
 public class BoundaryCollisionEvent extends TiEvent {
 
@@ -25,6 +26,10 @@ public class BoundaryCollisionEvent extends TiEvent {
 
 	protected BoundaryCollisionEvent() {
 
+	}
+
+	protected BoundaryCollisionEvent(JavaScriptObject peer) {
+		jsObj = peer;
 	}
 
 	public String getIdentifier() {

@@ -15,11 +15,17 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 public class NotificationEvent extends TiEvent {
 
-    public static final String NOTIFICATION = "notification";
+	public static final String NOTIFICATION = "notification";
 
-    protected NotificationEvent() {
+	protected NotificationEvent() {
 
-    }
+	}
+
+	protected NotificationEvent(JavaScriptObject obj) {
+		jsObj = obj;
+	}
 }

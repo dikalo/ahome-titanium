@@ -624,27 +624,35 @@ public class UI extends TiModule {
 	}-*/;
 
 	private static native final int AUTOLINK_CALENDAR() /*-{
-		return Titanium.UI.AUTOLINK_CALENDAR ? AUTOLINK_CALENDAR : 0;
+		return Titanium.UI.AUTOLINK_CALENDAR
+				? Titanium.UI.AUTOLINK_CALENDAR
+				: 0;
 	}-*/;
 
 	private static native final int AUTOLINK_EMAIL_ADDRESS() /*-{
-		return Titanium.UI.AUTOLINK_EMAIL_ADDRESS ? AUTOLINK_EMAIL_ADDRESS : 0;
+		return Titanium.UI.AUTOLINK_EMAIL_ADDRESS
+				? Titanium.UI.AUTOLINK_EMAIL_ADDRESS
+				: 0;
 	}-*/;
 
 	private static native final int AUTOLINK_MAP_ADDRESS() /*-{
-		return Titanium.UI.AUTOLINK_MAP_ADDRESS ? AUTOLINK_MAP_ADDRESS : 0;
+		return Titanium.UI.AUTOLINK_MAP_ADDRESS
+				? Titanium.UI.AUTOLINK_MAP_ADDRESS
+				: 0;
 	}-*/;
 
 	private static native final int AUTOLINK_NONE() /*-{
-		return Titanium.UI.AUTOLINK_NONE ? AUTOLINK_NONE : 0;
+		return Titanium.UI.AUTOLINK_NONE ? Titanium.UI.AUTOLINK_NONE : 0;
 	}-*/;
 
 	private static native final int AUTOLINK_PHONE_NUMBERS() /*-{
-		return Titanium.UI.AUTOLINK_PHONE_NUMBERS ? AUTOLINK_PHONE_NUMBERS : 0;
+		return Titanium.UI.AUTOLINK_PHONE_NUMBERS
+				? Titanium.UI.AUTOLINK_PHONE_NUMBERS
+				: 0;
 	}-*/;
 
 	private static native final int AUTOLINK_URLS() /*-{
-		return Titanium.UI.AUTOLINK_URLS ? AUTOLINK_URLS : 0;
+		return Titanium.UI.AUTOLINK_URLS ? Titanium.UI.AUTOLINK_URLS : 0;
 	}-*/;
 
 	private static native final int INPUT_BORDERSTYLE_BEZEL() /*-{

@@ -33,8 +33,7 @@ public class ActivityEvent extends TiEvent {
 
 	}
 
-	@SuppressWarnings("unused")
-	private ActivityEvent(JavaScriptObject obj) {
+	protected ActivityEvent(JavaScriptObject obj) {
 		jsObj = obj;
 	}
 

@@ -23,22 +23,23 @@ import com.google.gwt.uibinder.rebind.UiBinderWriter;
 import com.google.gwt.uibinder.rebind.XMLElement;
 
 /**
- * Parses any widgets that implement
- * {@link com.google.gwt.user.client.ui.HasWidgets}.
+ * Parses any view that implement
+ * {@link com.ait.toolkit.titanium.mobile.client.ui.interfaces.HasWidgets}.
  * 
- * This handles all panels that support a single-argument add() method.
+ * This handles all view that support a single-argument add() method.
  */
-public class HasViewParser implements ElementParser {
+public class HasWidgetsParser implements ElementParser {
 
-    public void parse(XMLElement elem, String fieldName, JClassType type, UiBinderWriter writer)
-                    throws UnableToCompleteException {
-        // Parse children.
-        for (XMLElement child : elem.consumeChildElements()) {
-            if (!writer.isViewElement(child)) {
-                writer.die(child, "Expecting only widgets in %s", elem);
-            }
-            FieldWriter childField = writer.parseElementToField(child);
-            writer.addStatement("%1$s.add(%2$s);", fieldName, childField.getNextReference());
-        }
-    }
+	public void parse(XMLElement elem, String fieldName, JClassType type,
+			UiBinderWriter writer) throws UnableToCompleteException {
+		// Parse children.
+		for (XMLElement child : elem.consumeChildElements()) {
+			if (!writer.isViewElement(child)) {
+				writer.die(child, "Expecting only views in %s", elem);
+			}
+			FieldWriter childField = writer.parseElementToField(child);
+			writer.addStatement("%1$s.add(%2$s);", fieldName,
+					childField.getNextReference());
+		}
+	}
 }
