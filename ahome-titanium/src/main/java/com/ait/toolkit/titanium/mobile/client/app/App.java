@@ -79,6 +79,14 @@ public class App extends TiModule {
 		return jso.copyright;
 	}-*/;
 
+	public native BackgroundService getCurrentService() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var o = jso.currentService;
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.app.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
+	}-*/;
+
 	/**
 	 * Build type that reflects how the application was packaged; either test,
 	 * development or production.
