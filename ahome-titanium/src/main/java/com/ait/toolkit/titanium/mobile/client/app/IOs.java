@@ -33,79 +33,98 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.app.LocalNotificatio
  */
 public class IOs extends TiModule {
 
-    public static final String IOS_APP_EVENT_ACCESSIBILITY_LAYOUT_CHANGED = EVENT_ACCESSIBILITY_LAYOUT_CHANGED();
-    public static final String IOS_APP_EVENT_ACCESSIBILITY_SCREEN_CHANGED = EVENT_ACCESSIBILITY_SCREEN_CHANGED();
+	public static final String IOS_APP_EVENT_ACCESSIBILITY_LAYOUT_CHANGED = EVENT_ACCESSIBILITY_LAYOUT_CHANGED();
+	public static final String IOS_APP_EVENT_ACCESSIBILITY_SCREEN_CHANGED = EVENT_ACCESSIBILITY_SCREEN_CHANGED();
 
-    private static final IOs INSTANCE = new IOs();
+	private static final IOs INSTANCE = new IOs();
 
-    public static IOs get() {
-        return INSTANCE;
-    }
+	public static IOs get() {
+		return INSTANCE;
+	}
 
-    private IOs() {
-        createPeer();
-    }
+	private IOs() {
+		createPeer();
+	}
 
-    @Override
-    public void createPeer() {
-        jsObj = TiFactory.createIosApp();
-    }
+	@Override
+	public void createPeer() {
+		jsObj = TiFactory.createIosApp();
+	}
 
-    /**
-     * Cancels all scheduled local notifications.
-     */
-    public native void cancelAllLocalNotifications() /*-{
+	/**
+	 * Cancels all scheduled local notifications.
+	 */
+	public native void cancelAllLocalNotifications() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.cancelAllLocalNotifications();
-    }-*/;
+	}-*/;
 
-    /**
-     * Cancels a local notification.
-     */
-    public native void cancelLocalNotification(int id) /*-{
+	/**
+	 * Cancels a local notification.
+	 */
+	public native void cancelLocalNotification(int id) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.cancelLocalNotification(id);
-    }-*/;
+	}-*/;
 
-    /**
-     * Creates and returns an instance of Titanium.App.iOS.LocalNotification.
-     */
-    public native LocalNotification createLocalNotification(LocalNotificationConfig config) /*-{
+	/**
+	 * Cancels a local notification.
+	 */
+	public native void cancelLocalNotification(String id) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = jso
-				.createLocalNotification(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
-		return @com.ait.toolkit.titanium.mobile.client.app.LocalNotification::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-    }-*/;
+		jso.cancelLocalNotification(id);
+	}-*/;
 
-    /**
-     * Registers a service to run when the application is placed in the
-     * background.
-     */
-    public native BackgroundService registerBackgroundService(String serviceUrl) /*-{
+	/**
+	 * Registers a service to run when the application is placed in the
+	 * background.
+	 */
+	public native BackgroundService registerBackgroundService(String serviceUrl) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.registerBackgroundService({
 			url : serviceUrl
 		});
 		return @com.ait.toolkit.titanium.mobile.client.app.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-    }-*/;
+	}-*/;
 
-    /**
-     * Schedule a local notification.
-     */
-    public native LocalNotification scheduleLocalNotification(LocalNotificationConfig config) /*-{
+	/**
+	 * Schedule a local notification.
+	 */
+	public native LocalNotification scheduleLocalNotification(
+			LocalNotificationConfig config) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso
 				.scheduleLocalNotification(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
 		return @com.ait.toolkit.titanium.mobile.client.app.LocalNotification::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-    }-*/;
+	}-*/;
 
-    /**
-     * Fired when a local notification is received by the application.
-     * 
-     * @param handler
-     *            , the handler that will handle the event
-     */
-    public native void addNoficationHandler(LocalNotificationHandler handler)/*-{
+	/**
+	 * Creates and returns an instance of
+	 * Titanium.App.iOS.UserNotificationAction.
+	 */
+	public native UserNotificationAction createUserNotificationAction(
+			UserNotificationActionConfig config) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var obj = jso
+				.createUserNotificationAction(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		return @com.ait.toolkit.titanium.mobile.client.app.UserNotificationAction::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+	}-*/;
+
+	public native UserNotificationCategory createUserNotificationCategory(
+			UserNotificationCategoryConfig config) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var obj = jso
+				.createUserNotificationCategory(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		return @com.ait.toolkit.titanium.mobile.client.app.UserNotificationCategory::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+	}-*/;
+
+	/**
+	 * Fired when a local notification is received by the application.
+	 * 
+	 * @param handler
+	 *            , the handler that will handle the event
+	 */
+	public native void addNoficationHandler(LocalNotificationHandler handler)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -114,14 +133,14 @@ public class IOs extends TiModule {
 							var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.LocalNotificationEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 							handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.app.LocalNotificationHandler::onNotification(Lcom/ait/toolkit/titanium/mobile/client/core/events/LocalNotificationEvent;)(eventObject);
 						});
-    }-*/;
+	}-*/;
 
-    public static native final String EVENT_ACCESSIBILITY_LAYOUT_CHANGED() /*-{
+	public static native final String EVENT_ACCESSIBILITY_LAYOUT_CHANGED() /*-{
 		return Titanium.App.iOS.EVENT_ACCESSIBILITY_LAYOUT_CHANGED;
-    }-*/;
+	}-*/;
 
-    public static native final String EVENT_ACCESSIBILITY_SCREEN_CHANGED() /*-{
+	public static native final String EVENT_ACCESSIBILITY_SCREEN_CHANGED() /*-{
 		return Titanium.App.iOS.EVENT_ACCESSIBILITY_SCREEN_CHANGED;
-    }-*/;
+	}-*/;
 
 }

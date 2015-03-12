@@ -30,9 +30,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  * in the application UI.
  * 
  */
-public class UserNotification extends JsObject {
+public class UserNotificationAction extends JsObject {
 
-	protected UserNotification(JavaScriptObject obj) {
+	protected UserNotificationAction(JavaScriptObject obj) {
 		jsObj = obj;
 	}
 
@@ -51,18 +51,14 @@ public class UserNotification extends JsObject {
 	 * Titanium.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND
 	 * Titanium.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND
 	 */
-	public native double getActionMode() /*-{
+	public native double getActivationMode() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.actionMode;
+		return jso.activatonMode;
 	}-*/;
 
-	/**
-	 * Stops the service from running during the current background session to
-	 * conserve resources.
-	 */
-	public native void setActionMode(double value) /*-{
+	public native void setActivationMode(double value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.setActionMode(value);
+		jso.activationMode = value;
 	}-*/;
 
 	/**
