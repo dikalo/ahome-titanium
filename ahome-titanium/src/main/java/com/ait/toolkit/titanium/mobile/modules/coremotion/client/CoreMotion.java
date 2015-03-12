@@ -64,6 +64,19 @@ public class CoreMotion extends TiModule {
 	public static final int MOTION_ACTIVITY_CONFIDENCE_LOW = MOTION_ACTIVITY_CONFIDENCE_LOW();
 	public static final int MOTION_ACTIVITY_CONFIDENCE_MEDIUM = MOTION_ACTIVITY_CONFIDENCE_MEDIUM();
 
+	private static CoreMotion instance;
+
+	public static CoreMotion get() {
+		if (instance == null) {
+			instance = new CoreMotion();
+		}
+		return instance;
+	}
+
+	private CoreMotion() {
+		createPeer();
+	}
+
 	@Override
 	public void createPeer() {
 		jsObj = create();
