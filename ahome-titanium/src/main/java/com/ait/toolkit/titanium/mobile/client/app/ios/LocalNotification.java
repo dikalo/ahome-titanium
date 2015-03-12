@@ -13,9 +13,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.app;
+package com.ait.toolkit.titanium.mobile.client.app.ios;
 
-import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -31,7 +31,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * may be set and a sound may be generated.
  * 
  */
-public class LocalNotification extends JsObject {
+public class LocalNotification extends EventDispatcher {
 
 	protected LocalNotification(JavaScriptObject obj) {
 		jsObj = obj;

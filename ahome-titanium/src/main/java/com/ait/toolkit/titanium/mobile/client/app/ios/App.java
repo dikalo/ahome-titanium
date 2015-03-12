@@ -13,8 +13,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.app;
+package com.ait.toolkit.titanium.mobile.client.app.ios;
 
+import com.ait.toolkit.titanium.mobile.client.app.Properties;
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler;
@@ -84,7 +85,7 @@ public class App extends TiModule {
 		var o = jso.currentService;
 		return o == null
 				? null
-				: @com.ait.toolkit.titanium.mobile.client.app.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
+				: @com.ait.toolkit.titanium.mobile.client.app.ios.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
 	}-*/;
 
 	/**

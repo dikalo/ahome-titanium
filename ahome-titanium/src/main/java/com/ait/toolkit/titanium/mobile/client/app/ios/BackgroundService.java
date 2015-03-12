@@ -13,9 +13,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.app;
+package com.ait.toolkit.titanium.mobile.client.app.ios;
 
-import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -48,7 +48,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * </ul>
  * 
  */
-public class BackgroundService extends JsObject {
+public class BackgroundService extends EventDispatcher {
 
 	protected BackgroundService(JavaScriptObject obj) {
 		jsObj = obj;

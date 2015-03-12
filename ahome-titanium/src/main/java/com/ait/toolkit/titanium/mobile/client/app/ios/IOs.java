@@ -13,7 +13,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-package com.ait.toolkit.titanium.mobile.client.app;
+package com.ait.toolkit.titanium.mobile.client.app.ios;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
@@ -30,6 +30,9 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.app.LocalNotificatio
  * customizable "View" button to bring the application into the foreground.
  * Also, they can be configured to set an application icon badge, to show the
  * number of pending notifications, and to generate a sound.
+ * 
+ * 
+ * TODO(AE) : Finish this class.
  */
 public class IOs extends TiModule {
 
@@ -84,7 +87,7 @@ public class IOs extends TiModule {
 		var obj = jso.registerBackgroundService({
 			url : serviceUrl
 		});
-		return @com.ait.toolkit.titanium.mobile.client.app.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return @com.ait.toolkit.titanium.mobile.client.app.ios.BackgroundService::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	/**
@@ -95,7 +98,7 @@ public class IOs extends TiModule {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso
 				.scheduleLocalNotification(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
-		return @com.ait.toolkit.titanium.mobile.client.app.LocalNotification::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return @com.ait.toolkit.titanium.mobile.client.app.ios.LocalNotification::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	/**
@@ -107,7 +110,7 @@ public class IOs extends TiModule {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso
 				.createUserNotificationAction(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
-		return @com.ait.toolkit.titanium.mobile.client.app.UserNotificationAction::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return @com.ait.toolkit.titanium.mobile.client.app.ios.UserNotificationAction::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	public native UserNotificationCategory createUserNotificationCategory(
@@ -115,7 +118,7 @@ public class IOs extends TiModule {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso
 				.createUserNotificationCategory(config.@com.ait.toolkit.core.client.JsObject::getJsObj()());
-		return @com.ait.toolkit.titanium.mobile.client.app.UserNotificationCategory::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+		return @com.ait.toolkit.titanium.mobile.client.app.ios.UserNotificationCategory::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 	}-*/;
 
 	/**
@@ -135,11 +138,29 @@ public class IOs extends TiModule {
 						});
 	}-*/;
 
-	public static native final String EVENT_ACCESSIBILITY_LAYOUT_CHANGED() /*-{
+	public native void endbackgroundHandler(String handlerId) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.endbackgroundHandler(handlerId);
+	}-*/;
+
+	public native String getApplicationOpenSettingsURL() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.getApplicationOpenSettingsURL();
+	}-*/;
+
+	public native UserNotificationSettings getCurrentNotificationSettings()/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var o = jso.getCurrentNotificationSettings();
+		return o == null
+				? null
+				: @com.ait.toolkit.titanium.mobile.client.app.ios.UserNotificationSettings::new(Lcom/google/gwt/core/client/JavaScriptObject;)(o);
+	}-*/;
+
+	private static native final String EVENT_ACCESSIBILITY_LAYOUT_CHANGED() /*-{
 		return Titanium.App.iOS.EVENT_ACCESSIBILITY_LAYOUT_CHANGED;
 	}-*/;
 
-	public static native final String EVENT_ACCESSIBILITY_SCREEN_CHANGED() /*-{
+	private static native final String EVENT_ACCESSIBILITY_SCREEN_CHANGED() /*-{
 		return Titanium.App.iOS.EVENT_ACCESSIBILITY_SCREEN_CHANGED;
 	}-*/;
 
