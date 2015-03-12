@@ -2,7 +2,7 @@ package com.ait.toolkit.titanium.mobile.examples.loancalculator.client.ui.calcul
 
 import com.ait.toolkit.titanium.mobile.client.Titanium;
 import com.ait.toolkit.titanium.mobile.client.api.API;
-import com.ait.toolkit.titanium.mobile.client.app.App;
+import com.ait.toolkit.titanium.mobile.client.app.ios.App;
 import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.ClickEvent;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.FocusEvent;
