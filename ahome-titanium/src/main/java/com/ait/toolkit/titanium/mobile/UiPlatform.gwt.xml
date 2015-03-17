@@ -2,10 +2,10 @@
 <module>
 
 	<!-- Determine if we are on native or web platform -->
-	<define-property name="platform" values="native,web" />
-	<collapse-property name="platform" values="*" />
+	<define-property name="uiPlatform" values="native,web" />
+	<collapse-property name="uiPlatform" values="*" />
 
-	<property-provider name="platform">
+	<property-provider name="uiPlatform">
   <![CDATA[
        if(!((typeof ($wnd) != 'undefined') || (typeof (window) != 'undefined'))){
             return "web";
