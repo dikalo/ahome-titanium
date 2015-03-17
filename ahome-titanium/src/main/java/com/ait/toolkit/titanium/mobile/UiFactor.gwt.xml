@@ -8,9 +8,9 @@
 	<property-provider name="platform">
   <![CDATA[
        if(!((typeof ($wnd) != 'undefined') || (typeof (window) != 'undefined'))){
-            
+            return "web";
        }else{
-          
+          return "native";
        }
   ]]>
 	</property-provider>

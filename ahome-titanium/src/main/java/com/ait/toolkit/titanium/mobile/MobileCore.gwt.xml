@@ -6,4 +6,5 @@
 	 <inherits name="com.google.gwt.json.JSON" />
 	 <inherits name='com.ait.toolkit.data.Data'/>
 	 <inherits name='com.ait.toolkit.titanium.mobile.rpc.RPC'/>	 
+	 <inherits name='com.ait.toolkit.titanium.mobile.UiFactor'/> 
 </module>
