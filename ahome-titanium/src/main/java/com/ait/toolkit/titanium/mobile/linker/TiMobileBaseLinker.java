@@ -13,11 +13,13 @@ import com.google.gwt.dev.util.DefaultTextOutput;
 
 public abstract class TiMobileBaseLinker extends AbstractLinker {
 
+	protected DefaultTextOutput out;
+
 	public ArtifactSet link(TreeLogger logger, LinkerContext context,
 			ArtifactSet artifacts) throws UnableToCompleteException {
 
 		ArtifactSet toReturn = new ArtifactSet(artifacts);
-		DefaultTextOutput out = new DefaultTextOutput(true);
+		out = new DefaultTextOutput(true);
 		long compilationTime = System.currentTimeMillis();
 		out.print("exports.start = function(){");
 		out.newline();

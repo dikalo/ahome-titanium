@@ -19,13 +19,17 @@ import com.ait.toolkit.titanium.mobile.client.core.events.ui.UIEvent;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.UIEventHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.WebView;
 import com.ait.toolkit.titanium.mobile.client.ui.Window;
+import com.google.gwt.core.client.GWT;
 
 /**
- * Default WebView to use in Hybrid apps. Loads its content from app/Resources/index.html
+ * Default WebView to use in Hybrid apps. Loads its content from
+ * app/Resources/index.html
  * 
  */
 public class DefaultWebView {
 
+	private static final String DEFAULT_INDEX_FILE_URL = GWT.getModuleName()
+			+ "/" + GWT.getModuleName() + ".html";
 	private static DefaultWebView INSTANCE;
 	private WebView view;
 
@@ -37,7 +41,7 @@ public class DefaultWebView {
 	}
 
 	public static DefaultWebView getDefault() {
-		return _get().setHostPage("index.html");
+		return _get().setHostPage(DEFAULT_INDEX_FILE_URL);
 	}
 
 	public static DefaultWebView get(String url) {
@@ -63,5 +67,9 @@ public class DefaultWebView {
 			}
 		});
 		return this;
+	}
+
+	public WebView getView() {
+		return view;
 	}
 }
