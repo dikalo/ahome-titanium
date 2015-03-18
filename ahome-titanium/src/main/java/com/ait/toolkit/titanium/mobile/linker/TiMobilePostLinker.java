@@ -40,7 +40,7 @@ public class TiMobilePostLinker extends TiMobileBaseLinker {
 			ArtifactSet artifacts) throws UnableToCompleteException {
 		ArtifactSet toReturn = super.link(logger, context, artifacts);
 
-		String scriptUrl = context.getModuleName() + ".nocache.js?"
+		String scriptUrl = context.getModuleName() + ".nocache.js?ee="
 				+ System.currentTimeMillis();
 
 		out = new DefaultTextOutput(true);
