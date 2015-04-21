@@ -29,6 +29,45 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class XMLHttpRequest extends JavaScriptObject {
 
+    /**
+     * The type of response expected from the XHR.
+     */
+    public enum ResponseType {
+        /**
+         * The default response type -- use {@link XMLHttpRequest#getResponseText()}
+         * for the return value.
+         */
+        Default(""),
+
+        /**
+         * The default response type -- use
+         * {@link XMLHttpRequest#getResponseArrayBuffer()} for the return value.
+         * This value may only be used if
+         * {@link com.google.gwt.typedarrays.shared.TypedArrays#isSupported()}
+         * returns true.
+         */
+        ArrayBuffer("arraybuffer");
+
+        // not implemented yet
+    /*
+    Blob("blob"),
+
+    Document("document"),
+
+    Text("text");
+    */
+
+        private final String responseTypeString;
+
+        private ResponseType(String responseTypeString) {
+            this.responseTypeString = responseTypeString;
+        }
+
+        public String getResponseTypeString() {
+            return responseTypeString;
+        }
+    }
+
     /*
      * NOTE: Testing discovered that for some bizarre reason, on Mozilla, the
      * JavaScript <code>XmlHttpRequest.onreadystatechange</code> handler
@@ -191,6 +230,18 @@ public class XMLHttpRequest extends JavaScriptObject {
     }-*/;
 
     /**
+     * Gets the response type.
+     * <p>
+     * See <a href="http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute"
+     * >http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute</a>
+     *
+     * @return the response type
+     */
+    public final native String getResponseType() /*-{
+        return this.responseType || "";
+    }-*/;
+
+    /**
      * Gets the status code.
      * <p>
      * See <a href="http://www.w3.org/TR/XMLHttpRequest/#status"
@@ -326,5 +377,43 @@ public class XMLHttpRequest extends JavaScriptObject {
      */
     public final native void setRequestHeader(String header, String value) /*-{
 		this.setRequestHeader(header, value);
+    }-*/;
+
+    /**
+     * Sets withCredentials attribute.
+     * <p>
+     * See <a href="http://www.w3.org/TR/XMLHttpRequest/#the-withcredentials-attribute"
+     * >http://www.w3.org/TR/XMLHttpRequest/#the-withcredentials-attribute</a>.
+     *
+     * @param withCredentials whether to include credentials in XHR
+     */
+    public final native void setWithCredentials(boolean withCredentials) /*-{
+        this.withCredentials = withCredentials;
+    }-*/;
+
+    /**
+     * Sets the response type.
+     * <p>
+     * See <a href="http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute"
+     * >http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute</a>
+     *
+     * @param responseType the type of response desired.  See {@link ResponseType}
+     *     for limitations on using the different values
+     */
+    public final void setResponseType(ResponseType responseType) {
+        this.setResponseType(responseType.getResponseTypeString());
+    }
+
+    /**
+     * Sets the response type.
+     * <p>
+     * See <a href="http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute"
+     * >http://www.w3.org/TR/XMLHttpRequest/#the-responsetype-attribute</a>
+     *
+     * @param responseType the type of response desired.  See {@link ResponseType}
+     *     for limitations on using the different values
+     */
+    public final native void setResponseType(String responseType) /*-{
+        this.responseType = responseType;
     }-*/;
 }
