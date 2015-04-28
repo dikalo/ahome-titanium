@@ -15,6 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
+import com.ait.toolkit.core.client.Color;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.AnimationCompleteHandler;
@@ -61,6 +62,10 @@ public class Animation extends EventDispatcher {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.backgroundColor = value;
     }-*/;
+    
+    public void setBackgroundColor(Color color) {
+    	setBackgroundColor(color.getValue());
+    }
 
     private void createPeer() {
         jsObj = UI.createAnimation();
@@ -104,6 +109,10 @@ public class Animation extends EventDispatcher {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
     }-*/;
+    
+    public void setColor(Color color) {
+    	setColor(color.getValue());
+    }
 
     /**
      * @return The curve of the animation
