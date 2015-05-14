@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
@@ -28,10 +31,18 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class Animation extends EventDispatcher {
 
     public Animation() {
-        createPeer();
+        this( "", new ArrayList<String>() );
     }
 
-    private Animation(JavaScriptObject obj) {
+    public Animation( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public Animation( String id, List<String> classes ) {
+        jsObj = UI.createAnimation( id, classes );
+    }
+
+    private Animation( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -44,7 +55,7 @@ public class Animation extends EventDispatcher {
 		return jso.autoreverse;
     }-*/;
 
-    public native void setAutoReverse(boolean value) /*-{
+    public native void setAutoReverse( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.autoreverse = value;
     }-*/;
@@ -57,14 +68,10 @@ public class Animation extends EventDispatcher {
 		return jso.backgroundColor;
     }-*/;
 
-    public native void setBackgroundColor(String value) /*-{
+    public native void setBackgroundColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.backgroundColor = value;
     }-*/;
-
-    private void createPeer() {
-        jsObj = UI.createAnimation();
-    }
 
     /**
      * @return Value of the bottom property to change during animation
@@ -74,7 +81,7 @@ public class Animation extends EventDispatcher {
 		return jso.bottom;
     }-*/;
 
-    public native void setBottom(double value) /*-{
+    public native void setBottom( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.bottom = value;
     }-*/;
@@ -87,7 +94,7 @@ public class Animation extends EventDispatcher {
 		return jso.center;
     }-*/;
 
-    public native void setCenter(Object value) /*-{
+    public native void setCenter( Object value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.center = value;
     }-*/;
@@ -100,7 +107,7 @@ public class Animation extends EventDispatcher {
 		return jso.color;
     }-*/;
 
-    public native void setColor(String value) /*-{
+    public native void setColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
     }-*/;
@@ -113,7 +120,7 @@ public class Animation extends EventDispatcher {
 		return jso.curve;
     }-*/;
 
-    public native void setCurve(int value) /*-{
+    public native void setCurve( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.curve = value;
     }-*/;
@@ -127,7 +134,7 @@ public class Animation extends EventDispatcher {
 		return jso.delay;
     }-*/;
 
-    public native void setDelay(double value) /*-{
+    public native void setDelay( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.delay = value;
     }-*/;
@@ -140,7 +147,7 @@ public class Animation extends EventDispatcher {
 		return jso.duration;
     }-*/;
 
-    public native void setDuration(double value) /*-{
+    public native void setDuration( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.duration = value;
     }-*/;
@@ -153,14 +160,14 @@ public class Animation extends EventDispatcher {
 		return jso.height;
     }-*/;
 
-    public void setHeight(double value) {
-    	setHeight("" + value);
+    public void setHeight( double value ) {
+        setHeight( "" + value );
     }
-    public native void setHeight(String value) /*-{
-	var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-	jso.height = value;
-	}-*/;
 
+    public native void setHeight( String value ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.height = value;
+    }-*/;
 
     /**
      * @return Value of the left property to change during animation
@@ -170,12 +177,12 @@ public class Animation extends EventDispatcher {
 		return jso.left;
     }-*/;
 
-    public native void setLeft(double value) /*-{
+    public native void setLeft( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.left = value;
     }-*/;
-    
-    public native void setLeft(String value) /*-{
+
+    public native void setLeft( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.left = value;
     }-*/;
@@ -188,7 +195,7 @@ public class Animation extends EventDispatcher {
 		return jso.opacity;
     }-*/;
 
-    public native void setOpacity(double value) /*-{
+    public native void setOpacity( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.opacity = value;
     }-*/;
@@ -201,7 +208,7 @@ public class Animation extends EventDispatcher {
 		return jso.opaque;
     }-*/;
 
-    public native void setOpaque(boolean value) /*-{
+    public native void setOpaque( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.opaque = value;
     }-*/;
@@ -214,7 +221,7 @@ public class Animation extends EventDispatcher {
 		return jso.repeat;
     }-*/;
 
-    public native void setRepeat(int value) /*-{
+    public native void setRepeat( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.repeat = value;
     }-*/;
@@ -227,15 +234,15 @@ public class Animation extends EventDispatcher {
 		return jso.right;
     }-*/;
 
-    public native void setRight(double value) /*-{
+    public native void setRight( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.right = value;
     }-*/;
-    
-    public native void setRight(String value) /*-{
+
+    public native void setRight( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.right = value;
-	}-*/;
+    }-*/;
 
     /**
      * @return Value of the top property to change during animation
@@ -245,12 +252,12 @@ public class Animation extends EventDispatcher {
 		return jso.top;
     }-*/;
 
-    public native void setTop(double value) /*-{
+    public native void setTop( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.top = value;
     }-*/;
 
-    public native void setTop(String value) /*-{
+    public native void setTop( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.top = value;
     }-*/;
@@ -263,7 +270,7 @@ public class Animation extends EventDispatcher {
 		return jso.transform;
     }-*/;
 
-    public native void setTransform(Object value) /*-{
+    public native void setTransform( Object value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.transform = value;
     }-*/;
@@ -277,7 +284,7 @@ public class Animation extends EventDispatcher {
 		return jso.transition;
     }-*/;
 
-    public native void setTransition(int value) /*-{
+    public native void setTransition( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.transition = value;
     }-*/;
@@ -290,7 +297,7 @@ public class Animation extends EventDispatcher {
 		return jso.visible;
     }-*/;
 
-    public native void setVisible(boolean value) /*-{
+    public native void setVisible( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.visible = value;
     }-*/;
@@ -303,12 +310,12 @@ public class Animation extends EventDispatcher {
 		return jso.width;
     }-*/;
 
-    public native void setWidth(double value) /*-{
+    public native void setWidth( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.width = value;
     }-*/;
 
-    public native void setWidth(String value) /*-{
+    public native void setWidth( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.width = value;
     }-*/;
@@ -321,12 +328,12 @@ public class Animation extends EventDispatcher {
 		return jso.zIndex;
     }-*/;
 
-    public native void setZIndex(int value) /*-{
+    public native void setZIndex( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.zIndex = value;
     }-*/;
 
-    public native void addCompleteHandler(AnimationCompleteHandler handler)/*-{
+    public native void addCompleteHandler( AnimationCompleteHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -337,7 +344,7 @@ public class Animation extends EventDispatcher {
 						});
     }-*/;
 
-    public native void addStartHandler(AnimationStartHandler handler)/*-{
+    public native void addStartHandler( AnimationStartHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -348,8 +355,8 @@ public class Animation extends EventDispatcher {
 						});
     }-*/;
 
-    public static Animation from(JsObject proxy) {
-        return new Animation(proxy.getJsObj());
+    public static Animation from( JsObject proxy ) {
+        return new Animation( proxy.getJsObj() );
     }
 
 }

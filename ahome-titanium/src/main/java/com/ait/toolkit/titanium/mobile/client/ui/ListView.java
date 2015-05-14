@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ListViewItemClickHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.fx.TableViewAnimation;
@@ -29,18 +30,38 @@ public class ListView extends View {
     private List<ListSection> sections;
 
     public ListView() {
-        jsObj = creetePeer();
+        jsObj = UI.createListView( "", new ArrayList<String>() );
         this.sections = new ArrayList<ListSection>();
     }
 
-    public ListView(ListViewTemplate template) {
-        jsObj = creetePeer(template.getJsObj());
+    public ListView( String id ) {
+        jsObj = UI.createListView( id, new ArrayList<String>() );
         this.sections = new ArrayList<ListSection>();
     }
 
-    public ListView(ListSection... sections) {
+    public ListView( String id, List<String> classes ) {
+        jsObj = UI.createListView( id, classes );
+        this.sections = new ArrayList<ListSection>();
+    }
+
+    public ListView( ListViewTemplate template ) {
+        jsObj = creetePeer( template.getJsObj() );
+        this.sections = new ArrayList<ListSection>();
+    }
+
+    public ListView( ListSection... sections ) {
         this();
-        setSections(sections);
+        setSections( sections );
+    }
+
+    public ListView( String id, ListSection... sections ) {
+        this( id );
+        setSections( sections );
+    }
+
+    public ListView( String id, List<String> classes, ListSection... sections ) {
+        this( id, classes );
+        setSections( sections );
     }
 
     /**
@@ -48,8 +69,8 @@ public class ListView extends View {
      * draw it. Call <code>layout()</code> to actually add the section to the
      * listview
      */
-    public void addSection(ListSection section) {
-        this.sections.add(section);
+    public void addSection( ListSection section ) {
+        this.sections.add( section );
     }
 
     /**
@@ -57,15 +78,15 @@ public class ListView extends View {
      * draw it. If <code>autoLayout</code> is true the section will be added to
      * the listview UI.
      */
-    public void addSection(ListSection section, boolean autoLayout) {
-        this.sections.add(section);
-        if (autoLayout) {
+    public void addSection( ListSection section, boolean autoLayout ) {
+        this.sections.add( section );
+        if( autoLayout ) {
             this.layout();
         }
     }
 
     public void layout() {
-        this.setSections(this.sections);
+        this.setSections( this.sections );
     }
 
     /**
@@ -81,17 +102,17 @@ public class ListView extends View {
      * 
      * @param value
      */
-    public native void setDefaultItemTemplate(String value) /*-{
+    public native void setDefaultItemTemplate( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.defaultItemTemplate = value;
     }-*/;
 
-    public native void setDefaultItemTemplate(int value) /*-{
+    public native void setDefaultItemTemplate( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.defaultItemTemplate = value;
     }-*/;
 
-    public native void setFooterTitle(String value) /*-{
+    public native void setFooterTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.footerTitle = value;
     }-*/;
@@ -101,7 +122,7 @@ public class ListView extends View {
 		return jso.footerTitle;
     }-*/;
 
-    public native void setHeaderTitle(String value) /*-{
+    public native void setHeaderTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.headerTitle = value;
     }-*/;
@@ -111,7 +132,7 @@ public class ListView extends View {
 		return jso.headerTitle;
     }-*/;
 
-    public native void setScrollIndicatorStyle(int value) /*-{
+    public native void setScrollIndicatorStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scrollIndicatorStyle = value;
     }-*/;
@@ -132,16 +153,16 @@ public class ListView extends View {
 		return @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
     }-*/;
 
-    public native void setSections(List<ListSection> values) /*-{
+    public native void setSections( List<ListSection> values ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.sections = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromList(Ljava/util/List;)(values);
     }-*/;
 
-    public void setSections(ListSection... sections) {
-        this.setSections(Arrays.asList(sections));
+    public void setSections( ListSection... sections ) {
+        this.setSections( Arrays.asList( sections ) );
     }
 
-    public native void setWillScrollOnStatusTap(boolean value) /*-{
+    public native void setWillScrollOnStatusTap( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.willScrollOnStatusTap = value;
     }-*/;
@@ -151,36 +172,32 @@ public class ListView extends View {
 		return jso.willScrollOnStatusTap;
     }-*/;
 
-    public native void appendSection(List<ListSection> items) /*-{
+    public native void appendSection( List<ListSection> items ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
 		jso.appendSection(obj);
     }-*/;
 
-    public native void appendSection(List<ListSection> items, TableViewAnimation animation) /*-{
+    public native void appendSection( List<ListSection> items, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
-		jso
-				.appendSection(
-						obj,
-						animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.appendSection(obj,
+				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
-    public void appendSection(ListSection... dataItems) {
-        appendSection(Arrays.asList(dataItems));
+    public void appendSection( ListSection... dataItems ) {
+        appendSection( Arrays.asList( dataItems ) );
     }
 
-    public native void deleteSectionAt(int index) /*-{
+    public native void deleteSectionAt( int index ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.deleteSectionAt(index);
     }-*/;
 
-    public native void deleteSectionAt(int index, int count, TableViewAnimation animation) /*-{
+    public native void deleteSectionAt( int index, int count, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.deleteSectionAt(
-						index,
-						animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.deleteSectionAt(index,
+				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     public native int getStyle() /*-{
@@ -188,43 +205,36 @@ public class ListView extends View {
 		return jso.getStyle();
     }-*/;
 
-    public native void replaceSectionAt(int index, ListSection section) /*-{
+    public native void replaceSectionAt( int index, ListSection section ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.replaceSectionAt(
-						index,
-						section.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.replaceSectionAt(index,
+				section.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
-    public native void replaceSectionAt(int index, ListSection section, TableViewAnimation animation) /*-{
+    public native void replaceSectionAt( int index, ListSection section, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.replaceSectionAt(
-						index,
-						section.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-						animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.replaceSectionAt(index,
+				section.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
+				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
-    public native void scrollToItem(int sectionIndex, int itemIndex) /*-{
+    public native void scrollToItem( int sectionIndex, int itemIndex ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scrollToItem(sectionIndex, itemIndex);
     }-*/;
 
-    public native void scrollToItem(int sectionIndex, int itemIndex, TableViewAnimation animation) /*-{
+    public native void scrollToItem( int sectionIndex, int itemIndex, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.scrollToItem(
-						sectionIndex,
-						itemIndex,
-						animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.scrollToItem(sectionIndex, itemIndex,
+				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
-    public native void selectItem(int sectionIndex, int itemIndex) /*-{
+    public native void selectItem( int sectionIndex, int itemIndex ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectItem(sectionIndex, itemIndex);
     }-*/;
 
-    public native CallbackRegistration addListViewItemClickHandler(ListViewItemClickHandler handler)/*-{
+    public native CallbackRegistration addListViewItemClickHandler( ListViewItemClickHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.ListViewItemClickEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -237,15 +247,15 @@ public class ListView extends View {
 
     }-*/;
 
-    public ListView(JavaScriptObject obj) {
-        super(obj);
+    public ListView( JavaScriptObject obj ) {
+        super( obj );
     }
 
-    private native JavaScriptObject creetePeer()/*-{
-		return Ti.UI.createListView();
-    }-*/;
+    public static ListView from( JsObject proxy ) {
+        return new ListView( proxy.getJsObj() );
+    }
 
-    private native JavaScriptObject creetePeer(JavaScriptObject template)/*-{
+    private native JavaScriptObject creetePeer( JavaScriptObject template )/*-{
 		return Ti.UI.createListView(template);
     }-*/;
 
