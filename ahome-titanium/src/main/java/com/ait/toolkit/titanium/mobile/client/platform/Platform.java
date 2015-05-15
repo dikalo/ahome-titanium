@@ -335,7 +335,7 @@ public class Platform extends TiModule {
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.is24HourTimeFormat();
 	}-*/;
-
+	
 	public boolean isIPad() {
 		return Platform.get().getOsname().equalsIgnoreCase(PLATFORM_OS_IPAD);
 	}
@@ -346,6 +346,10 @@ public class Platform extends TiModule {
 
 	public boolean isAndroid() {
 		return Platform.get().getOsname().equalsIgnoreCase(PLATFORM_OS_ANDROID);
+	}
+
+	public boolean isIOS {
+		return Platform.get().getName().equalsIgnoreCase(Platform.PLATFORM_IPHONE_OS);	
 	}
 
 	/**
