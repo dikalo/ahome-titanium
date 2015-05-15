@@ -1,19 +1,21 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
@@ -37,7 +39,7 @@ public class Matrix2D extends EventDispatcher {
         createPeer();
     }
 
-    Matrix2D(JavaScriptObject obj) {
+    Matrix2D( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -49,7 +51,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.a;
     }-*/;
 
-    public native void setA(double value) /*-{
+    public native void setA( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.a = value;
     }-*/;
@@ -62,7 +64,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.b;
     }-*/;
 
-    public native void setB(double value) /*-{
+    public native void setB( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.b = value;
     }-*/;
@@ -75,7 +77,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.c;
     }-*/;
 
-    public native void setC(double value) /*-{
+    public native void setC( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.c = value;
     }-*/;
@@ -88,7 +90,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.d;
     }-*/;
 
-    public native void setD(double value) /*-{
+    public native void setD( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.d = value;
     }-*/;
@@ -101,7 +103,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.tx;
     }-*/;
 
-    public native void setTx(double value) /*-{
+    public native void setTx( double value ) /*-{
 		jso.tx = value;
     }-*/;
 
@@ -113,7 +115,7 @@ public class Matrix2D extends EventDispatcher {
 		return jso.ty;
     }-*/;
 
-    public native void setTy(double value) /*-{
+    public native void setTy( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.ty = value;
     }-*/;
@@ -142,7 +144,7 @@ public class Matrix2D extends EventDispatcher {
      *            matrix t2 does not necessarily equal the result of multiplying
      *            matrix t2 by matrix t1.
      */
-    public native Matrix2D multiply(Matrix2D t2) /*-{
+    public native Matrix2D multiply( Matrix2D t2 ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso
 				.multiply(t2.@com.ait.toolkit.core.client.JsObject::getJsObj()());
@@ -157,7 +159,7 @@ public class Matrix2D extends EventDispatcher {
      *            positive value specifies counterclockwise rotation and a
      *            negative value specifies clockwise rotation.
      */
-    public native Matrix2D rotate(double angle) /*-{
+    public native Matrix2D rotate( double angle ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.rotate(angle);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.ui.Matrix2D::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
@@ -170,7 +172,7 @@ public class Matrix2D extends EventDispatcher {
      * @param sx The value by which to scale x values of the matrix
      * @param sy The value by which to scale y values of the matrix
      */
-    public native Matrix2D scale(double sx, double sy) /*-{
+    public native Matrix2D scale( double sx, double sy ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.scale(sx, sy);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.ui.Matrix2D::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
@@ -183,7 +185,7 @@ public class Matrix2D extends EventDispatcher {
      * @param tx The value by which to move x values with the matrix
      * @param ty The value by which to move y values with the matrix
      */
-    public native Matrix2D translate(double tx, double ty) /*-{
+    public native Matrix2D translate( double tx, double ty ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.translate(tx, ty);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.ui.Matrix2D::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
@@ -191,11 +193,19 @@ public class Matrix2D extends EventDispatcher {
     }-*/;
 
     private void createPeer() {
-        jsObj = UI.create2DMatrix();
+        jsObj = _createPeer( "", new ArrayList<String>() );
     }
 
-    public static Matrix2D from(JsObject obj) {
-        return new Matrix2D(obj.getJsObj());
+    private void createPeer( String id, ArrayList<String> classes ) {
+        jsObj = _createPeer( id, classes );
+    }
+
+    private JavaScriptObject _createPeer( String id, ArrayList<String> classes ) {
+        return UI.create2DMatrix( id, classes );
+    }
+
+    public static Matrix2D from( JsObject obj ) {
+        return new Matrix2D( obj.getJsObj() );
     }
 
 }

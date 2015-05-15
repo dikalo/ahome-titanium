@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
@@ -38,18 +38,25 @@ import com.google.gwt.core.client.JsArray;
  */
 public class DashboardView extends View implements Editable {
 
-    private List<DashboardItem> items;
+    private List<DashboardItem> items = new ArrayList<DashboardItem>();
 
     private DashboardView() {
         createPeer();
     }
 
-    public DashboardView(int rowCount, int columnCount) {
-        create(rowCount, columnCount);
-        items = new ArrayList<DashboardItem>();
+    public DashboardView( String id, int rowCount, int columnCount ) {
+        jsObj = UI.createDashboardView( id, new ArrayList<String>(), columnCount, rowCount );
     }
 
-    DashboardView(JavaScriptObject proxy) {
+    public DashboardView( int rowCount, int columnCount ) {
+        jsObj = UI.createDashboardView( "", new ArrayList<String>(), columnCount, rowCount );
+    }
+
+    public DashboardView( String id, List<String> classes, int rowCount, int columnCount ) {
+        jsObj = UI.createDashboardView( id, classes, columnCount, rowCount );
+    }
+
+    DashboardView( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
@@ -61,8 +68,8 @@ public class DashboardView extends View implements Editable {
     public ArrayList<DashboardItem> getData() {
         ArrayList<DashboardItem> items = new ArrayList<DashboardItem>();
         JsArray<JavaScriptObject> values = _getData();
-        for (int i = 0; i < values.length(); i++) {
-            items.add(new DashboardItem(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            items.add( new DashboardItem( values.get( i ) ) );
         }
         this.items = items;
         return items;
@@ -73,28 +80,28 @@ public class DashboardView extends View implements Editable {
 		return jso.data;
     }-*/;
 
-    public void setData(List<DashboardItem> data) {
+    public void setData( List<DashboardItem> data ) {
         this.items = data;
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (DashboardItem item : data) {
-            values.push(item.getJsObj());
+        for( DashboardItem item : data ) {
+            values.push( item.getJsObj() );
         }
-        _setData(values);
+        _setData( values );
     }
 
-    public void setData(DashboardItem... data) {
-        setData(Arrays.asList(data));
+    public void setData( DashboardItem... data ) {
+        setData( Arrays.asList( data ) );
     }
 
-    private void addItem(DashboardItem item) {
-        this.items.add(item);
+    private void addItem( DashboardItem item ) {
+        this.items.add( item );
     }
 
     private void layoutData() {
-        this.setData(this.items);
+        this.setData( this.items );
     }
 
-    private native void _setData(JsArray<JavaScriptObject> value) /*-{
+    private native void _setData( JsArray<JavaScriptObject> value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.data = value;
     }-*/;
@@ -108,15 +115,15 @@ public class DashboardView extends View implements Editable {
 		return jso.wobble;
     }-*/;
 
-    public native void setWobble(boolean value) /*-{
+    public native void setWobble( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.wobble = value;
     }-*/;
 
     @Override
-    public void add(View view) {
-        if (view instanceof DashboardItem) {
-            this.addItem((DashboardItem) view);
+    public void add( View view ) {
+        if( view instanceof DashboardItem ) {
+            this.addItem( (DashboardItem) view );
             this.layoutData();
         }
 
@@ -144,7 +151,7 @@ public class DashboardView extends View implements Editable {
 		return jso.stopEditing();
     }-*/;
 
-    public native CallbackRegistration addCommitHandler(CommitHandler handler)/*-{
+    public native CallbackRegistration addCommitHandler( CommitHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.CommitEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -157,7 +164,7 @@ public class DashboardView extends View implements Editable {
 
     }-*/;
 
-    public native CallbackRegistration addDeleteHandler(DeleteHandler handler)/*-{
+    public native CallbackRegistration addDeleteHandler( DeleteHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.DeleteEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -172,7 +179,7 @@ public class DashboardView extends View implements Editable {
 
     // TODO move events to new API
 
-    public native void addMoveHandler(DashboardItemHandler handler)/*-{
+    public native void addMoveHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -183,7 +190,7 @@ public class DashboardView extends View implements Editable {
 						});
     }-*/;
 
-    public native void addDragEndHandler(DashboardItemHandler handler)/*-{
+    public native void addDragEndHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -194,7 +201,7 @@ public class DashboardView extends View implements Editable {
 						});
     }-*/;
 
-    public native void addDragStartHandler(DashboardItemHandler handler)/*-{
+    public native void addDragStartHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -205,7 +212,7 @@ public class DashboardView extends View implements Editable {
 						});
     }-*/;
 
-    public native void addDragFinishHandler(DashboardItemHandler handler)/*-{
+    public native void addDragFinishHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -216,7 +223,7 @@ public class DashboardView extends View implements Editable {
 						});
     }-*/;
 
-    public native void addEditHandler(DashboardItemHandler handler)/*-{
+    public native void addEditHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -227,7 +234,7 @@ public class DashboardView extends View implements Editable {
 						});
     }-*/;
 
-    public native void addPageEndHandler(DashboardItemHandler handler)/*-{
+    public native void addPageEndHandler( DashboardItemHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -240,14 +247,14 @@ public class DashboardView extends View implements Editable {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createDashboardView();
+        jsObj = UI.createDashboardView( "", new ArrayList<String>() );
     }
 
-    private void create(int row, int col) {
-        jsObj = UI.createDashboardView(row, col);
+    private void create( int row, int col ) {
+        jsObj = UI.createDashboardView( "", new ArrayList<String>(), col, row );
     }
 
-    public static DashboardView from(JsObject proxy) {
-        return new DashboardView(proxy.getJsObj());
+    public static DashboardView from( JsObject proxy ) {
+        return new DashboardView( proxy.getJsObj() );
     }
 }

@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -30,7 +33,15 @@ public class MaskedImage extends View {
         createPeer();
     }
 
-    MaskedImage(JavaScriptObject proxy) {
+    public MaskedImage( String id ) {
+        jsObj = UI.createMaskedImage( id, new ArrayList<String>() );
+    }
+
+    public MaskedImage( String id, List<String> classes ) {
+        jsObj = UI.createMaskedImage( id, classes );
+    }
+
+    MaskedImage( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
@@ -47,7 +58,7 @@ public class MaskedImage extends View {
      * 
      * @param value
      */
-    public native void setImage(String value) /*-{
+    public native void setImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.image = value;
     }-*/;
@@ -65,7 +76,7 @@ public class MaskedImage extends View {
      * 
      * @param value
      */
-    public native void setMask(String value) /*-{
+    public native void setMask( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.mask = value;
     }-*/;
@@ -83,7 +94,7 @@ public class MaskedImage extends View {
      * 
      * @param value
      */
-    public native void setTint(String value) /*-{
+    public native void setTint( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.tint = value;
     }-*/;
@@ -101,17 +112,17 @@ public class MaskedImage extends View {
      * 
      * @param value
      */
-    public native void setMode(double value) /*-{
+    public native void setMode( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.mode = value;
     }-*/;
 
     @Override
     public void createPeer() {
-        jsObj = UI.createMaskedImage();
+        jsObj = UI.createMaskedImage( "", new ArrayList<String>() );
     }
 
-    public static MaskedImage from(JsObject proxy) {
-        return new MaskedImage(proxy.getJsObj());
+    public static MaskedImage from( JsObject proxy ) {
+        return new MaskedImage( proxy.getJsObj() );
     }
 }

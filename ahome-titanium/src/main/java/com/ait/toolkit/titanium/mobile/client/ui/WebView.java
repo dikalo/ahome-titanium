@@ -1,22 +1,25 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
-import com.ait.toolkit.titanium.mobile.client.blob.Blob;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.titanium.mobile.client.blob.Blob;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.WebViewHandler;
 import com.ait.toolkit.titanium.mobile.client.filesystem.File;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -42,12 +45,15 @@ public class WebView extends View {
         createPeer();
     }
 
-    public WebView(String url) {
-        this();
-        setUrl(url);
+    public WebView( String id ) {
+        jsObj = UI.createWebView( id, new ArrayList<String>() );
     }
 
-    WebView(JavaScriptObject obj) {
+    public WebView( String id, List<String> classes ) {
+        jsObj = UI.createWebView( id, classes );
+    }
+
+    WebView( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -59,12 +65,12 @@ public class WebView extends View {
 		return jso.data;
     }-*/;
 
-    public native void setData(Blob value) /*-{
+    public native void setData( Blob value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.data = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
-    public native void setData(File value) /*-{
+    public native void setData( File value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.data = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -77,7 +83,7 @@ public class WebView extends View {
 		return jso.html;
     }-*/;
 
-    public native void setHtml(String value) /*-{
+    public native void setHtml( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.html = value;
     }-*/;
@@ -90,7 +96,7 @@ public class WebView extends View {
 		return jso.loading;
     }-*/;
 
-    public native void setLoading(boolean value) /*-{
+    public native void setLoading( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.loading = value;
     }-*/;
@@ -103,7 +109,7 @@ public class WebView extends View {
 		return jso.scalesPageToFit;
     }-*/;
 
-    public native void setScalesPageToFit(boolean value) /*-{
+    public native void setScalesPageToFit( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scalesPageToFit = value;
     }-*/;
@@ -118,7 +124,7 @@ public class WebView extends View {
 		return jso.url;
     }-*/;
 
-    public native void setUrl(String value) /*-{
+    public native void setUrl( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.url = value;
     }-*/;
@@ -146,7 +152,7 @@ public class WebView extends View {
      *            JavaScript code as a string. The code will be evaluated inside
      *            the webview context.
      */
-    public native String evalJS(String content) /*-{
+    public native String evalJS( String content ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.evalJS(content);
     }-*/;
@@ -191,7 +197,7 @@ public class WebView extends View {
      * @param password
      *            the password
      */
-    public native void setBasicAuthentication(String username, String password) /*-{
+    public native void setBasicAuthentication( String username, String password ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setBasicAuthentication(username, password);
     }-*/;
@@ -204,12 +210,12 @@ public class WebView extends View {
 		jso.stopLoading();
     }-*/;
 
-    public native void setColor(Object value)/*-{
+    public native void setColor( Object value )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
     }-*/;
 
-    public native void addBeforeLoadHandler(WebViewHandler handler)/*-{
+    public native void addBeforeLoadHandler( WebViewHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -220,7 +226,7 @@ public class WebView extends View {
 						});
     }-*/;
 
-    public native void addErrorHandler(WebViewHandler handler)/*-{
+    public native void addErrorHandler( WebViewHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -231,7 +237,7 @@ public class WebView extends View {
 						});
     }-*/;
 
-    public native void addLoadHandler(WebViewHandler handler)/*-{
+    public native void addLoadHandler( WebViewHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -244,11 +250,11 @@ public class WebView extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createWebView();
+        jsObj = UI.createWebView( "", new ArrayList<String>() );
     }
 
-    public static WebView from(JsObject proxy) {
-        return new WebView(proxy.getJsObj());
+    public static WebView from( JsObject proxy ) {
+        return new WebView( proxy.getJsObj() );
     }
 
 }

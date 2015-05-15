@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
@@ -43,7 +46,15 @@ public class ImageView extends View {
         createPeer();
     }
 
-    ImageView(JavaScriptObject proxy) {
+    public ImageView( String id ) {
+        jsObj = UI.createImageView( id, new ArrayList<String>() );
+    }
+
+    public ImageView( String id, List<String> classes ) {
+        jsObj = UI.createImageView( id, classes );
+    }
+
+    ImageView( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
@@ -63,7 +74,7 @@ public class ImageView extends View {
 		return jso.canScale;
     }-*/;
 
-    public native void setCanScale(boolean value) /*-{
+    public native void setCanScale( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.canScale = value;
     }-*/;
@@ -78,7 +89,7 @@ public class ImageView extends View {
 		return jso.decodeRetries;
     }-*/;
 
-    public native void setDecodeRetries(int value) /*-{
+    public native void setDecodeRetries( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.decodeRetries = value;
     }-*/;
@@ -91,7 +102,7 @@ public class ImageView extends View {
 		return jso.defaultImage;
     }-*/;
 
-    public native void setDefaultImage(String value) /*-{
+    public native void setDefaultImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.defaultImage = value;
     }-*/;
@@ -104,7 +115,7 @@ public class ImageView extends View {
 		return jso.duration;
     }-*/;
 
-    public native void setDuration(double value) /*-{
+    public native void setDuration( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.duration = value;
     }-*/;
@@ -119,7 +130,7 @@ public class ImageView extends View {
 		return jso.enableZoomControls;
     }-*/;
 
-    public native void setEnableZoomControls(boolean value) /*-{
+    public native void setEnableZoomControls( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.enableZoomControls = value;
     }-*/;
@@ -134,7 +145,7 @@ public class ImageView extends View {
 		return jso.hires;
     }-*/;
 
-    public native void setHires(boolean value) /*-{
+    public native void setHires( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hires = value;
     }-*/;
@@ -147,17 +158,17 @@ public class ImageView extends View {
 		return jso.image;
     }-*/;
 
-    public native void setImage(String value) /*-{
+    public native void setImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.image = value;
     }-*/;
 
-    public native void setImage(Blob value) /*-{
+    public native void setImage( Blob value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.image = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
-    public native void setImage(File value) /*-{
+    public native void setImage( File value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.image = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -173,13 +184,13 @@ public class ImageView extends View {
      * @param clip
      *            Whether to clip the image
      */
-    public void setImage(ImageResource resource, String url, boolean clip) {
-        File f = FileSystem.get().getFile(url);
-        if (f.exists()) {
-            if (!clip) {
-                setImage(f);
+    public void setImage( ImageResource resource, String url, boolean clip ) {
+        File f = FileSystem.get().getFile( url );
+        if( f.exists() ) {
+            if( !clip ) {
+                setImage( f );
             } else {
-                setImage(f.read(), resource);
+                setImage( f.read(), resource );
             }
         }
     }
@@ -193,8 +204,8 @@ public class ImageView extends View {
      * @param resource
      *            The resource
      */
-    public void setImage(Blob blob, ImageResource resource) {
-        setImage(blob.imageAsCropped(resource.getLeft(), resource.getTop(), resource.getHeight(), resource.getWidth()));
+    public void setImage( Blob blob, ImageResource resource ) {
+        setImage( blob.imageAsCropped( resource.getLeft(), resource.getTop(), resource.getHeight(), resource.getWidth() ) );
     }
 
     /**
@@ -206,7 +217,7 @@ public class ImageView extends View {
 		return jso.images;
     }-*/;
 
-    public native void setImages(JsArrayString value) /*-{
+    public native void setImages( JsArrayString value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.images = value;
     }-*/;
@@ -216,7 +227,7 @@ public class ImageView extends View {
      * @param value
      *            , must be Blob or File
      */
-    public native void setImages(JsArray<?> value) /*-{
+    public native void setImages( JsArray<?> value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.images = value;
     }-*/;
@@ -238,7 +249,7 @@ public class ImageView extends View {
 		return jso.preventDefaultImage;
     }-*/;
 
-    public native void setPreventDefaultImage(boolean value) /*-{
+    public native void setPreventDefaultImage( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.preventDefaultImage = value;
     }-*/;
@@ -251,7 +262,7 @@ public class ImageView extends View {
 		return jso.repeatCount;
     }-*/;
 
-    public native void setRepeatCount(int value) /*-{
+    public native void setRepeatCount( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.repeatCount = value;
     }-*/;
@@ -265,7 +276,7 @@ public class ImageView extends View {
 		return jso.reverse;
     }-*/;
 
-    public native void setReverse(boolean value) /*-{
+    public native void setReverse( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.reverse = value;
     }-*/;
@@ -279,7 +290,7 @@ public class ImageView extends View {
 		return jso.url;
     }-*/;
 
-    public native void setUrl(String value) /*-{
+    public native void setUrl( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.url = value;
     }-*/;
@@ -317,7 +328,7 @@ public class ImageView extends View {
 		return toReturn;
     }-*/;
 
-    public native void addChangeHandler(ImageActionHandler handler)/*-{
+    public native void addChangeHandler( ImageActionHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -328,7 +339,7 @@ public class ImageView extends View {
 						});
     }-*/;
 
-    public native void addLoadHandler(ImageActionHandler handler)/*-{
+    public native void addLoadHandler( ImageActionHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -339,7 +350,7 @@ public class ImageView extends View {
 						});
     }-*/;
 
-    public native void addStartHandler(ImageActionHandler handler)/*-{
+    public native void addStartHandler( ImageActionHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -350,7 +361,7 @@ public class ImageView extends View {
 						});
     }-*/;
 
-    public native void addStopHandler(ImageActionHandler handler)/*-{
+    public native void addStopHandler( ImageActionHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -363,11 +374,11 @@ public class ImageView extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createImageView();
+        jsObj = UI.createImageView( "", new ArrayList<String>() );
     }
 
-    public static ImageView from(JsObject proxy) {
-        return new ImageView(proxy.getJsObj());
+    public static ImageView from( JsObject proxy ) {
+        return new ImageView( proxy.getJsObj() );
     }
 
     /*
@@ -385,28 +396,28 @@ public class ImageView extends View {
     }-*/;
 
     private void setUpResourceImage() {
-        if (path != null && resource != null) {
-            path = path + (pathIsDirectory ? resource.getSafeUri().asString().substring(4) : "");
-            setImage(resource, path, clipped);
+        if( path != null && resource != null ) {
+            path = path + ( pathIsDirectory ? resource.getSafeUri().asString().substring( 4 ) : "" );
+            setImage( resource, path, clipped );
         }
     }
 
-    public void setPath(String path) {
+    public void setPath( String path ) {
         this.path = path;
         setUpResourceImage();
     }
 
-    public void setResource(ImageResource resource) {
+    public void setResource( ImageResource resource ) {
         this.resource = resource;
         setUpResourceImage();
     }
 
-    public void setClipped(boolean clipped) {
+    public void setClipped( boolean clipped ) {
         this.clipped = clipped;
         setUpResourceImage();
     }
 
-    public void setPathIsDirectory(boolean pathIsDirectory) {
+    public void setPathIsDirectory( boolean pathIsDirectory ) {
         this.pathIsDirectory = pathIsDirectory;
         setUpResourceImage();
     }

@@ -1,20 +1,21 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
@@ -58,24 +59,22 @@ public class ButtonBar extends View {
         createPeer();
     }
 
-    public ButtonBar(String label) {
-        this();
-
+    public ButtonBar( String id ) {
+        jsObj = UI.createButtonBar( id, new ArrayList<String>() );
     }
 
-    ButtonBar(JavaScriptObject obj) {
+    public ButtonBar( String id, List<String> classes ) {
+        jsObj = UI.createButtonBar( id, classes );
+    }
+
+    ButtonBar( JavaScriptObject obj ) {
         jsObj = obj;
-    }
-
-    public ButtonBar(String label, ClickHandler clickHandler) {
-        this(label);
-        addClickHandler(clickHandler);
     }
 
     /**
      * Index of the currently selected button.
      */
-    public native void setIndex(int value) /*-{
+    public native void setIndex( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.index = value;
     }-*/;
@@ -96,30 +95,30 @@ public class ButtonBar extends View {
      * simple dictionary objects, BarItemType, which can specify title, image,
      * width and enabled state for each button.
      */
-    public native void setLabels(JsArrayString value) /*-{
+    public native void setLabels( JsArrayString value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.labels = value;
     }-*/;
 
-    public void setLabels(String... values) {
+    public void setLabels( String... values ) {
         JsArrayString peers = JsArrayString.createArray().cast();
-        for (String s : values) {
-            peers.push(s);
+        for( String s : values ) {
+            peers.push( s );
         }
-        setLabels(peers);
+        setLabels( peers );
     }
 
-    public native void setLabels(List<BarItemType> values) /*-{
+    public native void setLabels( List<BarItemType> values ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.labels = @com.ait.toolkit.titanium.mobile.client.ui.BarItemType::fromList(Ljava/util/ArrayList;)(values);
     }-*/;
 
-    public native void setStyle(int value) /*-{
+    public native void setStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.style = value;
     }-*/;
 
-    public native CallbackRegistration addClickHandler(ClickHandler handler) /*-{
+    public native CallbackRegistration addClickHandler( ClickHandler handler ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.ClickEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -132,9 +131,6 @@ public class ButtonBar extends View {
 
     }-*/;
 
-    /**
-     * Index of the currently selected button.
-     */
     public native JsArrayString getLabels() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.labels;
@@ -142,11 +138,11 @@ public class ButtonBar extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createButtonBar();
+        jsObj = UI.createButtonBar( "", new ArrayList<String>() );
     }
 
-    public static ButtonBar from(JsObject proxy) {
-        return new ButtonBar(proxy.getJsObj());
+    public static ButtonBar from( JsObject proxy ) {
+        return new ButtonBar( proxy.getJsObj() );
     }
 
 }
