@@ -1,19 +1,21 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ipad;
+
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
@@ -47,20 +49,31 @@ public class IPad extends TiModule {
         createPeer();
     }
 
-    static native JavaScriptObject createDocumentViewer() /*-{
-		return Titanium.UI.iPad.createDocumentViewer();
+    native static JavaScriptObject createPopover( String elId, List<String> classes )/*-{
+		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
+		return Ti.iPad.Android.createPopover({
+			id : elId,
+			classes : cls
+		});
     }-*/;
 
-    static native JavaScriptObject createPopover() /*-{
-		return Titanium.UI.iPad.createPopover();
+    native static JavaScriptObject createDocumentViewer( String elId, List<String> classes )/*-{
+		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
+		return Ti.iPad.createDocumentViewer({
+			id : elId,
+			classes : cls
+		});
     }-*/;
 
-    static native JavaScriptObject createSplitWindow(View detail, View master) /*-{
+    static native JavaScriptObject createSplitWindow( String elId, List<String> classes, View detail, View master ) /*-{
 		var d = detail.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var m = master.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		return Titanium.UI.iPad.createSplitWindow({
 			detailView : d,
-			masterView : m
+			id : elId,
+			masterView : m,
+			classes : cls
 		});
     }-*/;
 

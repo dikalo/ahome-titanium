@@ -1,21 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ipad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.HideHandler;
@@ -40,6 +41,14 @@ public class Popover extends View {
         createPeer();
     }
 
+    public Popover( String id ) {
+        jsObj = IPad.createPopover( id, new ArrayList<String>() );
+    }
+
+    public Popover( String id, List<String> classes ) {
+        jsObj = IPad.createPopover( id, classes );
+    }
+
     /**
      * @return Return the arrow direction of the popover
      */
@@ -58,7 +67,7 @@ public class Popover extends View {
 		return toReturn;
     }-*/;
 
-    public native void setLeftNavButton(Button value) /*-{
+    public native void setLeftNavButton( Button value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.leftNavButton = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -73,7 +82,7 @@ public class Popover extends View {
 		return toReturn;
     }-*/;
 
-    public native void setRightNavButton(Button value) /*-{
+    public native void setRightNavButton( Button value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.rightNavButton = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -86,7 +95,7 @@ public class Popover extends View {
 		return jso.title;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
@@ -97,7 +106,7 @@ public class Popover extends View {
      * @param height
      *            height of the popover
      */
-    public native void setHeight(int height) /*-{
+    public native void setHeight( int height ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setHeight(height);
     }-*/;
@@ -110,23 +119,23 @@ public class Popover extends View {
      *            popover is open (i.e. clicking on these views will interact
      *            with these views, and not dismiss the popover).
      */
-    public void setPassthroughViews(ArrayList<View> views) {
+    public void setPassthroughViews( ArrayList<View> views ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (View v : views) {
-            values.push(v.getJsObj());
+        for( View v : views ) {
+            values.push( v.getJsObj() );
         }
-        _setPassthroughViews(values);
+        _setPassthroughViews( values );
     }
 
-    public void setPassthroughViews(View... views) {
+    public void setPassthroughViews( View... views ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (View v : views) {
-            values.push(v.getJsObj());
+        for( View v : views ) {
+            values.push( v.getJsObj() );
         }
-        _setPassthroughViews(values);
+        _setPassthroughViews( values );
     }
 
-    private native void _setPassthroughViews(JavaScriptObject passthroughViews) /*-{
+    private native void _setPassthroughViews( JavaScriptObject passthroughViews ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setPassthroughViews(passthroughViews);
     }-*/;
@@ -137,12 +146,12 @@ public class Popover extends View {
      * @param width
      *            width of the popover
      */
-    public native void setWidth(int width) /*-{
+    public native void setWidth( int width ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setWidth(width);
     }-*/;
 
-    public native CallbackRegistration addHideHandler(HideHandler handler)/*-{
+    public native CallbackRegistration addHideHandler( HideHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.HideEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -155,31 +164,29 @@ public class Popover extends View {
 
     }-*/;
 
-    public native void show(JavaScriptObject options) /*-{
+    public native void show( JavaScriptObject options ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.show(options);
     }-*/;
 
-    public native void show(View anchor) /*-{
+    public native void show( View anchor ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.show({
-					view : anchor.@com.ait.toolkit.core.client.JsObject::getJsObj()()
-				});
+		jso.show({
+			view : anchor.@com.ait.toolkit.core.client.JsObject::getJsObj()()
+		});
     }-*/;
 
-    public native void show(View anchor, boolean animation) /*-{
+    public native void show( View anchor, boolean animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.show({
-					view : anchor.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-					animated : animation
-				});
+		jso.show({
+			view : anchor.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
+			animated : animation
+		});
     }-*/;
 
     @Override
     public void createPeer() {
-        jsObj = IPad.createPopover();
+        jsObj = IPad.createPopover( "", new ArrayList<String>() );
     }
 
 }
