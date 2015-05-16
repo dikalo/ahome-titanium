@@ -185,7 +185,7 @@ public class SearchView extends View {
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		return Ti.UI.Android.createSearchView({
 			id : elId,
-			classes : cls
+			"class" : cls
 		});
     }-*/;
 

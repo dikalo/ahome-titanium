@@ -151,7 +151,7 @@ public class ProgressIndicator extends EventDispatcher {
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		return Ti.UI.Android.createProgressIndicator({
 			id : elId,
-			classes : cls
+			"class" : cls
 		});
     }-*/;
 

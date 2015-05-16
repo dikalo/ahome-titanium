@@ -61,7 +61,7 @@ public class IPad extends TiModule {
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		return Ti.iPad.createDocumentViewer({
 			id : elId,
-			classes : cls
+			"class" : cls
 		});
     }-*/;
 
@@ -73,7 +73,7 @@ public class IPad extends TiModule {
 			detailView : d,
 			id : elId,
 			masterView : m,
-			classes : cls
+			"class" : cls
 		});
     }-*/;
 
