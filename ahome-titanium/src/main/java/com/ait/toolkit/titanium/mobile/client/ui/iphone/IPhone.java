@@ -1,19 +1,21 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.iphone;
+
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
@@ -38,7 +40,7 @@ public class IPhone extends TiModule {
     private static IPhone instance;
 
     public static IPhone get() {
-        if (instance == null) {
+        if( instance == null ) {
             instance = new IPhone();
         }
         return instance;
@@ -57,7 +59,7 @@ public class IPhone extends TiModule {
 		return jso.appBadge;
     }-*/;
 
-    public static native void setAppBadge(String value) /*-{
+    public static native void setAppBadge( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.appBadge = value;
     }-*/;
@@ -71,7 +73,7 @@ public class IPhone extends TiModule {
 		jso.appSupportsShakeToEdit;
     }-*/;
 
-    public native void setAppSupportsShakeToEdit(boolean value) /*-{
+    public native void setAppSupportsShakeToEdit( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.appSupportsShakeToEdit = value;
     }-*/;
@@ -84,7 +86,7 @@ public class IPhone extends TiModule {
 		return jso.statusBarHidden;
     }-*/;
 
-    public native void setStatusBarHidden(boolean value) /*-{
+    public native void setStatusBarHidden( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.statusBarHidden = value;
     }-*/;
@@ -97,21 +99,19 @@ public class IPhone extends TiModule {
 		return jso.statusBarStyle;
     }-*/;
 
-    public native void setStatusBarStyle(int value) /*-{
+    public native void setStatusBarStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.statusBarStyle = value;
     }-*/;
 
-    native JavaScriptObject createNavigationGroup() /*-{
+    native JavaScriptObject createNavigationGroup( String elId, List<String> classes, Window rootWindow ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return jso.createNavigationGroup();
-    }-*/;
-
-    native JavaScriptObject createNavigationGroup(Window rootWindow) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		var obj = jso
 				.createNavigationGroup({
-					window : rootWindow.@com.ait.toolkit.core.client.JsObject::getJsObj()()
+					window : rootWindow.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
+					id : elId,
+					'class' : cls
 				});
 		return obj;
     }-*/;
@@ -124,7 +124,7 @@ public class IPhone extends TiModule {
      * @param animationStyle
      *            the animation style
      */
-    public native void hideStatusBar(boolean animated, int animationStyle) /*-{
+    public native void hideStatusBar( boolean animated, int animationStyle ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hideStatusBar(animated, animationStyle);
     }-*/;
@@ -137,7 +137,7 @@ public class IPhone extends TiModule {
      * @param animationStyle
      *            the animation style
      */
-    public native void showStatusBar(boolean animated, int animationStyle) /*-{
+    public native void showStatusBar( boolean animated, int animationStyle ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.showStatusBar(animated, animationStyle);
     }-*/;
