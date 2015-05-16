@@ -109,7 +109,8 @@ public class CoverFlowView extends View {
 
     static native JavaScriptObject createCoverFlowView( String elId, List<String> classes ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.iOS.createCoverFlowView({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.CoverFlowView', elId, classes)
+		return obj || Titanium.UI.iOS.createCoverFlowView({
 			id : elId,
 			'class' : cls
 		});

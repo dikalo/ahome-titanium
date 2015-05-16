@@ -183,7 +183,8 @@ public class SearchView extends View {
 
     private native JavaScriptObject createPeer( String elId, List<String> classes )/*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Ti.UI.Android.createSearchView({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.Android.SearchView', elId, classes)
+		return obj || Ti.UI.Android.createSearchView({
 			id : elId,
 			"class" : cls
 		});

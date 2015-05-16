@@ -246,7 +246,8 @@ public class Toolbar extends View {
 
     native JavaScriptObject createPeer( String elId, List<String> classes, JavaScriptObject children ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.iOS.createToolbar({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.Toolbar', elId, classes)
+		return obj || Titanium.UI.iOS.createToolbar({
 			items : children,
 			id : elId,
 			'class' : cls

@@ -149,7 +149,8 @@ public class ProgressIndicator extends EventDispatcher {
 
     private native JavaScriptObject createPeer( String elId, List<String> classes )/*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Ti.UI.Android.createProgressIndicator({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.Android.ProgressIndicator', elId, classes)
+		return obj || Ti.UI.Android.createProgressIndicator({
 			id : elId,
 			"class" : cls
 		});

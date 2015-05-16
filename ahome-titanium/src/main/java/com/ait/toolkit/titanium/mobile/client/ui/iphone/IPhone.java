@@ -107,13 +107,14 @@ public class IPhone extends TiModule {
     native JavaScriptObject createNavigationGroup( String elId, List<String> classes, Window rootWindow ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		var obj = jso
-				.createNavigationGroup({
-					window : rootWindow.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-					id : elId,
-					'class' : cls
-				});
-		return obj;
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iphone.NavigationGroup', elId, classes)
+		return obj
+				|| jso
+						.createNavigationGroup({
+							window : rootWindow.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
+							id : elId,
+							'class' : cls
+						});
     }-*/;
 
     /**

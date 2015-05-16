@@ -51,17 +51,10 @@ public class IPad extends TiModule {
 
     native static JavaScriptObject createPopover( String elId, List<String> classes )/*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Ti.iPad.Android.createPopover({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iPad.Popover', elId, classes)
+		return obj || Titanium.UI.iPad.Android.createPopover({
 			id : elId,
 			'class' : cls
-		});
-    }-*/;
-
-    native static JavaScriptObject createDocumentViewer( String elId, List<String> classes )/*-{
-		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Ti.iPad.createDocumentViewer({
-			id : elId,
-			"class" : cls
 		});
     }-*/;
 
@@ -69,7 +62,8 @@ public class IPad extends TiModule {
 		var d = detail.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var m = master.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.iPad.createSplitWindow({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iPad.SpliWindow', elId, classes)
+		return obj || Titanium.UI.iPad.createSplitWindow({
 			detailView : d,
 			id : elId,
 			masterView : m,

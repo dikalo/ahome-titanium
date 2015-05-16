@@ -116,7 +116,8 @@ public class TabbedBar extends View implements HasStyle {
 
     private static native JavaScriptObject createTabbedBar( String elId, List<String> classes ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.iOS.createTabbedBar({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.TabbedBarr', id, classes)
+		return obj || Titanium.UI.iOS.createTabbedBar({
 			id : elId,
 			'class' : cls
 		});

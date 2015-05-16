@@ -85,7 +85,8 @@ public class NavigationWindow extends Window {
 
     native JavaScriptObject createNavigationWindow( String elId, List<String> classes, JavaScriptObject win ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.iOS.createNavigationWindow({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.NavigationWindow', elId, classes)
+		return obj || Titanium.UI.iOS.createNavigationWindow({
 			window : win,
 			id : elId,
 			'class' : cls

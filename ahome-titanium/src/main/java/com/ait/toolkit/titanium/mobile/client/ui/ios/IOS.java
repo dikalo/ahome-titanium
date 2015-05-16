@@ -72,7 +72,8 @@ public class IOS extends TiModule {
     native JavaScriptObject createAdView( String elId, List<String> classes ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return jso.createAdView({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.AdView',elId, classes)
+		return obj || jso.createAdView({
 			id : elId,
 			'class' : cls
 		});
@@ -81,7 +82,8 @@ public class IOS extends TiModule {
     native JavaScriptObject createToolbar( String elId, List<String> classes ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return jso.createToolbar({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.Toolbar', elId, classes)
+		return obj || jso.createToolbar({
 			id : elId,
 			'class' : cls
 		});
@@ -262,7 +264,8 @@ public class IOS extends TiModule {
 
     static native JavaScriptObject createDocumentViewer( String elId, List<String> classes ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.IOS.createDocumentViewer({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.DocumentViewer', elId, classes)
+		return obj || Titanium.UI.IOS.createDocumentViewer({
 			id : elId,
 			'class' : cls
 		});

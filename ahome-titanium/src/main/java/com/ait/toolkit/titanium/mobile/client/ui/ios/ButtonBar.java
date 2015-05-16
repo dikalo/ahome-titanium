@@ -121,9 +121,10 @@ public class ButtonBar extends View {
         return new ButtonBar( proxy.getJsObj() );
     }
 
-    private static native JavaScriptObject createButtonBar( String id, List<String> classes ) /*-{
+    private static native JavaScriptObject createButtonBar( String elId, List<String> classes ) /*-{
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
-		return Titanium.UI.createButtonBar({
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.ButtonBar', elId, classes)
+		return obj || Titanium.UI.createButtonBar({
 			id : elId,
 			'class' : cls
 		});
