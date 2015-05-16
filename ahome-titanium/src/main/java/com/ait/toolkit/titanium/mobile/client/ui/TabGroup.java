@@ -1,21 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TabGroupHandler;
@@ -36,7 +37,15 @@ public class TabGroup extends View {
         createPeer();
     }
 
-    TabGroup(JavaScriptObject obj) {
+    public TabGroup( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public TabGroup( String id, List<String> classes ) {
+        jsObj = UI.createTabGroup( id, classes );
+    }
+
+    TabGroup( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -50,12 +59,12 @@ public class TabGroup extends View {
 		return toReturn;
     }-*/;
 
-    public native void setActiveTab(Tab value) /*-{
+    public native void setActiveTab( Tab value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setActiveTab(value);
     }-*/;
 
-    public native void setActiveTab(int value) /*-{
+    public native void setActiveTab( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setActiveTab(value);
     }-*/;
@@ -70,7 +79,7 @@ public class TabGroup extends View {
 		return jso.allowUserCustomization;
     }-*/;
 
-    public native void setAllowUserCustomization(boolean value) /*-{
+    public native void setAllowUserCustomization( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.allowUserCustomization = value;
     }-*/;
@@ -83,7 +92,7 @@ public class TabGroup extends View {
 		return jso.barColor;
     }-*/;
 
-    public native void setBarColor(String value) /*-{
+    public native void setBarColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.barColor = value;
     }-*/;
@@ -97,7 +106,7 @@ public class TabGroup extends View {
 		return jso.editButtonTitle;
     }-*/;
 
-    public native void setEditButtonTitle(String value) /*-{
+    public native void setEditButtonTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.editButtonTitle = value;
     }-*/;
@@ -108,26 +117,26 @@ public class TabGroup extends View {
     public ArrayList<Tab> getTabs() {
         ArrayList<Tab> labels = new ArrayList<Tab>();
         JsArray<JavaScriptObject> values = _getTabs();
-        for (int i = 0; i < values.length(); i++) {
-            labels.add(new Tab(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            labels.add( new Tab( values.get( i ) ) );
         }
         return labels;
     }
 
-    public void setTabs(ArrayList<Tab> tabs) {
+    public void setTabs( ArrayList<Tab> tabs ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (Tab element : tabs) {
-            values.push(element.getJsObj());
+        for( Tab element : tabs ) {
+            values.push( element.getJsObj() );
         }
-        _setTabs(values);
+        _setTabs( values );
     }
 
-    public void setTabs(Tab... tabs) {
+    public void setTabs( Tab... tabs ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (Tab element : tabs) {
-            values.push(element.getJsObj());
+        for( Tab element : tabs ) {
+            values.push( element.getJsObj() );
         }
-        _setTabs(values);
+        _setTabs( values );
     }
 
     private native JsArray<JavaScriptObject> _getTabs() /*-{
@@ -135,7 +144,7 @@ public class TabGroup extends View {
 		return jso.tabs;
     }-*/;
 
-    private native void _setTabs(JsArray<JavaScriptObject> value) /*-{
+    private native void _setTabs( JsArray<JavaScriptObject> value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.tabs = value;
     }-*/;
@@ -147,7 +156,7 @@ public class TabGroup extends View {
 		return jso.windowSoftInputMode;
     }-*/;
 
-    public native void setWindowSoftInputMode(int value) /*-{
+    public native void setWindowSoftInputMode( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.windowSoftInputMode = value;
     }-*/;
@@ -157,10 +166,9 @@ public class TabGroup extends View {
      * 
      * @param tab The tab to add
      */
-    public native void addTab(Tab tab) /*-{
+    public native void addTab( Tab tab ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.addTab(tab.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.addTab(tab.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -182,10 +190,9 @@ public class TabGroup extends View {
     /**
      * Open the tab group and make it visible
      */
-    public native void open(Animation animation) /*-{
+    public native void open( Animation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.open(animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.open(animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -196,7 +203,7 @@ public class TabGroup extends View {
 		jso.removeTab();
     }-*/;
 
-    public native void addBlurHandler(TabGroupHandler handler)/*-{
+    public native void addBlurHandler( TabGroupHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -207,7 +214,7 @@ public class TabGroup extends View {
 						});
     }-*/;
 
-    public native void addCloseHandler(TabGroupHandler handler)/*-{
+    public native void addCloseHandler( TabGroupHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -218,7 +225,7 @@ public class TabGroup extends View {
 						});
     }-*/;
 
-    public native void addFocusHandler(TabGroupHandler handler)/*-{
+    public native void addFocusHandler( TabGroupHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -229,7 +236,7 @@ public class TabGroup extends View {
 						});
     }-*/;
 
-    public native void addOpenHandler(TabGroupHandler handler)/*-{
+    public native void addOpenHandler( TabGroupHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -242,11 +249,11 @@ public class TabGroup extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createTabGroup();
+        jsObj = UI.createTabGroup( "", new ArrayList<String>() );
     }
 
-    public static TabGroup from(JsObject proxy) {
-        return new TabGroup(proxy.getJsObj());
+    public static TabGroup from( JsObject proxy ) {
+        return new TabGroup( proxy.getJsObj() );
     }
 
 }

@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.SliderChangeHandler;
@@ -30,7 +33,16 @@ public class Slider extends View implements HasExtremum {
         createPeer();
     }
 
-    Slider(JavaScriptObject obj) {
+    public Slider( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public Slider( String id, List<String> classes ) {
+        jsObj = UI.createSlider( id, classes );
+
+    }
+
+    Slider( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -42,7 +54,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.disabledLeftTrackImage;
     }-*/;
 
-    public native void setDisabledLeftTrackImage(String value) /*-{
+    public native void setDisabledLeftTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.disabledLeftTrackImage = value;
     }-*/;
@@ -56,7 +68,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.disabledRightTrackImage;
     }-*/;
 
-    public native void setDisabledRightTrackImage(String value) /*-{
+    public native void setDisabledRightTrackImage( String value ) /*-{
 		jso.disabledRightTrackImage = value;
     }-*/;
 
@@ -68,7 +80,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.disabledThumbImage;
     }-*/;
 
-    public native void setDisabledThumbImage(String value) /*-{
+    public native void setDisabledThumbImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.disabledThumbImage = value;
     }-*/;
@@ -81,7 +93,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.enabled;
     }-*/;
 
-    public native void setEnabled(boolean value) /*-{
+    public native void setEnabled( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.enabled = value;
     }-*/;
@@ -95,7 +107,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.highlightedLeftTrackImage;
     }-*/;
 
-    public native void setHighlightedLeftTrackImage(String value) /*-{
+    public native void setHighlightedLeftTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.highlightedLeftTrackImage = value;
     }-*/;
@@ -109,7 +121,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.highlightedRightTrackImage;
     }-*/;
 
-    public native void setHighlightedRightTrackImage(String value) /*-{
+    public native void setHighlightedRightTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.highlightedRightTrackImage = value;
     }-*/;
@@ -122,7 +134,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.highlightedThumbImage;
     }-*/;
 
-    public native void setHighlightedThumbImage(String value) /*-{
+    public native void setHighlightedThumbImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.highlightedThumbImage = value;
     }-*/;
@@ -135,7 +147,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.leftTrackImage;
     }-*/;
 
-    public native void setLeftTrackImage(String value) /*-{
+    public native void setLeftTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.leftTrackImage = value;
     }-*/;
@@ -148,7 +160,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.max;
     }-*/;
 
-    public native void setMax(double value) /*-{
+    public native void setMax( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.max = value;
     }-*/;
@@ -162,7 +174,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.maxRange;
     }-*/;
 
-    public native void setMaxRange(int value) /*-{
+    public native void setMaxRange( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.maxRange = value;
     }-*/;
@@ -175,7 +187,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.min;
     }-*/;
 
-    public native void setMin(double value) /*-{
+    public native void setMin( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.min = value;
     }-*/;
@@ -189,7 +201,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.minRange;
     }-*/;
 
-    public native void setMinRange(int value) /*-{
+    public native void setMinRange( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.minRange = value;
     }-*/;
@@ -202,7 +214,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.rightTrackImage;
     }-*/;
 
-    public native void setRightTrackImage(String value) /*-{
+    public native void setRightTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.rightTrackImage = value;
     }-*/;
@@ -215,7 +227,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.selectedLeftTrackImage;
     }-*/;
 
-    public native void setSelectedLeftTrackImage(String value) /*-{
+    public native void setSelectedLeftTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedLeftTrackImage = value;
     }-*/;
@@ -229,7 +241,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.selectedRightTrackImage;
     }-*/;
 
-    public native void setSelectedRightTrackImage(String value) /*-{
+    public native void setSelectedRightTrackImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedRightTrackImage = value;
     }-*/;
@@ -242,7 +254,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.selectedThumbImage;
     }-*/;
 
-    public native void setSelectedThumbImage(String value) /*-{
+    public native void setSelectedThumbImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedThumbImage = value;
     }-*/;
@@ -255,7 +267,7 @@ public class Slider extends View implements HasExtremum {
 		return jso.thumbImage;
     }-*/;
 
-    public native void setThumbImage(String value) /*-{
+    public native void setThumbImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.thumbImage = value;
     }-*/;
@@ -268,12 +280,12 @@ public class Slider extends View implements HasExtremum {
 		return jso.value;
     }-*/;
 
-    public native void setValue(double value) /*-{
+    public native void setValue( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.value = value;
     }-*/;
 
-    public native void addChangeHandler(SliderChangeHandler handler)/*-{
+    public native void addChangeHandler( SliderChangeHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -286,11 +298,11 @@ public class Slider extends View implements HasExtremum {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createSlider();
+        jsObj = UI.createSlider( "", new ArrayList<String>() );
     }
 
-    public static Slider from(JsObject proxy) {
-        return new Slider(proxy.getJsObj());
+    public static Slider from( JsObject proxy ) {
+        return new Slider( proxy.getJsObj() );
     }
 
 }

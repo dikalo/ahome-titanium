@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
@@ -35,7 +35,15 @@ public class ScrollableView extends View {
         createPeer();
     }
 
-    ScrollableView(JavaScriptObject proxy) {
+    public ScrollableView( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public ScrollableView( String id, List<String> classes ) {
+        jsObj = UI.createRefreshControl( id, classes );
+    }
+
+    ScrollableView( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
@@ -51,7 +59,7 @@ public class ScrollableView extends View {
 		return jso.cacheSize;
     }-*/;
 
-    public native void setCacheSize(int value) /*-{
+    public native void setCacheSize( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.cacheSize = value;
     }-*/;
@@ -64,7 +72,7 @@ public class ScrollableView extends View {
 		return jso.currentPage;
     }-*/;
 
-    public native void setCurrentPage(int value) /*-{
+    public native void setCurrentPage( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.currentPage = value;
     }-*/;
@@ -77,7 +85,7 @@ public class ScrollableView extends View {
 		return jso.disableBounce;
     }-*/;
 
-    public native void setDisableBounce(boolean value) /*-{
+    public native void setDisableBounce( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.disableBounce = value;
     }-*/;
@@ -90,7 +98,7 @@ public class ScrollableView extends View {
 		return jso.maxZoomScale;
     }-*/;
 
-    public native void setMaxZoomScale(double value) /*-{
+    public native void setMaxZoomScale( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.maxZoomScale = value;
     }-*/;
@@ -103,7 +111,7 @@ public class ScrollableView extends View {
 		return jso.minZoomScale;
     }-*/;
 
-    public native void setMinZoomScale(double value) /*-{
+    public native void setMinZoomScale( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.minZoomScale = value;
     }-*/;
@@ -116,7 +124,7 @@ public class ScrollableView extends View {
 		return jso.pagingControlColor;
     }-*/;
 
-    public native void setPagingControlColor(String value) /*-{
+    public native void setPagingControlColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.pagingControlColor = value;
     }-*/;
@@ -130,7 +138,7 @@ public class ScrollableView extends View {
 		return jso.pagingControlHeight;
     }-*/;
 
-    public native void setPagingControlHeight(double value) /*-{
+    public native void setPagingControlHeight( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.pagingControlHeight = value;
     }-*/;
@@ -143,7 +151,7 @@ public class ScrollableView extends View {
 		return jso.showPagingControl;
     }-*/;
 
-    public native void setShowPagingControl(boolean value) /*-{
+    public native void setShowPagingControl( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.showPagingControl = value;
     }-*/;
@@ -154,8 +162,8 @@ public class ScrollableView extends View {
     public List<View> getViews() {
         List<View> views = new ArrayList<View>();
         JsArray<JavaScriptObject> values = _getViews();
-        for (int i = 0; i < values.length(); i++) {
-            views.add(new View(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            views.add( new View( values.get( i ) ) );
         }
         return views;
     }
@@ -165,23 +173,23 @@ public class ScrollableView extends View {
 		return jso.views;
     }-*/;
 
-    public void setViews(List<View> views) {
+    public void setViews( List<View> views ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (View v : views) {
-            values.push(v.getJsObj());
+        for( View v : views ) {
+            values.push( v.getJsObj() );
         }
-        _setViews(values);
+        _setViews( values );
     }
 
-    public void setView(View... views) {
+    public void setView( View... views ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (View v : views) {
-            values.push(v.getJsObj());
+        for( View v : views ) {
+            values.push( v.getJsObj() );
         }
-        _setViews(values);
+        _setViews( values );
     }
 
-    private native void _setViews(JavaScriptObject value) /*-{
+    private native void _setViews( JavaScriptObject value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.views = value;
     }-*/;
@@ -192,10 +200,9 @@ public class ScrollableView extends View {
      * @param view
      *            the view to add
      */
-    public native void addView(View view) /*-{
+    public native void addView( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.addView(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.addView(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -204,7 +211,7 @@ public class ScrollableView extends View {
      * @param view
      *            the view to remove
      */
-    public native void removeView(View view) /*-{
+    public native void removeView( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.removeView(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
@@ -217,13 +224,13 @@ public class ScrollableView extends View {
      *            either an integer index or the view object to bring into view
      *            as the currentPage
      */
-    public native void scrollToView(View view) /*-{
+    public native void scrollToView( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.scrollToView(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
-    public native void addScrollHandler(ScrollableViewScrollHandler handler)/*-{
+    public native void addScrollHandler( ScrollableViewScrollHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -236,11 +243,11 @@ public class ScrollableView extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createScrollableView();
+        jsObj = UI.createScrollableView( "", new ArrayList<String>() );
     }
 
-    public static ScrollableView from(JsObject proxy) {
-        return new ScrollableView(proxy.getJsObj());
+    public static ScrollableView from( JsObject proxy ) {
+        return new ScrollableView( proxy.getJsObj() );
     }
 
 }

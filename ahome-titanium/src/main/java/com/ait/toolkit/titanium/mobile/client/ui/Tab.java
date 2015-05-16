@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.ui.interfaces.HasTitle;
@@ -31,12 +34,15 @@ public class Tab extends View implements HasTitle {
         createPeer();
     }
 
-    public Tab(String title) {
-        this();
-        setTitle(title);
+    public Tab( String id, List<String> classes ) {
+        jsObj = UI.createTab( id, classes );
     }
 
-    Tab(JavaScriptObject obj) {
+    public Tab( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    Tab( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -49,7 +55,7 @@ public class Tab extends View implements HasTitle {
 		return jso.badge;
     }-*/;
 
-    public native void setBadge(String value) /*-{
+    public native void setBadge( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.badge = value;
     }-*/;
@@ -62,7 +68,7 @@ public class Tab extends View implements HasTitle {
 		return jso.icon;
     }-*/;
 
-    public native void setIcon(String value) /*-{
+    public native void setIcon( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.icon = value;
     }-*/;
@@ -75,7 +81,7 @@ public class Tab extends View implements HasTitle {
 		return jso.title;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
@@ -88,7 +94,7 @@ public class Tab extends View implements HasTitle {
 		return jso.titleid;
     }-*/;
 
-    public native void setTitleId(String value) /*-{
+    public native void setTitleId( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.titleid = value;
     }-*/;
@@ -104,7 +110,7 @@ public class Tab extends View implements HasTitle {
 		return toReturn;
     }-*/;
 
-    public native void setWindow(View value) /*-{
+    public native void setWindow( View value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.window = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -113,33 +119,29 @@ public class Tab extends View implements HasTitle {
      * @param view
      *            The view to open in the tab
      */
-    public native void open(View view) /*-{
+    public native void open( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
-		jso
-				.open(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.open(view.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
      * @param view
      *            The view to open in the tab with an animation
      */
-    public native void open(View view, boolean animated) /*-{
+    public native void open( View view, boolean animated ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.open(
-						view.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-						{
-							animate : animated
-						});
+		jso.open(view.@com.ait.toolkit.core.client.JsObject::getJsObj()(), {
+			animate : animated
+		});
     }-*/;
 
     @Override
     public void createPeer() {
-        jsObj = UI.createTab();
+        jsObj = UI.createTab( "", new ArrayList<String>() );
     }
 
-    public static Tab from(JsObject proxy) {
-        return new Tab(proxy.getJsObj());
+    public static Tab from( JsObject proxy ) {
+        return new Tab( proxy.getJsObj() );
     }
 
 }

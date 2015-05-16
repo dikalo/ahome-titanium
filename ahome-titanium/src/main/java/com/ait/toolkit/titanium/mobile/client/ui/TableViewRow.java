@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
@@ -46,7 +46,15 @@ public class TableViewRow extends View implements HasTitle {
         createPeer();
     }
 
-    TableViewRow(JavaScriptObject obj) {
+    public TableViewRow( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public TableViewRow( String id, List<String> classes ) {
+        jsObj = UI.createTableViewRow( id, classes );
+    }
+
+    TableViewRow( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -63,7 +71,7 @@ public class TableViewRow extends View implements HasTitle {
      * A succint label associated with the table row for the device's
      * accessibility service.
      */
-    public native void setAccessibilityLabel(String value) /*-{
+    public native void setAccessibilityLabel( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.accessibilityLabel = value;
     }-*/;
@@ -80,7 +88,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.className;
     }-*/;
 
-    public native void setClassName(String value) /*-{
+    public native void setClassName( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.className = value;
     }-*/;
@@ -93,7 +101,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.color;
     }-*/;
 
-    public native void setColor(String value) /*-{
+    public native void setColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
     }-*/;
@@ -125,7 +133,7 @@ public class TableViewRow extends View implements HasTitle {
      * See the Titanium.UI.TableView description section for a full explanation
      * of the TableView's row editing and moving modes.
      */
-    public native void setEditable(boolean value) /*-{
+    public native void setEditable( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.editable = value;
     }-*/;
@@ -135,7 +143,7 @@ public class TableViewRow extends View implements HasTitle {
      * <p>
      * Default: System default font.
      */
-    public native void setFont(Font value) /*-{
+    public native void setFont( Font value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.font = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -160,7 +168,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.hasCheck;
     }-*/;
 
-    public native void setHasCheck(boolean value) /*-{
+    public native void setHasCheck( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hasCheck = value;
     }-*/;
@@ -174,7 +182,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.hasChild;
     }-*/;
 
-    public native void setHasChild(boolean value) /*-{
+    public native void setHasChild( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hasChild = value;
     }-*/;
@@ -188,7 +196,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.hasDetail;
     }-*/;
 
-    public native void setHasDetail(boolean value) /*-{
+    public native void setHasDetail( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hasDetail = value;
     }-*/;
@@ -201,7 +209,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.indentionLevel;
     }-*/;
 
-    public native void setIndentionLevel(int value) /*-{
+    public native void setIndentionLevel( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.indentionLevel = value;
     }-*/;
@@ -214,7 +222,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.leftImage;
     }-*/;
 
-    public native void setLeftImage(String value) /*-{
+    public native void setLeftImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.leftImage = value;
     }-*/;
@@ -227,7 +235,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.rightImage;
     }-*/;
 
-    public native void setRightImage(String value) /*-{
+    public native void setRightImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.rightImage = value;
     }-*/;
@@ -259,7 +267,7 @@ public class TableViewRow extends View implements HasTitle {
      * See the Titanium.UI.TableView description section for a full explanation
      * of the TableView's row editing and moving modes.
      */
-    public native void setMoveable(boolean value) /*-{
+    public native void setMoveable( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.moveable = value;
     }-*/;
@@ -272,7 +280,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.selectedBackgroundColor;
     }-*/;
 
-    public native void setSelectedBackgroundColor(String value) /*-{
+    public native void setSelectedBackgroundColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedBackgroundColor = value;
     }-*/;
@@ -285,7 +293,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.selectedBackgroundImage;
     }-*/;
 
-    public native void setSelectedBackgroundImage(String value) /*-{
+    public native void setSelectedBackgroundImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedBackgroundImage = value;
     }-*/;
@@ -298,7 +306,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.selectedColor;
     }-*/;
 
-    public native void setSelectedColor(String value) /*-{
+    public native void setSelectedColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedColor = value;
     }-*/;
@@ -313,7 +321,7 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.selectionStyle;
     }-*/;
 
-    public native void setSelectionStyle(int value) /*-{
+    public native void setSelectionStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectionStyle = value;
     }-*/;
@@ -327,12 +335,12 @@ public class TableViewRow extends View implements HasTitle {
 		return jso.title;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
 
-    public native CallbackRegistration addTableRowClickHandler(TableRowClickHandler handler)
+    public native CallbackRegistration addTableRowClickHandler( TableRowClickHandler handler )
     /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
@@ -346,26 +354,26 @@ public class TableViewRow extends View implements HasTitle {
 
     }-*/;
 
-    static JavaScriptObject fromList(List<TableViewRow> values) {
+    static JavaScriptObject fromList( List<TableViewRow> values ) {
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
-        for (TableViewRow rule : values) {
-            peers.push(rule.getJsObj());
+        for( TableViewRow rule : values ) {
+            peers.push( rule.getJsObj() );
         }
         return peers;
     }
 
-    static List<TableViewRow> fromJsArray(JavaScriptObject obj) {
+    static List<TableViewRow> fromJsArray( JavaScriptObject obj ) {
         List<TableViewRow> toReturn = new ArrayList<TableViewRow>();
-        int size = JsoHelper.arrayLength(obj);
-        for (int i = 0; i < size; i++) {
-            toReturn.add(new TableViewRow(JsoHelper.getValueFromJavaScriptObjectArray(obj, i)));
+        int size = JsoHelper.arrayLength( obj );
+        for( int i = 0; i < size; i++ ) {
+            toReturn.add( new TableViewRow( JsoHelper.getValueFromJavaScriptObjectArray( obj, i ) ) );
         }
         return toReturn;
     }
 
     @Override
     public void createPeer() {
-        jsObj = UI.createTableViewRow();
+        jsObj = UI.createTableViewRow( "", new ArrayList<String>() );
     }
 
 }

@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.SwitchChangeHandler;
@@ -29,13 +32,16 @@ public class Switch extends View implements HasTitle {
         createPeer();
     }
 
-    Switch(JavaScriptObject obj) {
+    Switch( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
-    public Switch(String title) {
-        this();
-        setTitle(title);
+    public Switch( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public Switch( String id, List<String> classes ) {
+        jsObj = UI.createSwitch( id, classes );
     }
 
     /**
@@ -46,7 +52,7 @@ public class Switch extends View implements HasTitle {
 		return jso.enabled;
     }-*/;
 
-    public native void setEnabled(boolean value) /*-{
+    public native void setEnabled( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.enabled = value;
     }-*/;
@@ -63,7 +69,7 @@ public class Switch extends View implements HasTitle {
 		return jso.style;
     }-*/;
 
-    public native void setStyle(int value) /*-{
+    public native void setStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.style = value;
     }-*/;
@@ -80,7 +86,7 @@ public class Switch extends View implements HasTitle {
 		return jso.title;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
@@ -95,7 +101,7 @@ public class Switch extends View implements HasTitle {
 		return jso.titleOff;
     }-*/;
 
-    public native void setTitleOff(String value) /*-{
+    public native void setTitleOff( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.titleOff = value;
     }-*/;
@@ -111,7 +117,7 @@ public class Switch extends View implements HasTitle {
 		return jso.titleOn;
     }-*/;
 
-    public native void setTitleOn(String value) /*-{
+    public native void setTitleOn( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.titleOn = value;
     }-*/;
@@ -125,12 +131,12 @@ public class Switch extends View implements HasTitle {
 		return jso.value;
     }-*/;
 
-    public native void setValue(boolean value) /*-{
+    public native void setValue( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.value = value;
     }-*/;
 
-    public native void addChangeHandler(SwitchChangeHandler handler)/*-{
+    public native void addChangeHandler( SwitchChangeHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -143,11 +149,11 @@ public class Switch extends View implements HasTitle {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createSwitch();
+        jsObj = UI.createSwitch( "", new ArrayList<String>() );
     }
 
-    public static Switch from(JsObject proxy) {
-        return new Switch(proxy.getJsObj());
+    public static Switch from( JsObject proxy ) {
+        return new Switch( proxy.getJsObj() );
     }
 
 }

@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
@@ -30,7 +30,11 @@ public class PickerColumn extends View {
         createPeer();
     }
 
-    PickerColumn(JavaScriptObject obj) {
+    public PickerColumn( String id ) {
+        jsObj = UI.createPickerColumn( id, new ArrayList<String>() );
+    }
+
+    PickerColumn( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -48,8 +52,8 @@ public class PickerColumn extends View {
     public ArrayList<PickerRow> getRows() {
         ArrayList<PickerRow> rows = new ArrayList<PickerRow>();
         JsArray<JavaScriptObject> values = _getRows();
-        for (int i = 0; i < values.length(); i++) {
-            rows.add(new PickerRow(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            rows.add( new PickerRow( values.get( i ) ) );
         }
         return rows;
     }
@@ -63,7 +67,7 @@ public class PickerColumn extends View {
      * 
      * @param row The row to add.
      */
-    public native void addRow(PickerRow row) /*-{
+    public native void addRow( PickerRow row ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso
 				.addRow(row.@com.ait.toolkit.core.client.JsObject::getJsObj()());
@@ -74,7 +78,7 @@ public class PickerColumn extends View {
      * 
      * @param row The row to remove.
      */
-    public native void removeRow(PickerRow row) /*-{
+    public native void removeRow( PickerRow row ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso
 				.removeRow(row.@com.ait.toolkit.core.client.JsObject::getJsObj()());
@@ -82,10 +86,10 @@ public class PickerColumn extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createPickerColumn();
+        jsObj = UI.createPickerColumn( "", new ArrayList<String>() );
     }
 
-    public static PickerColumn from(JsObject proxy) {
-        return new PickerColumn(proxy.getJsObj());
+    public static PickerColumn from( JsObject proxy ) {
+        return new PickerColumn( proxy.getJsObj() );
     }
 }

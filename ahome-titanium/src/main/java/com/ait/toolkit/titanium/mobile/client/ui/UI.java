@@ -516,10 +516,6 @@ public class UI extends TiModule {
 		return obj || Titanium.UI.createRefreshControl();
     }-*/;
 
-    static native JavaScriptObject createPicker() /*-{
-		return Titanium.UI.createPicker();
-    }-*/;
-
     static native JavaScriptObject createPicker( String id, List<String> classes ) /*-{
 		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.Picker', id, classes)
 		return obj || Titanium.UI.createPicker();
