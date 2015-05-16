@@ -53,7 +53,7 @@ public class IPad extends TiModule {
 		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
 		return Ti.iPad.Android.createPopover({
 			id : elId,
-			classes : cls
+			'class' : cls
 		});
     }-*/;
 
