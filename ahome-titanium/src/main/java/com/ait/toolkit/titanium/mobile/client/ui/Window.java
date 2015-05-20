@@ -74,6 +74,29 @@ public class Window extends View {
     }-*/;
 
     /**
+    * The status bar style associated with this window.
+    * <p>
+    * Sets the status bar style when this window has focus. This is now the recommended way to control the status bar style on the application.
+    * <p>
+    * If this value is undefined, the value is set to UIStatusBarStyle defined in tiapp.xml. If that is not defined it defaults to Titanium.UI.iPhone.StatusBar.DEFAULT.
+    * <p>
+    * This property can be assigned the following constants:
+    * <p>
+    * <ul>
+    *   <li>Titanium.UI.iPhone.StatusBar.DEFAULT</li>
+    *   <li>Titanium.UI.iPhone.StatusBar.GRAY</li>
+    *   <li>Titanium.UI.iPhone.StatusBar.GREY</li>
+    *   <li>Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT</li>
+    *   <li>Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK</li>
+    *   <li>Titanium.UI.iPhone.StatusBar.TRANSLUCENT_BLACK</li>
+    * </ul>
+    */
+    public native void setStatusBarStyle( int value ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.statusBarStyle = value;
+    }-*/;
+
+    /**
      * @return Web named color or hex value for the color of the nav bar. only available in iphone. Availaboe on iOs only
      */
     public native String getBarColor() /*-{
