@@ -652,7 +652,7 @@ public class Window extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createWebView( "", new ArrayList<String>() );
+        jsObj = UI.createWindow( "", new ArrayList<String>() );
     }
 
 }
