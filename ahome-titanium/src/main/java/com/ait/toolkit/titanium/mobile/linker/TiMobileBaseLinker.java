@@ -21,7 +21,7 @@ public abstract class TiMobileBaseLinker extends AbstractLinker {
         ArtifactSet toReturn = new ArtifactSet( artifacts );
         out = new DefaultTextOutput( true );
         long compilationTime = System.currentTimeMillis();
-        out.print( "exports.start = function(){" );
+        out.print( "(function(){" );
         out.newline();
 
         // get compilation result
@@ -57,7 +57,7 @@ public abstract class TiMobileBaseLinker extends AbstractLinker {
         out.newline();
         out.print( "gwtOnLoad(null,'" + context.getModuleName() + "',null);" );
         out.newline();
-        out.print( "};" );
+        out.print( "})();" );
         out.newline();
 
         // toReturn.add(emitString(logger, out.toString(),
