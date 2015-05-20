@@ -2075,10 +2075,16 @@ public class View extends UIObject implements HasWidgets, Animatable,
      * Removes all children views
      */
     public void clear() {
-        for( View c : children ) {
-            remove( c );
-        }
+        this.removeAllChildren();
     }
+
+    /**
+     * Removes all children views
+     */
+    public native void removeAllChildren() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.removeAllChildren();
+    }-*/;
 
     /**
      * Removes all children views and adds the view
