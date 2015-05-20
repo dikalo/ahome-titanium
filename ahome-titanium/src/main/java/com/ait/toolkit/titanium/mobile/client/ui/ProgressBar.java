@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.ui.interfaces.ColoredElement;
@@ -37,7 +40,15 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
         createPeer();
     }
 
-    ProgressBar(JavaScriptObject obj) {
+    public ProgressBar( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public ProgressBar( String id, List<String> classes ) {
+        jsObj = UI.createProgressBar( id, classes );
+    }
+
+    ProgressBar( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -49,7 +60,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
 		return jso.color;
     }-*/;
 
-    public native void setColor(String value) /*-{
+    public native void setColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.color = value;
     }-*/;
@@ -64,7 +75,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
 		return toReturn;
     }-*/;
 
-    public native void setFont(Font value) /*-{
+    public native void setFont( Font value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.font = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -86,7 +97,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
      * @see com.ait.toolkit.titanium.mobile.client.ui.HasExtremum#setMax(double)
      */
     @Override
-    public native void setMax(double value) /*-{
+    public native void setMax( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.max = value;
     }-*/;
@@ -99,7 +110,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
 		return jso.message;
     }-*/;
 
-    public native void setMessage(String value) /*-{
+    public native void setMessage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.message = value;
     }-*/;
@@ -121,7 +132,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
      * @see com.ait.toolkit.titanium.mobile.client.ui.HasExtremum#setMin(double)
      */
     @Override
-    public native void setMin(double value) /*-{
+    public native void setMin( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.min = value;
     }-*/;
@@ -134,7 +145,7 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
 		return jso.style;
     }-*/;
 
-    public native void setStyle(int value) /*-{
+    public native void setStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.style = value;
     }-*/;
@@ -147,18 +158,18 @@ public class ProgressBar extends View implements MessageElement, HasStyle, Color
 		return jso.value;
     }-*/;
 
-    public native void setValue(double value) /*-{
+    public native void setValue( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.value = value;
     }-*/;
 
     @Override
     public void createPeer() {
-        jsObj = UI.createProgressBar();
+        jsObj = UI.createProgressBar( "", new ArrayList<String>() );
     }
 
-    public static ProgressBar from(JsObject proxy) {
-        return new ProgressBar(proxy.getJsObj());
+    public static ProgressBar from( JsObject proxy ) {
+        return new ProgressBar( proxy.getJsObj() );
     }
 
 }

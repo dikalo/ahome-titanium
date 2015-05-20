@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.iphone;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.ui.View;
 import com.ait.toolkit.titanium.mobile.client.ui.Window;
@@ -32,8 +35,16 @@ import com.ait.toolkit.titanium.mobile.client.ui.Window;
  */
 public class NavigationGroup extends View {
 
-    public NavigationGroup(Window rootWindow) {
-        create(rootWindow);
+    public NavigationGroup( Window rootWindow ) {
+        create( rootWindow );
+    }
+
+    public NavigationGroup( String id, Window rootWindow ) {
+        this( id, new ArrayList<String>(), rootWindow );
+    }
+
+    public NavigationGroup( String id, List<String> classes, Window rootWindow ) {
+        jsObj = IPhone.get().createNavigationGroup( id, classes, rootWindow );
     }
 
     /**
@@ -42,10 +53,9 @@ public class NavigationGroup extends View {
      * @param window
      *            window to close
      */
-    public native void close(Window window) /*-{
+    public native void close( Window window ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.close(window.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.close(window.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -58,13 +68,11 @@ public class NavigationGroup extends View {
      *            or not.
      * */
 
-    public native void close(Window window, boolean animate) /*-{
+    public native void close( Window window, boolean animate ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.close(
-				window.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-				{
-					animated : animate
-				});
+		jso.close(window.@com.ait.toolkit.core.client.JsObject::getJsObj()(), {
+			animated : animate
+		});
     }-*/;
 
     /**
@@ -77,10 +85,9 @@ public class NavigationGroup extends View {
      *            `animated` which is a boolean to indicate if the window should
      *            be opened animated (default) or not.
      */
-    public native void open(Window window) /*-{
+    public native void open( Window window ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso
-				.open(window.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		jso.open(window.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -92,13 +99,11 @@ public class NavigationGroup extends View {
      *            indicates if the window should be opened animated (default) or
      *            not.
      */
-    public native void open(Window window, boolean animate) /*-{
+    public native void open( Window window, boolean animate ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.open(
-				window.@com.ait.toolkit.core.client.JsObject::getJsObj()(),
-				{
-					animated : animate
-				});
+		jso.open(window.@com.ait.toolkit.core.client.JsObject::getJsObj()(), {
+			animated : animate
+		});
     }-*/;
 
     /**
@@ -115,7 +120,7 @@ public class NavigationGroup extends View {
         // jsObj = IPhone.get().createNavigationGroup();
     }
 
-    public void create(Window rootwindow) {
-        jsObj = IPhone.get().createNavigationGroup(rootwindow);
+    public void create( Window rootwindow ) {
+        jsObj = IPhone.get().createNavigationGroup( "", new ArrayList<String>(), rootwindow );
     }
 }

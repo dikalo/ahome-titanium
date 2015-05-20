@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
@@ -32,7 +35,15 @@ public class OptionDialog extends EventDispatcher {
         createPeer();
     }
 
-    OptionDialog(JavaScriptObject proxy) {
+    public OptionDialog( String id, List<String> classes ) {
+        jsObj = UI.createOptionDialog( id, classes );
+    }
+
+    public OptionDialog( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    OptionDialog( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
@@ -48,7 +59,7 @@ public class OptionDialog extends EventDispatcher {
 		return toReturn;
     }-*/;
 
-    public native void setAndroidView(View value) /*-{
+    public native void setAndroidView( View value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.androidView = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -63,7 +74,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.cancel;
     }-*/;
 
-    public native void setCancel(int value) /*-{
+    public native void setCancel( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.cancel = value;
     }-*/;
@@ -76,7 +87,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.destructive;
     }-*/;
 
-    public native void setDestructive(int value) /*-{
+    public native void setDestructive( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.destructive = value;
     }-*/;
@@ -89,15 +100,15 @@ public class OptionDialog extends EventDispatcher {
 		return jso.options;
     }-*/;
 
-    public void setOptions(String... values) {
+    public void setOptions( String... values ) {
         JsArrayString strings = JsArrayString.createArray().cast();
-        for (String s : values) {
-            strings.push(s);
+        for( String s : values ) {
+            strings.push( s );
         }
-        setOptions(strings);
+        setOptions( strings );
     }
 
-    public native void setOptions(JsArrayString value) /*-{
+    public native void setOptions( JsArrayString value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.options = value;
     }-*/;
@@ -112,7 +123,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.selectedIndex;
     }-*/;
 
-    public native void setSelectedIndex(int value) /*-{
+    public native void setSelectedIndex( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectedIndex = value;
     }-*/;
@@ -125,7 +136,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.title;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
@@ -138,7 +149,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.titleid;
     }-*/;
 
-    public native void setTitleId(String value) /*-{
+    public native void setTitleId( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.titleid = value;
     }-*/;
@@ -151,7 +162,7 @@ public class OptionDialog extends EventDispatcher {
 		return jso.show();
     }-*/;
 
-    public native CallbackRegistration addClickHandler(DialogClickHandler handler) /*-{
+    public native CallbackRegistration addClickHandler( DialogClickHandler handler ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.dialog.DialogClickEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
@@ -165,11 +176,11 @@ public class OptionDialog extends EventDispatcher {
     }-*/;
 
     private void createPeer() {
-        jsObj = UI.createOptionDialog();
+        jsObj = UI.createOptionDialog( "", new ArrayList<String>() );
     }
 
-    public static OptionDialog from(JsObject proxy) {
-        return new OptionDialog(proxy.getJsObj());
+    public static OptionDialog from( JsObject proxy ) {
+        return new OptionDialog( proxy.getJsObj() );
     }
 
 }

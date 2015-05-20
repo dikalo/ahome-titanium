@@ -1,21 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.Unit;
@@ -39,9 +40,16 @@ public class TextArea extends View {
         createPeer();
     }
 
-    TextArea(JavaScriptObject obj) {
-        jsObj = obj;
+    public TextArea( String id ) {
+        this( id, new ArrayList<String>() );
+    }
 
+    public TextArea( String id, List<String> classes ) {
+        jsObj = UI.createTextArea( id, classes );
+    }
+
+    TextArea( JavaScriptObject obj ) {
+        jsObj = obj;
     }
 
     /**
@@ -53,7 +61,7 @@ public class TextArea extends View {
 		return jso.autoLink;
     }-*/;
 
-    public native void setAutoLink(int value) /*-{
+    public native void setAutoLink( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.autoLink = value;
     }-*/;
@@ -71,8 +79,8 @@ public class TextArea extends View {
      * 
      * @param value, the value of the left padding
      */
-    public void setPaddingLeft(double value) {
-        UI.get().setSizePropertyAsDouble(jsObj, "paddingLeft", value);
+    public void setPaddingLeft( double value ) {
+        UI.get().setSizePropertyAsDouble( jsObj, "paddingLeft", value );
     }
 
     /**
@@ -80,8 +88,8 @@ public class TextArea extends View {
      * 
      * @param value, the value of the left padding
      */
-    public void setPaddingLeft(String value) {
-        UI.get().setSizePropertyAsString(jsObj, "paddingLeft", value);
+    public void setPaddingLeft( String value ) {
+        UI.get().setSizePropertyAsString( jsObj, "paddingLeft", value );
     }
 
     /**
@@ -90,8 +98,8 @@ public class TextArea extends View {
      * @param value, the value of the left padding
      * @param unit, the unit system to use
      */
-    public void setPaddingLeft(String value, Unit unit) {
-        UI.get().setSizePropertyAsString(jsObj, "paddingLeft", value, unit);
+    public void setPaddingLeft( String value, Unit unit ) {
+        UI.get().setSizePropertyAsString( jsObj, "paddingLeft", value, unit );
     }
 
     /**
@@ -107,8 +115,8 @@ public class TextArea extends View {
      * 
      * @param value, the value of the left padding
      */
-    public void setPaddingRight(double value) {
-        UI.get().setSizePropertyAsDouble(jsObj, "paddingRight", value);
+    public void setPaddingRight( double value ) {
+        UI.get().setSizePropertyAsDouble( jsObj, "paddingRight", value );
     }
 
     /**
@@ -116,8 +124,8 @@ public class TextArea extends View {
      * 
      * @param value, the value of the left padding
      */
-    public void setPaddingRight(String value) {
-        UI.get().setSizePropertyAsString(jsObj, "paddingRight", value);
+    public void setPaddingRight( String value ) {
+        UI.get().setSizePropertyAsString( jsObj, "paddingRight", value );
     }
 
     /**
@@ -126,8 +134,8 @@ public class TextArea extends View {
      * @param value, the value of the left padding
      * @param unit, the unit system to be used
      */
-    public void setPaddingRight(String value, Unit unit) {
-        UI.get().setSizePropertyAsString(jsObj, "paddingRight", value, unit);
+    public void setPaddingRight( String value, Unit unit ) {
+        UI.get().setSizePropertyAsString( jsObj, "paddingRight", value, unit );
     }
 
     /**
@@ -135,9 +143,9 @@ public class TextArea extends View {
      * 
      * @param value, the value of the padding
      */
-    public void setPadding(double value) {
-        setPaddingLeft(value);
-        setPaddingRight(value);
+    public void setPadding( double value ) {
+        setPaddingLeft( value );
+        setPaddingRight( value );
     }
 
     /**
@@ -145,9 +153,9 @@ public class TextArea extends View {
      * 
      * @param value, the value of the padding
      */
-    public void setPadding(String value) {
-        setPaddingLeft(value);
-        setPaddingRight(value);
+    public void setPadding( String value ) {
+        setPaddingLeft( value );
+        setPaddingRight( value );
     }
 
     /**
@@ -156,9 +164,9 @@ public class TextArea extends View {
      * 
      * @param value, the value of the padding
      */
-    public void setPadding(String value, Unit unit) {
-        setPaddingLeft(value, unit);
-        setPaddingRight(value, unit);
+    public void setPadding( String value, Unit unit ) {
+        setPaddingLeft( value, unit );
+        setPaddingRight( value, unit );
     }
 
     /**
@@ -167,9 +175,9 @@ public class TextArea extends View {
      * @param leftPadding, the left padding
      * @param rightPadding, the right padding
      */
-    public void setPadding(double leftPadding, double rightPadding) {
-        setPaddingLeft(leftPadding);
-        setPaddingRight(rightPadding);
+    public void setPadding( double leftPadding, double rightPadding ) {
+        setPaddingLeft( leftPadding );
+        setPaddingRight( rightPadding );
     }
 
     /**
@@ -178,9 +186,9 @@ public class TextArea extends View {
      * @param leftPadding, the left padding
      * @param rightPadding, the right padding
      */
-    public void setPadding(String leftPadding, String rightPadding) {
-        setPaddingLeft(leftPadding);
-        setPaddingRight(rightPadding);
+    public void setPadding( String leftPadding, String rightPadding ) {
+        setPaddingLeft( leftPadding );
+        setPaddingRight( rightPadding );
     }
 
     /**
@@ -190,9 +198,9 @@ public class TextArea extends View {
      * @param rightPadding, the right padding
      * @param unit, the unit system to be used
      */
-    public void setPadding(String leftPadding, String rightPadding, Unit unit) {
-        setPaddingLeft(leftPadding, unit);
-        setPaddingRight(rightPadding, unit);
+    public void setPadding( String leftPadding, String rightPadding, Unit unit ) {
+        setPaddingLeft( leftPadding, unit );
+        setPaddingRight( rightPadding, unit );
     }
 
     /**
@@ -205,7 +213,7 @@ public class TextArea extends View {
 		return toReturn;
     }-*/;
 
-    public native void setLeftButton(Button value) /*-{
+    public native void setLeftButton( Button value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.leftButton = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -218,7 +226,7 @@ public class TextArea extends View {
 		return jso.leftButtonMode;
     }-*/;
 
-    public native void setLeftButtonMode(int value) /*-{
+    public native void setLeftButtonMode( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.leftButtonMode = value;
     }-*/;
@@ -233,7 +241,7 @@ public class TextArea extends View {
 		return toReturn;
     }-*/;
 
-    public native void setRightButton(Button value) /*-{
+    public native void setRightButton( Button value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.rightButton = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -247,21 +255,21 @@ public class TextArea extends View {
 		return jso.clearOnEdit;
     }-*/;
 
-    public native void setClearOnEdit(boolean value) /*-{
+    public native void setClearOnEdit( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.clearOnEdit = value;
     }-*/;
 
-    public native void setTextAlign(String value) /*-{
+    public native void setTextAlign( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.textAlign = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
-    public void setTextAlign(Position position) {
-        setTextAlign(position.getValue());
+    public void setTextAlign( Position position ) {
+        setTextAlign( position.getValue() );
     }
 
-    public native void setFont(Font value) /*-{
+    public native void setFont( Font value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.font = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -271,7 +279,7 @@ public class TextArea extends View {
      * 
      * @param value, value of the keyboard type
      */
-    public native void setKeyboardType(int value) /*-{
+    public native void setKeyboardType( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.keyboardType = value;
     }-*/;
@@ -290,7 +298,7 @@ public class TextArea extends View {
      * 
      * @param value, value of the returnkey type
      */
-    public native void setReturnKeyType(int value) /*-{
+    public native void setReturnKeyType( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.returnKeyType = value;
     }-*/;
@@ -309,7 +317,7 @@ public class TextArea extends View {
      * 
      * @param value, value of the returnkey type
      */
-    public native void setAppearance(int value) /*-{
+    public native void setAppearance( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.appearance = value;
     }-*/;
@@ -319,7 +327,7 @@ public class TextArea extends View {
      * 
      * @param value
      */
-    public native void setEnableReturnKey(boolean value) /*-{
+    public native void setEnableReturnKey( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.enableReturnKey = value;
     }-*/;
@@ -361,7 +369,7 @@ public class TextArea extends View {
 		return jso.autocapitalization;
     }-*/;
 
-    public native void setAutocapitalization(int value) /*-{
+    public native void setAutocapitalization( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.autocapitalization = value;
     }-*/;
@@ -374,7 +382,7 @@ public class TextArea extends View {
 		return jso.editable;
     }-*/;
 
-    public native void setEditable(boolean value) /*-{
+    public native void setEditable( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.editable = value;
     }-*/;
@@ -387,7 +395,7 @@ public class TextArea extends View {
 		return jso.enabled;
     }-*/;
 
-    public native void setEnabled(boolean value) /*-{
+    public native void setEnabled( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.enabled = value;
     }-*/;
@@ -399,8 +407,8 @@ public class TextArea extends View {
     public ArrayList<Button> getKeyboardToolbar() {
         ArrayList<Button> buttons = new ArrayList<Button>();
         JsArray<JavaScriptObject> values = _getKeyboardToolbar();
-        for (int i = 0; i < values.length(); i++) {
-            buttons.add(new Button(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            buttons.add( new Button( values.get( i ) ) );
         }
         return buttons;
     }
@@ -410,23 +418,23 @@ public class TextArea extends View {
 		return jso.keyboardToolbar;
     }-*/;
 
-    public void setKeyboardToolbar(ArrayList<Button> buttons) {
+    public void setKeyboardToolbar( ArrayList<Button> buttons ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (Button button : buttons) {
-            values.push(button.getJsObj());
+        for( Button button : buttons ) {
+            values.push( button.getJsObj() );
         }
-        _setKeyboardToolbar(values);
+        _setKeyboardToolbar( values );
     }
 
-    public void setKeyboardToolbar(Button... buttons) {
+    public void setKeyboardToolbar( Button... buttons ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (Button button : buttons) {
-            values.push(button.getJsObj());
+        for( Button button : buttons ) {
+            values.push( button.getJsObj() );
         }
-        _setKeyboardToolbar(values);
+        _setKeyboardToolbar( values );
     }
 
-    private native void _setKeyboardToolbar(JsArray<JavaScriptObject> value) /*-{
+    private native void _setKeyboardToolbar( JsArray<JavaScriptObject> value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.keyboardToolbar = value;
     }-*/;
@@ -439,7 +447,7 @@ public class TextArea extends View {
 		return jso.keyboardToolbarColor;
     }-*/;
 
-    public native void setKeyboardToolbarColor(String value) /*-{
+    public native void setKeyboardToolbarColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.keyboardToolbarColor = value;
     }-*/;
@@ -452,7 +460,7 @@ public class TextArea extends View {
 		return jso.keyboardToolbarHeight;
     }-*/;
 
-    public native void setKeyboardToolbarHeight(double value) /*-{
+    public native void setKeyboardToolbarHeight( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.keyboardToolbarHeight = value;
     }-*/;
@@ -466,12 +474,12 @@ public class TextArea extends View {
 		return jso.suppressReturn;
     }-*/;
 
-    public native void setSuppressReturn(boolean value) /*-{
+    public native void setSuppressReturn( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.suppressReturn = value;
     }-*/;
 
-    public native void setSoftKeyboardOnFocus(int value) /*-{
+    public native void setSoftKeyboardOnFocus( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.softKeyboardOnFocus = value;
     }-*/;
@@ -484,7 +492,7 @@ public class TextArea extends View {
 		return jso.value;
     }-*/;
 
-    public native void setValue(String value) /*-{
+    public native void setValue( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.value = value;
     }-*/;
@@ -498,7 +506,7 @@ public class TextArea extends View {
 		return jso.scrollable;
     }-*/;
 
-    public native void setScrollable(boolean value) /*-{
+    public native void setScrollable( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scrollable = value;
     }-*/;
@@ -527,8 +535,8 @@ public class TextArea extends View {
 		return jso.hasText();
     }-*/;
 
-    public native CallbackRegistration addChangeHandler(TextChangedHandler handler)/*-{
-    	var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    public native CallbackRegistration addChangeHandler( TextChangedHandler handler )/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.text.TextChangedEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 			handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TextChangedHandler::onChange(Lcom/ait/toolkit/titanium/mobile/client/core/events/ui/text/TextChangedEvent;)(eventObject);
@@ -538,9 +546,9 @@ public class TextArea extends View {
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
     }-*/;
-    
-    public native CallbackRegistration addReturnHandler(TextReturnHandler handler)/*-{
-    	var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+
+    public native CallbackRegistration addReturnHandler( TextReturnHandler handler )/*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var listener = function(e) {
 			var eventObject = @com.ait.toolkit.titanium.mobile.client.core.events.ui.text.TextReturnEvent::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
 			handler.@com.ait.toolkit.titanium.mobile.client.core.handlers.ui.TextReturnHandler::onReturn(Lcom/ait/toolkit/titanium/mobile/client/core/events/ui/text/TextReturnEvent;)(eventObject);
@@ -549,15 +557,15 @@ public class TextArea extends View {
 		var v = jso.addEventListener(name, listener);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration::new(Lcom/ait/toolkit/titanium/mobile/client/core/events/EventDispatcher;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,name,listener);
 		return toReturn;
-    }-*/;    
-    
+    }-*/;
+
     @Override
     public void createPeer() {
-        jsObj = UI.createTextArea();
+        jsObj = UI.createTextArea( "", new ArrayList<String>() );
     }
 
-    public static TextArea from(JsObject proxy) {
-        return new TextArea(proxy.getJsObj());
+    public static TextArea from( JsObject proxy ) {
+        return new TextArea( proxy.getJsObj() );
     }
 
 }

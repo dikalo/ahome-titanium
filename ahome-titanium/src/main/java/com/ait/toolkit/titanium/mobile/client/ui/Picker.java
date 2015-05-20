@@ -1,21 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.PickerChangeHandler;
@@ -45,12 +46,24 @@ public class Picker extends View {
         createPeer();
     }
 
-    Picker(JavaScriptObject proxy) {
+    Picker( JavaScriptObject proxy ) {
         jsObj = proxy;
     }
 
-    public Picker(boolean spinner) {
-        createPeerSpinner(spinner);
+    public Picker( boolean spinner ) {
+        createPeerSpinner( spinner );
+    }
+
+    public Picker( String id ) {
+        jsObj = UI.createPicker( id, new ArrayList<String>() );
+    }
+
+    public Picker( String id, List<String> classes ) {
+        jsObj = UI.createPicker( id, classes );
+    }
+
+    public Picker( String id, List<String> classes, boolean spinner ) {
+        jsObj = UI.createPicker( id, classes, spinner );
     }
 
     /**
@@ -60,8 +73,8 @@ public class Picker extends View {
     public ArrayList<PickerColumn> getColumns() {
         ArrayList<PickerColumn> columns = new ArrayList<PickerColumn>();
         JsArray<JavaScriptObject> values = _getColumns();
-        for (int i = 0; i < values.length(); i++) {
-            columns.add(new PickerColumn(values.get(i)));
+        for( int i = 0; i < values.length(); i++ ) {
+            columns.add( new PickerColumn( values.get( i ) ) );
         }
         return columns;
     }
@@ -70,15 +83,15 @@ public class Picker extends View {
 		return jso.columns;
     }-*/;
 
-    public void setColumns(ArrayList<PickerColumn> columns) {
+    public void setColumns( ArrayList<PickerColumn> columns ) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
-        for (PickerColumn column : columns) {
-            values.push(column.getJsObj());
+        for( PickerColumn column : columns ) {
+            values.push( column.getJsObj() );
         }
-        _setColumns(values);
+        _setColumns( values );
     }
 
-    private native void _setColumns(JsArray<JavaScriptObject> value) /*-{
+    private native void _setColumns( JsArray<JavaScriptObject> value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.columns = value;
     }-*/;
@@ -93,7 +106,7 @@ public class Picker extends View {
 		return jso.countDownDuration;
     }-*/;
 
-    public native void setCountDownDuration(double value) /*-{
+    public native void setCountDownDuration( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.countDownDuration = value;
     }-*/;
@@ -114,7 +127,7 @@ public class Picker extends View {
 		return jso.format24;
     }-*/;
 
-    public native void setFormat24(boolean value) /*-{
+    public native void setFormat24( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.format24 = value;
     }-*/;
@@ -127,7 +140,7 @@ public class Picker extends View {
 		return jso.locale;
     }-*/;
 
-    public native void setLocale(String value) /*-{
+    public native void setLocale( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.locale = value;
     }-*/;
@@ -140,7 +153,7 @@ public class Picker extends View {
 		return jso.minDate;
     }-*/;
 
-    public native void setMinDate(JsDate value) /*-{
+    public native void setMinDate( JsDate value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.minDate = value;
     }-*/;
@@ -153,7 +166,7 @@ public class Picker extends View {
 		return jso.maxDate;
     }-*/;
 
-    public native void setMaxDate(JsDate value) /*-{
+    public native void setMaxDate( JsDate value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.maxDate = value;
     }-*/;
@@ -170,7 +183,7 @@ public class Picker extends View {
 		return jso.minuteInterval;
     }-*/;
 
-    public native void setMinuteInterval(int value) /*-{
+    public native void setMinuteInterval( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.minuteInterval = value;
     }-*/;
@@ -185,7 +198,7 @@ public class Picker extends View {
 		return jso.selectionIndicator;
     }-*/;
 
-    public native void setSelectionIndicator(boolean value) /*-{
+    public native void setSelectionIndicator( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.selectionIndicator = value;
     }-*/;
@@ -198,7 +211,7 @@ public class Picker extends View {
 		return jso.type;
     }-*/;
 
-    public native void setType(int value) /*-{
+    public native void setType( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.type = value;
     }-*/;
@@ -219,7 +232,7 @@ public class Picker extends View {
 		return jso.useSpinner;
     }-*/;
 
-    public native void useSpinner(boolean value) /*-{
+    public native void useSpinner( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.useSpinner = value;
     }-*/;
@@ -232,7 +245,7 @@ public class Picker extends View {
 		return jso.value;
     }-*/;
 
-    public native void setValue(JsDate dateValue) /*-{
+    public native void setValue( JsDate dateValue ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.value = dateValue;
     }-*/;
@@ -250,7 +263,7 @@ public class Picker extends View {
 		return jso.visibleItems;
     }-*/;
 
-    public native void setVisibleItems(int value) /*-{
+    public native void setVisibleItems( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.visibleItems = value;
     }-*/;
@@ -261,7 +274,7 @@ public class Picker extends View {
      * @param data
      *            add an array of rows, a single row or a column to the picker
      */
-    public native void add(PickerRow row) /*-{
+    public native void add( PickerRow row ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()()
 		jso.add(row.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
@@ -272,7 +285,7 @@ public class Picker extends View {
      * @param data
      *            add an array of rows, a single row or a column to the picker
      */
-    public native void add(PickerColumn column) /*-{
+    public native void add( PickerColumn column ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.add(column.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
@@ -284,7 +297,7 @@ public class Picker extends View {
      *            for the column index, return the row object or nil if not
      *            found
      */
-    public native PickerRow getSelectedRow(int index) /*-{
+    public native PickerRow getSelectedRow( int index ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var obj = jso.getSelectecRow(index);
 		var toReturn = @com.ait.toolkit.titanium.mobile.client.ui.PickerRow::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
@@ -297,7 +310,7 @@ public class Picker extends View {
      * @param column
      *            new column to load
      */
-    public native void reloadColumn(PickerColumn column) /*-{
+    public native void reloadColumn( PickerColumn column ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso
 				.reloadColumn(column.@com.ait.toolkit.core.client.JsObject::getJsObj()());
@@ -314,12 +327,12 @@ public class Picker extends View {
      *            boolean to indicate if the selection should be animated
      *            (default) (optional)
      */
-    public native void setSelectedRow(int column, int row, boolean animated) /*-{
+    public native void setSelectedRow( int column, int row, boolean animated ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.setSelectedRow(column, row, animated);
     }-*/;
 
-    public native void addChangeHandler(PickerChangeHandler handler)/*-{
+    public native void addChangeHandler( PickerChangeHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -332,15 +345,15 @@ public class Picker extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createPicker();
+        jsObj = UI.createPicker( "", new ArrayList<String>() );
     }
 
-    private void createPeerSpinner(boolean spinner) {
-        jsObj = UI.createPicker(spinner);
+    private void createPeerSpinner( boolean spinner ) {
+        jsObj = UI.createPicker( "", new ArrayList<String>(), spinner );
     }
 
-    public static Picker from(JsObject proxy) {
-        return new Picker(proxy.getJsObj());
+    public static Picker from( JsObject proxy ) {
+        return new Picker( proxy.getJsObj() );
     }
 
 }

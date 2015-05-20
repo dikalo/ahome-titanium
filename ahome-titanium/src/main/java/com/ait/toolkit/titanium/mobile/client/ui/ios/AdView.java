@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ios;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ErrorHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.loading.LoadHandler;
@@ -33,6 +36,14 @@ public class AdView extends View {
         createPeer();
     }
 
+    public AdView( String id ) {
+        this( id, new ArrayList<String>() );
+    }
+
+    public AdView( String id, List<String> classes ) {
+        jsObj = IOS.get().createAdView( id, classes );
+    }
+
     /**
      * A banner view action can cover your application's user interface.
      * however, your application continues to run, and receives events normally.
@@ -46,7 +57,7 @@ public class AdView extends View {
 		return jso.cancelAction();
     }-*/;
 
-    public native void addChangeHandler(ChangeHandler handler)/*-{
+    public native void addChangeHandler( ChangeHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -57,7 +68,7 @@ public class AdView extends View {
 						});
     }-*/;
 
-    public native void addErrorHandler(ErrorHandler handler)/*-{
+    public native void addErrorHandler( ErrorHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -68,7 +79,7 @@ public class AdView extends View {
 						});
     }-*/;
 
-    public native void addLoadHandler(LoadHandler handler)/*-{
+    public native void addLoadHandler( LoadHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -81,7 +92,7 @@ public class AdView extends View {
 
     @Override
     public void createPeer() {
-        jsObj = IOS.get().createAdView();
+        jsObj = IOS.get().createAdView( "", new ArrayList<String>() );
     }
 
     /**

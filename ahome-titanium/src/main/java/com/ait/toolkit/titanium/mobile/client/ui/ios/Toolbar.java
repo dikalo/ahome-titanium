@@ -1,17 +1,17 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ios;
 
@@ -57,25 +57,33 @@ public class Toolbar extends View {
     private List<View> items;
 
     public Toolbar() {
-        this(new ArrayList<View>());
+        this( "", new ArrayList<String>(), new ArrayList<View>() );
     }
 
-    public Toolbar(List<View> items) {
+    public Toolbar( String id, List<String> classes ) {
+        this( id, classes, new ArrayList<View>() );
+    }
+
+    public Toolbar( String id ) {
+        this( id, new ArrayList<String>(), new ArrayList<View>() );
+    }
+
+    public Toolbar( String id, List<String> classes, List<View> items ) {
         this.items = items;
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
-        for (View v : items) {
-            peers.push(v.getJsObj());
+        for( View v : items ) {
+            peers.push( v.getJsObj() );
         }
-        createPeer(peers);
+        createPeer( "", new ArrayList<String>(), peers );
     }
 
-    public Toolbar(View... items) {
-        this(Arrays.asList(items));
+    public Toolbar( View... items ) {
+        this( "", new ArrayList<String>(), Arrays.asList( items ) );
     }
 
     @Override
     public void createPeer() {
-        jsObj = IOS.get().createToolbar();
+        jsObj = IOS.get().createToolbar( "", new ArrayList<String>() );
     }
 
     /**
@@ -88,7 +96,7 @@ public class Toolbar extends View {
      * and the the translucent property must be true.
      * 
      */
-    public native void setBarColor(String value) /*-{
+    public native void setBarColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setBarColor(value);
     }-*/;
@@ -113,7 +121,7 @@ public class Toolbar extends View {
      * <p>
      * Default: true
      */
-    public native void setBorderBottom(boolean value) /*-{
+    public native void setBorderBottom( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setBorderBottom(value);
     }-*/;
@@ -134,7 +142,7 @@ public class Toolbar extends View {
      * <p>
      * Default: true
      */
-    public native void setBorderTop(boolean value) /*-{
+    public native void setBorderTop( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setBorderTop(value);
     }-*/;
@@ -158,7 +166,7 @@ public class Toolbar extends View {
      * <p>
      * Default: false
      */
-    public native void setTranslucent(boolean value) /*-{
+    public native void setTranslucent( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setTranslucent(value);
     }-*/;
@@ -183,8 +191,8 @@ public class Toolbar extends View {
      * @param items
      *            , the new items to add
      */
-    public void setItems(View... items) {
-        setItems(Arrays.asList(items));
+    public void setItems( View... items ) {
+        setItems( Arrays.asList( items ) );
     }
 
     /**
@@ -194,16 +202,16 @@ public class Toolbar extends View {
      * @param items
      *            , the new items to add
      */
-    public void setItems(List<View> items) {
+    public void setItems( List<View> items ) {
         this.items = items;
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
-        for (View v : items) {
-            peers.push(v.getJsObj());
+        for( View v : items ) {
+            peers.push( v.getJsObj() );
         }
-        _setItems(peers);
+        _setItems( peers );
     }
 
-    private native void _setItems(JavaScriptObject values) /*-{
+    private native void _setItems( JavaScriptObject values ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.setItems(values);
     }-*/;
@@ -212,7 +220,7 @@ public class Toolbar extends View {
      * Layout the toolbar updating it's items
      */
     public void layout() {
-        this.setItems(this.items);
+        this.setItems( this.items );
     }
 
     /**
@@ -222,23 +230,27 @@ public class Toolbar extends View {
      *            , the position of the item
      * @return an item at a given position
      */
-    public View getItem(int itemPosition) {
-        return this.items.get(itemPosition);
+    public View getItem( int itemPosition ) {
+        return this.items.get( itemPosition );
     }
 
-    public void addItem(View item) {
-        this.items.add(item);
+    public void addItem( View item ) {
+        this.items.add( item );
     }
 
     @Override
-    public void add(View view) {
-        this.addItem(view);
+    public void add( View view ) {
+        this.addItem( view );
         this.layout();
     }
 
-    native JavaScriptObject createPeer(JavaScriptObject children) /*-{
-		return Titanium.UI.iOS.createToolbar({
-			items : children
+    native JavaScriptObject createPeer( String elId, List<String> classes, JavaScriptObject children ) /*-{
+		var cls = @com.ait.toolkit.titanium.mobile.client.ui.UI::_createClassList(Ljava/util/List;)(classes);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.UI::createIfPossible(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)('Titanium.UI.iOS.Toolbar', elId, classes)
+		return obj || Titanium.UI.iOS.createToolbar({
+			items : children,
+			id : elId,
+			'class' : cls
 		})
     }-*/;
 

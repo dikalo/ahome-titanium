@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui.ipad;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.titanium.mobile.client.ui.View;
 import com.ait.toolkit.titanium.mobile.client.ui.Window;
@@ -39,8 +42,16 @@ import com.ait.toolkit.titanium.mobile.client.ui.interfaces.HasWidgets;
  */
 public class SplitWindow extends Window {
 
-    public SplitWindow(View detail, View master) {
-        createPeer(detail, master);
+    public SplitWindow( View detail, View master ) {
+        createPeer( detail, master );
+    }
+
+    public SplitWindow( String id, View detail, View master ) {
+        jsObj = IPad.createSplitWindow( id, new ArrayList<String>(), detail, master );
+    }
+
+    public SplitWindow( String id, List<String> classes, View detail, View master ) {
+        jsObj = IPad.createSplitWindow( id, classes, detail, master );
     }
 
     /**
@@ -53,7 +64,7 @@ public class SplitWindow extends Window {
 		return toReturn;
     }-*/;
 
-    public native void setDetailView(HasWidgets value) /*-{
+    public native void setDetailView( HasWidgets value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.detailView = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -68,7 +79,7 @@ public class SplitWindow extends Window {
 		return toReturn;
     }-*/;
 
-    public native void setMasterView(View value) /*-{
+    public native void setMasterView( View value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.masterView = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -83,7 +94,7 @@ public class SplitWindow extends Window {
 		return jso.showMasterInPortrait;
     }-*/;
 
-    public native void setShowMasterInPortrait(boolean value) /*-{
+    public native void setShowMasterInPortrait( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.showMasterInPortrait = value;
     }-*/;
@@ -92,8 +103,8 @@ public class SplitWindow extends Window {
     // this.addEventListener(VisibleEvent.VISIBLE, handler);
     // }
 
-    private void createPeer(View detail, View master) {
-        jsObj = IPad.createSplitWindow(detail, master);
+    private void createPeer( View detail, View master ) {
+        jsObj = IPad.createSplitWindow( "", new ArrayList<String>(), detail, master );
     }
 
 }

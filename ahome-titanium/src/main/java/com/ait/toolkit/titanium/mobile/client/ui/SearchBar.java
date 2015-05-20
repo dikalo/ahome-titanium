@@ -1,19 +1,22 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.SearchBarHandler;
@@ -28,13 +31,16 @@ public class SearchBar extends View {
         createPeer();
     }
 
-    SearchBar(JavaScriptObject proxy) {
-        jsObj = proxy;
+    public SearchBar( String id ) {
+        this( id, new ArrayList<String>() );
     }
 
-    public SearchBar(String hintText) {
-        this();
-        setHintText(hintText);
+    public SearchBar( String id, List<String> classes ) {
+        jsObj = UI.createSearchBar( id, classes );
+    }
+
+    SearchBar( JavaScriptObject proxy ) {
+        jsObj = proxy;
     }
 
     /**
@@ -50,7 +56,7 @@ public class SearchBar extends View {
 		return jso.autocapitalization;
     }-*/;
 
-    public native void setAutocapitalization(int value) /*-{
+    public native void setAutocapitalization( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.autocapitalization = value;
     }-*/;
@@ -64,7 +70,7 @@ public class SearchBar extends View {
 		return jso.autocorrect;
     }-*/;
 
-    public native void setAutocorrect(boolean value) /*-{
+    public native void setAutocorrect( boolean value ) /*-{
 		jso.autocorrect = value;
     }-*/;
 
@@ -76,7 +82,7 @@ public class SearchBar extends View {
 		return jso.barColor;
     }-*/;
 
-    public native void setBarColor(String value) /*-{
+    public native void setBarColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.barColor = value;
     }-*/;
@@ -88,7 +94,7 @@ public class SearchBar extends View {
 		return jso.hintText;
     }-*/;
 
-    public native void setHintText(String value) /*-{
+    public native void setHintText( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hintText = value;
     }-*/;
@@ -101,7 +107,7 @@ public class SearchBar extends View {
 		return jso.hinttextid;
     }-*/;
 
-    public native void setHintTextId(String value) /*-{
+    public native void setHintTextId( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.hinttextid = value;
     }-*/;
@@ -114,7 +120,7 @@ public class SearchBar extends View {
 		return jso.keyboardType;
     }-*/;
 
-    public native void setKeyboardType(int value) /*-{
+    public native void setKeyboardType( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.keyboardType = value;
     }-*/;
@@ -127,7 +133,7 @@ public class SearchBar extends View {
 		return jso.prompt;
     }-*/;
 
-    public native void setPrompt(String value) /*-{
+    public native void setPrompt( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.prompt = value;
     }-*/;
@@ -140,7 +146,7 @@ public class SearchBar extends View {
 		return jso.promptid;
     }-*/;
 
-    public native void setPromptId(String value) /*-{
+    public native void setPromptId( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.promptid = value;
     }-*/;
@@ -153,7 +159,7 @@ public class SearchBar extends View {
 		return jso.showCancel;
     }-*/;
 
-    public native void setShowCancel(boolean value) /*-{
+    public native void setShowCancel( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.showCancel = value;
     }-*/;
@@ -166,7 +172,7 @@ public class SearchBar extends View {
 		return jso.value;
     }-*/;
 
-    public native void setValue(String value) /*-{
+    public native void setValue( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.value = value;
     }-*/;
@@ -187,7 +193,7 @@ public class SearchBar extends View {
 		jso.focus();
     }-*/;
 
-    public native void addBlurHandler(SearchBarHandler handler)/*-{
+    public native void addBlurHandler( SearchBarHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -198,7 +204,7 @@ public class SearchBar extends View {
 						});
     }-*/;
 
-    public native void addChangeHandler(SearchBarHandler handler)/*-{
+    public native void addChangeHandler( SearchBarHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -209,7 +215,7 @@ public class SearchBar extends View {
 						});
     }-*/;
 
-    public native void addFocusHandler(SearchBarHandler handler)/*-{
+    public native void addFocusHandler( SearchBarHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -220,7 +226,7 @@ public class SearchBar extends View {
 						});
     }-*/;
 
-    public native void addReturnHandler(SearchBarHandler handler)/*-{
+    public native void addReturnHandler( SearchBarHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -231,7 +237,7 @@ public class SearchBar extends View {
 						});
     }-*/;
 
-    public native void addCancelHandler(SearchBarHandler handler)/*-{
+    public native void addCancelHandler( SearchBarHandler handler )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
 				.addEventListener(
@@ -244,10 +250,10 @@ public class SearchBar extends View {
 
     @Override
     public void createPeer() {
-        jsObj = UI.createSearchBar();
+        jsObj = UI.createSearchBar( "", new ArrayList<String>() );
     }
 
-    public static SearchBar from(JsObject proxy) {
-        return new SearchBar(proxy.getJsObj());
+    public static SearchBar from( JsObject proxy ) {
+        return new SearchBar( proxy.getJsObj() );
     }
 }

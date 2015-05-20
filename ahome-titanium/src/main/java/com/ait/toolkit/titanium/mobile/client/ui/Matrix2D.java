@@ -16,6 +16,7 @@
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
@@ -37,6 +38,14 @@ public class Matrix2D extends EventDispatcher {
 
     public Matrix2D() {
         createPeer();
+    }
+
+    public Matrix2D( String id ) {
+        createPeer( id, new ArrayList<String>() );
+    }
+
+    public Matrix2D( String id, List<String> classes ) {
+        createPeer( id, classes );
     }
 
     Matrix2D( JavaScriptObject obj ) {
@@ -196,11 +205,11 @@ public class Matrix2D extends EventDispatcher {
         jsObj = _createPeer( "", new ArrayList<String>() );
     }
 
-    private void createPeer( String id, ArrayList<String> classes ) {
+    private void createPeer( String id, List<String> classes ) {
         jsObj = _createPeer( id, classes );
     }
 
-    private JavaScriptObject _createPeer( String id, ArrayList<String> classes ) {
+    private JavaScriptObject _createPeer( String id, List<String> classes ) {
         return UI.create2DMatrix( id, classes );
     }
 

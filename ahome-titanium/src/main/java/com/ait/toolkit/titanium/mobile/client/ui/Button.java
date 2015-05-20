@@ -35,14 +35,16 @@ public class Button extends View implements HasColor, HasFont, HasLabel,
 
     public Button() {
         createPeer();
+        setText( "" );
     }
 
     public Button( String id ) {
-        jsObj = UI.createButton( id, new ArrayList<String>() );
+        this( id, new ArrayList<String>() );
     }
 
     public Button( String id, List<String> classes ) {
         jsObj = UI.createButton( id, classes );
+        setText( "" );
     }
 
     Button( JavaScriptObject obj ) {
