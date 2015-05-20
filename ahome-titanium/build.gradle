@@ -20,7 +20,7 @@ apply plugin: 'maven'
 sourceCompatibility = 1.6
 
 archivesBaseName = 'titanium4j'
-version = '4.0.0-SNAPSHOT'
+version = '4.0.1-SNAPSHOT'
 group = 'com.ahome-it'
 compileJava.options.encoding = 'UTF-8'
 
