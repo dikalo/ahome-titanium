@@ -86,22 +86,12 @@ public class IPhone extends TiModule {
 		return jso.statusBarHidden;
     }-*/;
 
-    public native void setStatusBarHidden( boolean value ) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.statusBarHidden = value;
-    }-*/;
-
     /**
      * @return Constant that controls the status bar color style
      */
     public native int getStatusBarStyle() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.statusBarStyle;
-    }-*/;
-
-    public native void setStatusBarStyle( int value ) /*-{
-		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.statusBarStyle = value;
     }-*/;
 
     native JavaScriptObject createNavigationGroup( String elId, List<String> classes, Window rootWindow ) /*-{
