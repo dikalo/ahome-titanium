@@ -1,25 +1,25 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.titanium.mobile.client.ui.style.Font;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -30,13 +30,25 @@ public class ListItem extends JsObject {
         jsObj = JsoHelper.createObject();
     }
 
-    public ListItem(String title) {
+    public ListItem( String title ) {
         this();
-        this.setTitle(title);
+        this.setTitle( title );
     }
 
-    protected ListItem(JavaScriptObject obj) {
+    protected ListItem( JavaScriptObject obj ) {
         this.jsObj = obj;
+    }
+
+    public void set( String property, String value ) {
+        JsoHelper.setAttribute( jsObj, property, value );
+    }
+
+    public void set( String property, double value ) {
+        JsoHelper.setAttribute( jsObj, property, value );
+    }
+
+    public void set( String property, ListItem value ) {
+        JsoHelper.setAttribute( jsObj, property, value.getJsObj() );
     }
 
     /**
@@ -64,7 +76,7 @@ public class ListItem extends JsObject {
      * <p>
      * Default: Titanium.UI.LIST_ACCESSORY_TYPE_NONE
      */
-    public native void setAccessoryType(String value) /*-{
+    public native void setAccessoryType( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.accessoryType = value;
     }-*/;
@@ -94,7 +106,7 @@ public class ListItem extends JsObject {
      * Titanium.UI.LIST_ACCESSORY_TYPE_DETAIL) and any child templates that are
      * controls, such as a button, slider, etc.
      */
-    public native void setAllowsSelection(boolean value) /*-{
+    public native void setAllowsSelection( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.allowsSelection = value;
     }-*/;
@@ -120,7 +132,7 @@ public class ListItem extends JsObject {
      * <p>
      * Default: Transparent
      */
-    public native void setBackgroundColor(String value) /*-{
+    public native void setBackgroundColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.backgroundColor = value;
     }-*/;
@@ -154,7 +166,7 @@ public class ListItem extends JsObject {
      * <p>
      * Only applies to the built-in templates.
      */
-    public native void setColor(String value) /*-{
+    public native void setColor( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.color = value;
     }-*/;
@@ -181,7 +193,7 @@ public class ListItem extends JsObject {
      * <p>
      * Default: System default font.
      */
-    public native void setFont(Font value) /*-{
+    public native void setFont( Font value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.font = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
@@ -194,7 +206,7 @@ public class ListItem extends JsObject {
      * <p>
      * On iOS, the value can only be an absolute value.
      */
-    public native void setHeight(String value) /*-{
+    public native void setHeight( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.height = value;
     }-*/;
@@ -207,12 +219,12 @@ public class ListItem extends JsObject {
      * <p>
      * On iOS, the value can only be an absolute value.
      */
-    public native void setHeight(double value) /*-{
+    public native void setHeight( double value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.height = value;
     }-*/;
 
-    public native void setImage(String value) /*-{
+    public native void setImage( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.image = value;
     }-*/;
@@ -222,7 +234,7 @@ public class ListItem extends JsObject {
 		return jso.image;
     }-*/;
 
-    public native void setItemId(String value) /*-{
+    public native void setItemId( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.itemId = value;
     }-*/;
@@ -232,7 +244,7 @@ public class ListItem extends JsObject {
 		return jso.itemId;
     }-*/;
 
-    public native void setSelectionStyle(int value) /*-{
+    public native void setSelectionStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selectionStyle = value;
     }-*/;
@@ -242,7 +254,7 @@ public class ListItem extends JsObject {
 		return jso.selectionStyle;
     }-*/;
 
-    public native void setSubTitle(String value) /*-{
+    public native void setSubTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.subtitle = value;
     }-*/;
@@ -252,7 +264,7 @@ public class ListItem extends JsObject {
 		return jso.subtitle;
     }-*/;
 
-    public native void setTitle(String value) /*-{
+    public native void setTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
@@ -262,19 +274,19 @@ public class ListItem extends JsObject {
 		return jso.title;
     }-*/;
 
-    static JavaScriptObject fromList(List<ListItem> values) {
+    static JavaScriptObject fromList( List<ListItem> values ) {
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
-        for (ListItem item : values) {
-            peers.push(item.getJsObj());
+        for( ListItem item : values ) {
+            peers.push( item.getJsObj() );
         }
         return peers;
     }
 
-    static List<ListItem> fromJsArray(JavaScriptObject obj) {
+    static List<ListItem> fromJsArray( JavaScriptObject obj ) {
         List<ListItem> toReturn = new ArrayList<ListItem>();
-        int size = JsoHelper.arrayLength(obj);
-        for (int i = 0; i < size; i++) {
-            toReturn.add(new ListItem(JsoHelper.getValueFromJavaScriptObjectArray(obj, i)));
+        int size = JsoHelper.arrayLength( obj );
+        for( int i = 0; i < size; i++ ) {
+            toReturn.add( new ListItem( JsoHelper.getValueFromJavaScriptObjectArray( obj, i ) ) );
         }
         return toReturn;
     }

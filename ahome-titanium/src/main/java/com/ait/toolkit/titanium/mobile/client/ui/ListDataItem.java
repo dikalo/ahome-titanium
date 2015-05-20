@@ -1,25 +1,25 @@
 /*
- Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2014 Ahomé Innovation Technologies. All rights reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ait.toolkit.titanium.mobile.client.ui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.core.client.JsObject;
+import com.ait.toolkit.core.client.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -40,12 +40,12 @@ public class ListDataItem extends JsObject {
         jsObj = JsoHelper.createObject();
     }
 
-    public ListDataItem(ListItem items) {
+    public ListDataItem( ListItem items ) {
         this();
-        this.setProperties(items);
+        this.setProperties( items );
     }
 
-    protected ListDataItem(JavaScriptObject obj) {
+    protected ListDataItem( JavaScriptObject obj ) {
         jsObj = obj;
     }
 
@@ -58,9 +58,14 @@ public class ListDataItem extends JsObject {
      * templates), the values set in the list data item override the template's
      * properties.
      */
-    public native void setProperties(ListItem value) /*-{
+    public native void setProperties( ListItem value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.properties = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
+    public native void setProperties( String itemId, ListItem value ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso[itemId] = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
     public native ListItem getProperties() /*-{
@@ -89,7 +94,7 @@ public class ListDataItem extends JsObject {
      * Default: If the ListView's defaultItemTemplate property is not set, then
      * Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT is used.
      */
-    public native void setTemplate(String value) /*-{
+    public native void setTemplate( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.template = value;
     }-*/;
@@ -107,24 +112,24 @@ public class ListDataItem extends JsObject {
      * Default: If the ListView's defaultItemTemplate property is not set, then
      * Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT is used.
      */
-    public native void setTemplate(int value) /*-{
+    public native void setTemplate( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.template = value;
     }-*/;
 
-    static JavaScriptObject fromList(List<ListDataItem> values) {
+    static JavaScriptObject fromList( List<ListDataItem> values ) {
         JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
-        for (ListDataItem item : values) {
-            peers.push(item.getJsObj());
+        for( ListDataItem item : values ) {
+            peers.push( item.getJsObj() );
         }
         return peers;
     }
 
-    static List<ListDataItem> fromJsArray(JavaScriptObject obj) {
+    static List<ListDataItem> fromJsArray( JavaScriptObject obj ) {
         List<ListDataItem> toReturn = new ArrayList<ListDataItem>();
-        int size = JsoHelper.arrayLength(obj);
-        for (int i = 0; i < size; i++) {
-            toReturn.add(new ListDataItem(JsoHelper.getValueFromJavaScriptObjectArray(obj, i)));
+        int size = JsoHelper.arrayLength( obj );
+        for( int i = 0; i < size; i++ ) {
+            toReturn.add( new ListDataItem( JsoHelper.getValueFromJavaScriptObjectArray( obj, i ) ) );
         }
         return toReturn;
     }

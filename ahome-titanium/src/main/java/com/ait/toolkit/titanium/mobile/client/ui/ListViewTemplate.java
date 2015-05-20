@@ -26,7 +26,17 @@ public class ListViewTemplate extends JsObject {
         jsObj = JsoHelper.createObject();
     }
 
-    public void addViewTemplate( ViewTemplate viewTemplate ) {
+    public ListViewTemplate( String templateId, ItemTemplate template ) {
+        this();
+        addViewTemplate( template );
+    }
+
+    public ListViewTemplate( ItemTemplate template ) {
+        this();
+        addTemplate( "template", template );
+    }
+
+    public void addViewTemplate( ItemTemplate viewTemplate ) {
         addTemplate( "template", viewTemplate );
     }
 
@@ -38,9 +48,9 @@ public class ListViewTemplate extends JsObject {
         JsoHelper.setAttribute( jsObj, "classes", UI._createClassList( classes ) );
     }
 
-    public native void addTemplate( String templateId, ViewTemplate template )/*-{
+    public native void addTemplate( String templateId, ItemTemplate template )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var tlp = template.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var tpl = template.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		var o = {};
 		o[templateId] = tpl;
 		jso.templates = o;
