@@ -92,6 +92,22 @@ public class ListSection extends JsObject {
 		jso.footerTitle = value;
     }-*/;
 
+    /**
+     * View to use for this section footer.
+     */
+    public native View getFooterView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.footerView);
+    }-*/;
+
+    /**
+     * View to use for this section footer.
+     */
+    public native void setFooterView(View view) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.footerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
     public native String getHeaderTitle() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.headerTitle;
@@ -100,6 +116,22 @@ public class ListSection extends JsObject {
     public native void setHeaderTitle(String value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.headerTitle = value;
+    }-*/;
+
+    /**
+     * View to use for this section header.
+     */
+    public native View getHeaderView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.headerView);
+    }-*/;
+
+    /**
+     * View to use for this section header.
+     */
+    public native void setHeaderView(View view) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.headerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
     /**
