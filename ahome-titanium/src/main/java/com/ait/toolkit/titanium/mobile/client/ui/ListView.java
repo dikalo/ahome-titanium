@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ait.toolkit.core.client.Color;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ListViewItemClickHandler;
@@ -160,6 +161,29 @@ public class ListView extends View {
 
     public void setSections( ListSection... sections ) {
         this.setSections( Arrays.asList( sections ) );
+    }
+
+    /**
+     * Separator line color between rows.
+     */
+    public native String getSeparatorColor() /*-{
+        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+        return jso.separatorColor;
+    }-*/;
+
+    /**
+     * Separator line color between rows.
+     */
+    public native void setSeparatorColor(String color) /*-{
+        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+        jso.separatorColor = color;
+    }-*/;
+
+    /**
+     * Separator line color between rows.
+     */
+    public void setSeparatorColor(Color color) {
+        setSeparatorColor(color.getValue());
     }
 
     public native void setWillScrollOnStatusTap( boolean value ) /*-{
