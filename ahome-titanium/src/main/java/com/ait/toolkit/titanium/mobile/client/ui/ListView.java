@@ -133,6 +133,11 @@ public class ListView extends View {
 		return jso.headerTitle;
     }-*/;
 
+    public native void setMarker(ListViewMarkerProps markerProps) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.setMarker(markerProps.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+    }-*/;
+
     public native void setScrollIndicatorStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scrollIndicatorStyle = value;
