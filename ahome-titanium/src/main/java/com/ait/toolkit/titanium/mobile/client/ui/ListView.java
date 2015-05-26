@@ -234,6 +234,19 @@ public class ListView extends View {
 		return jso.getStyle();
     }-*/;
 
+    /**
+     * Style of the list view.
+     * Style should always be set before setting the sections on list view.
+     *
+     * This API can be assigned the following constants:
+     *  Titanium.UI.iPhone.ListViewStyle.GROUPED
+     *  Titanium.UI.iPhone.ListViewStyle.PLAIN
+     */
+    public native void setStyle(int style) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.style = style;
+    }-*/;
+
     public native void replaceSectionAt( int index, ListSection section ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.replaceSectionAt(index,
