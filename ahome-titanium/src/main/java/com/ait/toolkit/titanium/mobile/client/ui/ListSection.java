@@ -160,13 +160,13 @@ public class ListSection extends JsObject {
 
     public native void appendItems(List<ListDataItem> items) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso.appendItems(obj);
     }-*/;
 
     public native void appendItems(List<ListDataItem> items, TableViewAnimation animation) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso
 				.appendItems(
 						obj,
