@@ -123,6 +123,22 @@ public class ListView extends View {
 		return jso.footerTitle;
     }-*/;
 
+    /**
+     * List view footer as a view that will be rendered instead of a label.
+     */
+    public native View getFooterView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.footerView);
+    }-*/;
+
+    /**
+     * List view footer as a view that will be rendered instead of a label.
+     */
+    public native void setFooterView(View view) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.footerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
     public native void setHeaderTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.headerTitle = value;
@@ -131,6 +147,22 @@ public class ListView extends View {
     public native String getHeaderTitle() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.headerTitle;
+    }-*/;
+
+    /**
+     * List view header as a view that will be rendered instead of a label.
+     */
+    public native View getHeaderView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.headerView);
+    }-*/;
+
+    /**
+     * List view header as a view that will be rendered instead of a label.
+     */
+    public native void setHeaderView(View view) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.headerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
     public native void setMarker(ListViewMarkerProps markerProps) /*-{
