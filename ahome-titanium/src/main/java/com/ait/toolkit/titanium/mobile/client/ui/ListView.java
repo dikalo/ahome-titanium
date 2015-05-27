@@ -203,13 +203,13 @@ public class ListView extends View {
 
     public native void appendSection( List<ListSection> items ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromList(Ljava/util/List;)(items);
 		jso.appendSection(obj);
     }-*/;
 
     public native void appendSection( List<ListSection> items, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromList(Ljava/util/List;)(items);
 		jso.appendSection(obj,
 				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
