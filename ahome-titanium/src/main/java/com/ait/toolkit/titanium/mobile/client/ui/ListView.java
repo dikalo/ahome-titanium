@@ -90,6 +90,16 @@ public class ListView extends View {
         this.setSections( this.sections );
     }
 
+    public native boolean getCanScroll() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.canScroll;
+    }-*/;
+
+    public native void setCanScroll( boolean value ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.canScroll = value;
+    }-*/;
+
     /**
      * Sets the default template for list data items that do not specify the
      * template property.
@@ -123,6 +133,22 @@ public class ListView extends View {
 		return jso.footerTitle;
     }-*/;
 
+    /**
+     * List view footer as a view that will be rendered instead of a label.
+     */
+    public native View getFooterView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.footerView);
+    }-*/;
+
+    /**
+     * List view footer as a view that will be rendered instead of a label.
+     */
+    public native void setFooterView( View view ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.footerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
     public native void setHeaderTitle( String value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.headerTitle = value;
@@ -133,9 +159,26 @@ public class ListView extends View {
 		return jso.headerTitle;
     }-*/;
 
-    public native void setMarker(ListViewMarkerProps markerProps) /*-{
+    /**
+     * List view header as a view that will be rendered instead of a label.
+     */
+    public native View getHeaderView() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.setMarker(markerProps.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.headerView);
+    }-*/;
+
+    /**
+     * List view header as a view that will be rendered instead of a label.
+     */
+    public native void setHeaderView( View view ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.headerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
+    public native void setMarker( ListViewMarkerProps markerProps ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso
+				.setMarker(markerProps.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     public native void setScrollIndicatorStyle( int value ) /*-{
@@ -172,24 +215,48 @@ public class ListView extends View {
      * Separator line color between rows.
      */
     public native String getSeparatorColor() /*-{
-        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-        return jso.separatorColor;
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.separatorColor;
     }-*/;
 
     /**
      * Separator line color between rows.
      */
-    public native void setSeparatorColor(String color) /*-{
-        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-        jso.separatorColor = color;
+    public native void setSeparatorColor( String color ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.separatorColor = color;
     }-*/;
 
     /**
      * Separator line color between rows.
      */
-    public void setSeparatorColor(Color color) {
-        setSeparatorColor(color.getValue());
+    public void setSeparatorColor( Color color ) {
+        setSeparatorColor( color.getValue() );
     }
+
+    /**
+     * Separator style constant.
+     *
+     * This API can be assigned the following constants:
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE
+     */
+    public native int getSeparatorStyle() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.separatorStyle;
+    }-*/;
+
+    /**
+     * Separator style constant.
+     *
+     * This API can be assigned the following constants:
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE
+     */
+    public native void setSeparatorStyle( int style ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.separatorStyle = style;
+    }-*/;
 
     public native void setWillScrollOnStatusTap( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -203,13 +270,13 @@ public class ListView extends View {
 
     public native void appendSection( List<ListSection> items ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromList(Ljava/util/List;)(items);
 		jso.appendSection(obj);
     }-*/;
 
     public native void appendSection( List<ListSection> items, TableViewAnimation animation ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListSection::fromList(Ljava/util/List;)(items);
 		jso.appendSection(obj,
 				animation.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
@@ -242,7 +309,7 @@ public class ListView extends View {
      *  Titanium.UI.iPhone.ListViewStyle.GROUPED
      *  Titanium.UI.iPhone.ListViewStyle.PLAIN
      */
-    public native void setStyle(int style) /*-{
+    public native void setStyle( int style ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.style = style;
     }-*/;
