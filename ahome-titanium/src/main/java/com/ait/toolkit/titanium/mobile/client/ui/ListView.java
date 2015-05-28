@@ -223,6 +223,30 @@ public class ListView extends View {
         setSeparatorColor(color.getValue());
     }
 
+    /**
+     * Separator style constant.
+     *
+     * This API can be assigned the following constants:
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE
+     */
+    public native int getSeparatorStyle() /*-{
+        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+        return jso.separatorStyle;
+    }-*/;
+
+    /**
+     * Separator style constant.
+     *
+     * This API can be assigned the following constants:
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+     *   Titanium.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE
+     */
+    public native void setSeparatorStyle(int style) /*-{
+        var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+        jso.separatorStyle = style;
+    }-*/;
+
     public native void setWillScrollOnStatusTap( boolean value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.willScrollOnStatusTap = value;
