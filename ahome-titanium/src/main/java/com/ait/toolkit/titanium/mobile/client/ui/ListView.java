@@ -90,6 +90,17 @@ public class ListView extends View {
         this.setSections( this.sections );
     }
 
+
+    public native boolean getCanScroll() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.canScroll;
+    }-*/;
+
+    public native void setCanScroll( boolean value ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.canScroll = value;
+    }-*/;
+
     /**
      * Sets the default template for list data items that do not specify the
      * template property.
