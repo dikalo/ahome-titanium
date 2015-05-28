@@ -18,11 +18,20 @@ package com.ait.toolkit.titanium.mobile.client.ui;
 import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler;
+import com.google.gwt.core.client.JavaScriptObject;
 
 public class TemplateEvent extends JsObject {
 
     public TemplateEvent() {
         jsObj = JsoHelper.createObject();
+    }
+
+    public TemplateEvent( JavaScriptObject obj ) {
+        super( obj );
+    }
+
+    public static TemplateEvent from( JsObject proxy ) {
+        return new TemplateEvent( proxy.getJsObj() );
     }
 
     public native void addHandler(String event, EventHandler handler)/*-{
