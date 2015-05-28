@@ -28,26 +28,20 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class ListView extends View {
 
-    private List<ListSection> sections;
-
     public ListView() {
         jsObj = UI.createListView( "", new ArrayList<String>() );
-        this.sections = new ArrayList<ListSection>();
     }
 
     public ListView( String id ) {
         jsObj = UI.createListView( id, new ArrayList<String>() );
-        this.sections = new ArrayList<ListSection>();
     }
 
     public ListView( String id, List<String> classes ) {
         jsObj = UI.createListView( id, classes );
-        this.sections = new ArrayList<ListSection>();
     }
 
     public ListView( ListViewTemplate template ) {
         jsObj = creetePeer( template.getJsObj() );
-        this.sections = new ArrayList<ListSection>();
     }
 
     public ListView( ListSection... sections ) {
@@ -71,23 +65,7 @@ public class ListView extends View {
      * listview
      */
     public void addSection( ListSection section ) {
-        this.sections.add( section );
-    }
-
-    /**
-     * Adds a new section the the underlying section collection But does not
-     * draw it. If <code>autoLayout</code> is true the section will be added to
-     * the listview UI.
-     */
-    public void addSection( ListSection section, boolean autoLayout ) {
-        this.sections.add( section );
-        if( autoLayout ) {
-            this.layout();
-        }
-    }
-
-    public void layout() {
-        this.setSections( this.sections );
+        this.appendSection( section );
     }
 
     public native boolean getCanScroll() /*-{
@@ -144,6 +122,7 @@ public class ListView extends View {
     /**
      * List view footer as a view that will be rendered instead of a label.
      */
+
     public native void setFooterView( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.footerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -162,17 +141,17 @@ public class ListView extends View {
     /**
      * List view header as a view that will be rendered instead of a label.
      */
-    public native View getHeaderView() /*-{
+    public native void setHeaderView( View view ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.headerView);
+		jso.headerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
     /**
      * List view header as a view that will be rendered instead of a label.
      */
-    public native void setHeaderView( View view ) /*-{
+    public native View getHeaderView() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		jso.headerView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.headerView);
     }-*/;
 
     public native void setMarker( ListViewMarkerProps markerProps ) /*-{

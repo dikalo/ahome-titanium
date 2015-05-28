@@ -199,13 +199,13 @@ public class ListSection extends JsObject {
 
     public native void insertItemsAt(int index, List<ListDataItem> items) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso.insertItemsAt(index, obj);
     }-*/;
 
     public native void insertItemsAt(int index, List<ListDataItem> items, TableViewAnimation animation) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso
 				.insertItemsAt(
 						index,
@@ -219,13 +219,13 @@ public class ListSection extends JsObject {
 
     public native void replaceItemsAt(int index, int count, List<ListDataItem> items) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso.replaceItemsAt(index, count, obj);
     }-*/;
 
     public native void replaceItemsAt(int index, int count, List<ListDataItem> items, TableViewAnimation animation) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromList(Ljava/util/List;)(items);
 		jso
 				.replaceItemsAt(
 						index,
@@ -240,14 +240,12 @@ public class ListSection extends JsObject {
 
     public native void updateItemAt(int index, ListDataItem item) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
 		jso.updateItemAt(index,
 				item.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
     public native void updateItemAt(int index, ListDataItem item, TableViewAnimation animation) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		var obj = @com.ait.toolkit.titanium.mobile.client.ui.ListDataItem::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
 		jso
 				.updateItemAt(
 						index,

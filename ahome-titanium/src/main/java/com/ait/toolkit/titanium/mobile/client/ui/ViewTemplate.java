@@ -36,9 +36,20 @@ public class ViewTemplate extends JsObject {
         jsObj = obj;
     }
 
+    public native String getBindId() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.bindId;
+    }-*/;
+
     public native void setBindId( String value )/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.bindId = value;
+    }-*/;
+
+    public native List<ViewTemplate> getChildTemplates() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var obj = jso.childTemplates;
+		return @com.ait.toolkit.titanium.mobile.client.ui.ViewTemplate::fromJsArray(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
     }-*/;
 
     public native void setChildTemplate( List<ViewTemplate> values )/*-{
@@ -46,14 +57,31 @@ public class ViewTemplate extends JsObject {
 		jso.childTemplates = @com.ait.toolkit.titanium.mobile.client.ui.ViewTemplate::fromList(Ljava/util/List;)(values);
     }-*/;
 
+    public native TemplateEvent getEvents() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var obj = jso.properties;
+		return @com.ait.toolkit.titanium.mobile.client.ui.TemplateEvent::from(Lcom/ait/toolkit/core/client/JsObject;)(obj);
+    }-*/;
+
     public native void setEvents( TemplateEvent event ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.events = event.@com.ait.toolkit.core.client.JsObject::getJsObj()();
     }-*/;
 
+    public native ViewTemplateProperties getProperties() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var obj = jso.properties;
+		return @com.ait.toolkit.titanium.mobile.client.ui.ViewTemplateProperties::from(Lcom/ait/toolkit/core/client/JsObject;)(obj);
+    }-*/;
+
     public native void setProperties( ViewTemplateProperties value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.properties = value.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
+    public native String getType() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.type;
     }-*/;
 
     public native void setType( String value ) /*-{
@@ -70,6 +98,9 @@ public class ViewTemplate extends JsObject {
     }
 
     static List<ViewTemplate> fromJsArray( JavaScriptObject obj ) {
+        if(obj == null)
+            return null;
+
         List<ViewTemplate> toReturn = new ArrayList<ViewTemplate>();
         int size = JsoHelper.arrayLength( obj );
         for( int i = 0; i < size; i++ ) {
