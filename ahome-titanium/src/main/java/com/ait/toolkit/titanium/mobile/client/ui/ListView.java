@@ -24,6 +24,7 @@ import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ListViewItemClickHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.fx.TableViewAnimation;
+import com.ait.toolkit.titanium.mobile.client.ui.iphone.ListViewSeparatorInsets;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ListView extends View {
@@ -212,6 +213,28 @@ public class ListView extends View {
     public void setSeparatorColor( Color color ) {
         setSeparatorColor( color.getValue() );
     }
+
+    /**
+     * The insets for list view separators (applies to all cells). This property is applicable on iOS 7 and greater.
+     *
+     * In iOS 7 and later, cell separators do not extend all the way to the edge of the list view.
+     * This property sets the default inset for all cells in the table.
+     */
+    public native void setSeparatorInsets( ListViewSeparatorInsets insets) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.separatorInsets = insets.@com.ait.toolkit.titanium.mobile.client.ui.iphone.ListViewSeparatorInsets::getJsObj()();
+    }-*/;
+
+    /**
+     * The insets for list view separators (applies to all cells). This property is applicable on iOS 7 and greater.
+     *
+     * In iOS 7 and later, cell separators do not extend all the way to the edge of the list view.
+     * This property sets the default inset for all cells in the table.
+     */
+    public native ListViewSeparatorInsets getSeparatorInsets() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.iphone.ListViewSeparatorInsets::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jso);
+    }-*/;
 
     /**
      * Separator style constant.
