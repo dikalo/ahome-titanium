@@ -218,7 +218,7 @@ public class ListView extends View {
      */
     public native RefreshControl getRefreshControl() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		return @com.ait.toolkit.titanium.mobile.client.ui.RefreshControl::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.refreshControl);
+		return @com.ait.toolkit.titanium.mobile.client.ui.RefreshControl::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jso.refreshControl);
     }-*/;
 
     public native void setScrollIndicatorStyle( int value ) /*-{
