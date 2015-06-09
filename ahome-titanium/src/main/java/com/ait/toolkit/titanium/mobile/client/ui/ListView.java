@@ -161,6 +161,66 @@ public class ListView extends View {
 				.setMarker(markerProps.@com.ait.toolkit.core.client.JsObject::getJsObj()());
     }-*/;
 
+    public void setPullBackgroundColor( Color color ) {
+        setPullBackgroundColor(color.getValue());
+    }
+    
+    /**
+     * Background color of the wrapper view when this view is used as either Titanium.UI.ListView.pullView
+     * or Titanium.UI.TableView.headerPullView.
+     *
+     * Default: Undefined. Results in a light grey background color on the wrapper view.
+     */
+    public native void setPullBackgroundColor( String color ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.pullBackgroundColor = color;
+    }-*/;
+
+    /**
+     * Background color of the wrapper view when this view is used as either Titanium.UI.ListView.pullView
+     * or Titanium.UI.TableView.headerPullView.
+     *
+     * Default: Undefined. Results in a light grey background color on the wrapper view.
+     */
+    public native String getPullBackgroundColor() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return jso.pullBackgroundColor;
+    }-*/;
+
+    /**
+     * View positioned above the first row that is only revealed when the user drags the list view contents down.
+     */
+    public native void setPullView( View view ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.pullView = view.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+    }-*/;
+
+    /**
+     * View positioned above the first row that is only revealed when the user drags the list view contents down.
+     */
+    public native View getPullView() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.View::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.pullView);
+    }-*/;
+
+    /**
+     * View positioned above the first row that is only revealed when the user drags the list view contents down.
+     * An alternate to the pullView property. See Titanium.UI.RefreshControl for usage and examples.
+     */
+    public native void setRefreshControl( RefreshControl control ) /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		jso.refreshControl = control.@com.ait.toolkit.core.client.JsObject::getJsObj()();;
+    }-*/;
+
+    /**
+     * View positioned above the first row that is only revealed when the user drags the list view contents down.
+     * An alternate to the pullView property. See Titanium.UI.RefreshControl for usage and examples.
+     */
+    public native RefreshControl getRefreshControl() /*-{
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		return @com.ait.toolkit.titanium.mobile.client.ui.RefreshControl::from(Lcom/ait/toolkit/core/client/JsObject;)(jso.refreshControl);
+    }-*/;
+
     public native void setScrollIndicatorStyle( int value ) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.scrollIndicatorStyle = value;
