@@ -67,7 +67,7 @@ public class PickerRow extends View {
     }-*/;
 
     public native void setSelected( boolean value ) /*-{
-		var jso = jso.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.selected = value;
     }-*/;
 
@@ -75,12 +75,12 @@ public class PickerRow extends View {
      * @return The display text
      */
     public native String getTitle() /*-{
-		var jso = jso.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.title;
     }-*/;
 
     public native void setTitle( String value ) /*-{
-		var jso = jso.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
 
