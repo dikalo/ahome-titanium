@@ -11,7 +11,14 @@ import com.google.gwt.core.ext.linker.CompilationResult;
 import com.google.gwt.dev.About;
 import com.google.gwt.dev.util.DefaultTextOutput;
 
+/**
+ * Linker for Titanium4j Mobile. This linker removes unnecessary GWT stuff to
+ * make the generated JS work inside Titanium. Use this linker when working on a
+ * titanium  project.
+ */
 public abstract class TiMobileBaseLinker extends AbstractLinker {
+
+    protected final static String DEFAULT_PROJECT_SUFFIX = "_ti4j";
 
     protected DefaultTextOutput out;
 
@@ -60,14 +67,14 @@ public abstract class TiMobileBaseLinker extends AbstractLinker {
         out.print( "})();" );
         out.newline();
 
-        // toReturn.add(emitString(logger, out.toString(),
-        // context.getModuleName() + ".js"));
-        toReturn.add( emitString( logger, out.toString(), "../app.js" ) );
+        toReturn.add( emitString( logger, out.toString(), generateJavaScriptPath( context ) ) );
 
         // toReturn.add(emitString(logger, Long.toString(compilationTime),
         // APP_COMPILATION_FILE_NAME));
 
         return toReturn;
     }
+
+    protected abstract String generateJavaScriptPath( LinkerContext context );
 
 }

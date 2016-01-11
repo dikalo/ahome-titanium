@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
-	 <inherits name='com.ait.toolkit.titanium.mobile.MobileCore'/> 
-
-    <define-linker name="ahomeTiMobilePostLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobilePostLinker"/>
+	
+    <define-linker name="ahomeTiMobilePostLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobileHostelHtmlLinker"/>
      <add-linker name="ahomeTiMobilePostLinker"/>
 
 </module>

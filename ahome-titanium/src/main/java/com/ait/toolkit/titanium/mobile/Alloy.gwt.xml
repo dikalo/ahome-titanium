@@ -8,6 +8,5 @@
     <!-- Expand the list of allowed user.agent values -->
      <set-configuration-property name="user.agent.runtimeWarning" value="false"/>
     <extend-property name="user.agent" values="timobile" />
-    <set-property name="user.agent" value="timobile" />
      
 </module>

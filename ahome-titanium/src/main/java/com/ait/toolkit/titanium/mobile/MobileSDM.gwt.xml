@@ -2,12 +2,11 @@
 <module>
 	 <inherits name='com.ait.toolkit.titanium.mobile.MobileCore'/> 
 
-    <define-linker name="ahomeTiMobileLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobileLinker"/>
+    <define-linker name="ahomeTiMobileLinker" class="com.ait.toolkit.titanium.mobile.linker.TiMobileSDMLinker"/>
      <add-linker name="ahomeTiMobileLinker"/>
       
     <!-- Expand the list of allowed user.agent values -->
      <set-configuration-property name="user.agent.runtimeWarning" value="false"/>
     <extend-property name="user.agent" values="timobile" />
-   
      
 </module>

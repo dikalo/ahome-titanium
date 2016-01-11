@@ -18,17 +18,17 @@ package com.ait.toolkit.titanium.mobile.linker;
 import com.google.gwt.core.ext.LinkerContext;
 import com.google.gwt.core.ext.linker.LinkerOrder;
 
-@LinkerOrder( LinkerOrder.Order.PRIMARY )
-public class TiMobileLinker extends TiMobileBaseLinker {
+@LinkerOrder( LinkerOrder.Order.POST )
+public class TiMobileSDMLinker extends TiMobileBaseLinker {
 
     @Override
     public String getDescription() {
-        return "Titanium4j Linker for regular titanium projects ";
+        return "Titanium4j Linker for regular titanium projects in Super Dev Mode ";
     }
 
     @Override
     protected String generateJavaScriptPath( LinkerContext context ) {
-        return "../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/app.js";
+        return "../../../../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/app.js";
     }
 
 }
