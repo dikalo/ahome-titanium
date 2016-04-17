@@ -14,11 +14,11 @@ import com.google.gwt.dev.util.DefaultTextOutput;
 /**
  * Linker for Titanium4j Mobile. This linker removes unnecessary GWT stuff to
  * make the generated JS work inside Titanium. Use this linker when working on a
- * titanium  project.
+ * titanium mobile project.
  */
 public abstract class TiMobileBaseLinker extends AbstractLinker {
 
-    protected final static String DEFAULT_PROJECT_SUFFIX = "_ti4j";
+    protected final static String DEFAULT_PROJECT_SUFFIX = "_mobile";
 
     protected DefaultTextOutput out;
 

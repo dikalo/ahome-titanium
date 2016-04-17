@@ -28,6 +28,6 @@ public class TiMobileAlloySDMLinker extends TiMobileBaseLinker {
 
     @Override
     protected String generateJavaScriptPath( LinkerContext context ) {
-        return "../../../../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/app/controllers/index.js";
+        return "../../../../../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/app/controllers/index.js";
     }
 }

@@ -28,7 +28,7 @@ public class TiMobileSDMLinker extends TiMobileBaseLinker {
 
     @Override
     protected String generateJavaScriptPath( LinkerContext context ) {
-        return "../../../../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/app.js";
+        return "../../../../../" + context.getModuleName() + DEFAULT_PROJECT_SUFFIX + "/Resources/app.js";
     }
 
 }
