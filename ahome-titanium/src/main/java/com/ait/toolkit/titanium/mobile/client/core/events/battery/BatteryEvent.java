@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.battery;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class BatteryEvent extends TiEvent {
+public class BatteryEvent extends Event {
 
 	public static final String BATTERY = "battery";
 

@@ -19,7 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.PauseHandle
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class PauseEvent extends TiEvent {
+public class PauseEvent extends Event {
 
     public static final String PAUSE = "pause";
 

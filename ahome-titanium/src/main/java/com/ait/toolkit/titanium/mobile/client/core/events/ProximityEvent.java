@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class ProximityEvent extends TiEvent {
+public class ProximityEvent extends Event {
 
     public static final String PROXIMITY = "proximity";
 

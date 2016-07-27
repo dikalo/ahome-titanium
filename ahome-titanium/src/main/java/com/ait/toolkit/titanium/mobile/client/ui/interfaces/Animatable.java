@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.ui.Animation;
 import com.ait.toolkit.titanium.mobile.client.ui.fx.AnimationConfig;
 
@@ -38,7 +38,7 @@ public interface Animatable {
      * @param obj either a dictionary of animation properties or an
      *            AnimationConfig object
      */
-    public void animate(AnimationConfig config, TiEventListener<?> listener);
+    public void animate(AnimationConfig config, EventListener<?> listener);
 
     /**
      * Animate the view

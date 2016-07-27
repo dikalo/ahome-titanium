@@ -24,7 +24,7 @@ import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
 import com.ait.toolkit.titanium.mobile.client.core.Size;
 import com.ait.toolkit.titanium.mobile.client.core.Unit;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.CallbackRegistration;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.BlurHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ClickHandler;
@@ -1384,7 +1384,7 @@ public class View extends UIObject implements HasWidgets, Animatable,
      * com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener)
      */
     @Override
-    public void animate( AnimationConfig config, TiEventListener<?> listener ) {
+    public void animate( AnimationConfig config, EventListener<?> listener ) {
         _animate( config.getJsObj(), listener.getJsoPeer() );
     }
 
@@ -1456,7 +1456,7 @@ public class View extends UIObject implements HasWidgets, Animatable,
      * .gwt4 .ti.mobile.client.core.events.TiEventListener)
      */
     @Override
-    public void toImage( TiEventListener<?> callback ) {
+    public void toImage( EventListener<?> callback ) {
         _toImage( callback.getJsoPeer() );
     }
 

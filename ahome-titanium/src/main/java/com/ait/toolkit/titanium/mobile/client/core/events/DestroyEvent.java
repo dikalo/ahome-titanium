@@ -19,7 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.DestroyHand
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class DestroyEvent extends TiEvent {
+public class DestroyEvent extends Event {
 
     public static final String DESTROY = "destroy";
 

@@ -21,7 +21,7 @@ import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class RegionEvent extends TiEvent {
+public class RegionEvent extends Event {
 
     public static final String REGION_CHANGED = "regionchanged";
 

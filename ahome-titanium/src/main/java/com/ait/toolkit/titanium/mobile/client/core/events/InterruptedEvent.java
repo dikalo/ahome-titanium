@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class InterruptedEvent extends TiEvent {
+public class InterruptedEvent extends Event {
 
     public static final String INTERRUPTED = "interrupted";
 

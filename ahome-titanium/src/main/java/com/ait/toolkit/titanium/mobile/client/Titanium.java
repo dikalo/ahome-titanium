@@ -18,8 +18,8 @@ package com.ait.toolkit.titanium.mobile.client;
 import com.ait.toolkit.core.client.Function;
 import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.titanium.mobile.client.buffer.Buffer;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.ui.ClickHandler;
 import com.ait.toolkit.titanium.mobile.client.platform.Platform;
 import com.ait.toolkit.titanium.mobile.client.ui.AlertDialog;
@@ -57,7 +57,7 @@ public class Titanium {
      *            , callback function to invoke when the event is fired
      */
     public static void addEventListener( String event,
-            TiEventListener<?> listener ) {
+            EventListener<?> listener ) {
         addEventListener( event, listener.getJsoPeer() );
     }
 
@@ -172,7 +172,7 @@ public class Titanium {
      * @param eventObject
      *            , event object
      */
-    public static native void fireEvent( String name, TiEvent eventObject ) /*-{
+    public static native void fireEvent( String name, Event eventObject ) /*-{
 		Titanium
 				.fireEvent(
 						name,
@@ -188,7 +188,7 @@ public class Titanium {
      *            , EventListner passed in addEventListener
      */
     public static void removeEventListner( String event,
-            TiEventListener<?> listener ) {
+            EventListener<?> listener ) {
         removeEventListener( event, listener.getJsoPeer() );
     }
 

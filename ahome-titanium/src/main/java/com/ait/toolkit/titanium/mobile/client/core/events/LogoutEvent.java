@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class LogoutEvent extends TiEvent {
+public class LogoutEvent extends Event {
 
 	public static final String EVENT_NAME = "logout";
 

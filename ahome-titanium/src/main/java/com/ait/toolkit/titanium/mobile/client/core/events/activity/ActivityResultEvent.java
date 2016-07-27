@@ -16,9 +16,9 @@
 package com.ait.toolkit.titanium.mobile.client.core.events.activity;
 
 import com.ait.toolkit.titanium.mobile.client.android.Intent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 
-public class ActivityResultEvent extends TiEvent {
+public class ActivityResultEvent extends Event {
 
     protected ActivityResultEvent() {
 

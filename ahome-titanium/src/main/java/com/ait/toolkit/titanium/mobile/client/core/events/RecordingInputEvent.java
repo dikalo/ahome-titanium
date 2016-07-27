@@ -19,7 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.media.RecordingInput
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class RecordingInputEvent extends TiEvent {
+public class RecordingInputEvent extends Event {
 
     public static final String RECORDING_INPUT = "recordinginput";
 

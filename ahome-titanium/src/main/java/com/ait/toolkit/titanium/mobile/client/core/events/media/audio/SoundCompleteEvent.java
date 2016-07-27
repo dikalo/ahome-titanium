@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.media.audio;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class SoundCompleteEvent extends TiEvent {
+public class SoundCompleteEvent extends Event {
 
     public static final String COMPLETE = "complete";
 

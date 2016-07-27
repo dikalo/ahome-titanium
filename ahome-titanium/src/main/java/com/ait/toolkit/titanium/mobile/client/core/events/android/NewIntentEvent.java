@@ -16,10 +16,10 @@
 package com.ait.toolkit.titanium.mobile.client.core.events.android;
 
 import com.ait.toolkit.titanium.mobile.client.android.Intent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class NewIntentEvent extends TiEvent {
+public class NewIntentEvent extends Event {
 
     public static final String NEW_INTENT = "newIntent";
 

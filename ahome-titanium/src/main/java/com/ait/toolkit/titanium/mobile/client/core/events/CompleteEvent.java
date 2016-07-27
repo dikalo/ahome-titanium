@@ -20,7 +20,7 @@ import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class CompleteEvent extends TiEvent {
+public class CompleteEvent extends Event {
 
     public static final String COMPLETE = "complete";
 

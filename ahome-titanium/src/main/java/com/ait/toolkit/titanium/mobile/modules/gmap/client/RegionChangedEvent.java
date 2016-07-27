@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.modules.gmap.client;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.ClickEvent;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
@@ -23,7 +23,7 @@ import com.google.gwt.event.dom.client.DomEvent.Type;
 /**
  * Fired when the mapping region changes.
  */
-public class RegionChangedEvent extends TiEvent {
+public class RegionChangedEvent extends Event {
 
     public static String EVENT_NAME = "regionchanged";
 

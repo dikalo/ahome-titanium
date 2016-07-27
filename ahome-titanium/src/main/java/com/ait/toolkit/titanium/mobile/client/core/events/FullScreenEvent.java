@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class FullScreenEvent extends TiEvent {
+public class FullScreenEvent extends Event {
 
     public static final String FULLSCREEN = "fullscreen";
 

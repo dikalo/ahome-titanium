@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class PreloadEvent extends TiEvent {
+public class PreloadEvent extends Event {
 
     public static final String PRELOAD = "preload";
 

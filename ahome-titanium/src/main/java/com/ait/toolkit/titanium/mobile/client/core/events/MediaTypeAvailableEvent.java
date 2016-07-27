@@ -19,7 +19,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class MediaTypeAvailableEvent extends TiEvent {
+public class MediaTypeAvailableEvent extends Event {
 
 	public static final String MEDIA_TYPE_AVAILABLE = "mediaTypesAvailable";
 

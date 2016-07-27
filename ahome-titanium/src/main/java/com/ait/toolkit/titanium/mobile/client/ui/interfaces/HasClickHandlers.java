@@ -15,13 +15,13 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.InteractionEvent;
 
 public interface HasClickHandlers extends HasSimpleClickHandler {
 
-    public abstract void addDoubleClickHandler(TiEventListener<InteractionEvent> handler);
+    public abstract void addDoubleClickHandler(EventListener<InteractionEvent> handler);
 
-    public abstract void addLongClick(TiEventListener<InteractionEvent> handler);
+    public abstract void addLongClick(EventListener<InteractionEvent> handler);
 
 }

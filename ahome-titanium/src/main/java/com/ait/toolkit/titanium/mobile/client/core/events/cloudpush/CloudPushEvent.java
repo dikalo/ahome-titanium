@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.cloudpush;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class CloudPushEvent extends TiEvent {
+public class CloudPushEvent extends Event {
 
     CloudPushEvent(JavaScriptObject obj) {
         jsObj = obj;

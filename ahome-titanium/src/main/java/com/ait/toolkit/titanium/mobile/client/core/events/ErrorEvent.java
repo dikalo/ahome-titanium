@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ErrorEvent extends TiEvent {
+public class ErrorEvent extends Event {
 
     public static String ERROR = "error";
     

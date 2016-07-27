@@ -16,10 +16,10 @@
 
 package com.ait.toolkit.titanium.mobile.client.core.events.ui.email;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class EmailCompleteEvent extends TiEvent {
+public class EmailCompleteEvent extends Event {
 
     public static final String COMPLETE = "complete";
 

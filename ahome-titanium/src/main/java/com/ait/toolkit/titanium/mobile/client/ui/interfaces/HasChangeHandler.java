@@ -15,11 +15,11 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.ChangeEvent;
 
 public interface HasChangeHandler {
 
-    public void addChangeHandler(TiEventListener<ChangeEvent> handler);
+    public void addChangeHandler(EventListener<ChangeEvent> handler);
 
 }

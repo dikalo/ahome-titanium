@@ -16,10 +16,10 @@
 package com.ait.toolkit.titanium.mobile.client.core.events.media;
 
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class MediaEvent extends TiEvent {
+public class MediaEvent extends Event {
 
     protected MediaEvent() {
 

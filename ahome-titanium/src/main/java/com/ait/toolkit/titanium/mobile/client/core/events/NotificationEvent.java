@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class NotificationEvent extends TiEvent {
+public class NotificationEvent extends Event {
 
 	public static final String NOTIFICATION = "notification";
 

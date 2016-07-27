@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.media.android;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.media.Media;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
@@ -58,7 +58,7 @@ public class AndroidMedia extends TiModule {
      * 
      * @param callback a calllback that gets executes one the scanning is done
      */
-    public void scanMediaFiles(JsArrayString paths, JsArrayString mimeTypes, TiEventListener<?> callback) {
+    public void scanMediaFiles(JsArrayString paths, JsArrayString mimeTypes, EventListener<?> callback) {
         scanMediaFiles(paths, mimeTypes, callback.getJsoPeer());
     }
 

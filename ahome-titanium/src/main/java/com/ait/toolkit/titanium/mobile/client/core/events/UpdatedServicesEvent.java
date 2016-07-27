@@ -22,7 +22,7 @@ import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.titanium.mobile.client.network.BonjourService;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class UpdatedServicesEvent extends TiEvent {
+public class UpdatedServicesEvent extends Event {
 
     public static final String UPDATED_SERVICES = "updatedServices";
 

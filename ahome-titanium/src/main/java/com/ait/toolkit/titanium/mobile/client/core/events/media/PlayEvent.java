@@ -16,11 +16,11 @@
 package com.ait.toolkit.titanium.mobile.client.core.events.media;
 
 import com.ait.toolkit.core.client.JsoHelper;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class PlayEvent extends TiEvent {
+public class PlayEvent extends Event {
 
     public static String STATE_CHANGE = "stateChange";
     public static String PLAYING_CHANGE = "playingChange";

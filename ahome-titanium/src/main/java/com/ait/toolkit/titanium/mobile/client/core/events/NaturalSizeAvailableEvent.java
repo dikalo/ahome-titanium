@@ -19,7 +19,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.core.Size;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class NaturalSizeAvailableEvent extends TiEvent {
+public class NaturalSizeAvailableEvent extends Event {
 
     public static final String NATURAL_SIZE_AVAILABLE = "naturalSizeAvailable";
 

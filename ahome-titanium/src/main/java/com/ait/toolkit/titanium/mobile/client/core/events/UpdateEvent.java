@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class UpdateEvent extends TiEvent {
+public class UpdateEvent extends Event {
 
     public static final String UPDATE = "update";
 

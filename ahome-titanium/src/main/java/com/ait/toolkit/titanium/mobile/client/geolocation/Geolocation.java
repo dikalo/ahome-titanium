@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.geolocation;
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
 import com.ait.toolkit.titanium.mobile.client.core.events.CalibrationEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.events.geolocation.HeadingEvent;
 import com.ait.toolkit.titanium.mobile.client.core.events.geolocation.LocationEvent;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.EventHandler;
@@ -193,7 +193,7 @@ public class Geolocation extends TiModule {
 	 * 
 	 * @deprecated since 2.0,use getCurrentHeading(getCurrentPosition) instead
 	 */
-	public void getCurrentHeading(TiEventListener<HeadingEvent> callback) {
+	public void getCurrentHeading(EventListener<HeadingEvent> callback) {
 		getCurrentHeading(callback.getJsoPeer());
 	}
 
@@ -239,7 +239,7 @@ public class Geolocation extends TiModule {
 	 * 
 	 * @deprecated since 2.0, use getCurrentPosition(getCurrentPosition) instead
 	 */
-	public void getCurrentPosition(TiEventListener<LocationEvent> callback) {
+	public void getCurrentPosition(EventListener<LocationEvent> callback) {
 		getCurrentHeading(callback.getJsoPeer());
 	}
 

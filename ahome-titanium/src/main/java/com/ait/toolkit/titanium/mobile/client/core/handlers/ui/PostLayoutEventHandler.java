@@ -15,9 +15,9 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.handlers.ui;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.event.shared.EventHandler;
 
 public interface PostLayoutEventHandler extends EventHandler {
-	public void onPostLayout(TiEvent event);
+	public void onPostLayout(Event event);
 }

@@ -15,11 +15,11 @@
  */
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 
 public interface HasSimpleClickHandler {
 
-    public void addClickHandler(TiEventListener<TiEvent> handler);
+    public void addClickHandler(EventListener<Event> handler);
 
 }

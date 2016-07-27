@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.cloud;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.cloud.CloudStreamHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
@@ -23,7 +23,7 @@ import com.google.gwt.event.dom.client.DomEvent.Type;
 /**
  * Argument passed to the callback as a request is transmitted or received.
  */
-public class CloudStreamProgressEvent extends TiEvent {
+public class CloudStreamProgressEvent extends Event {
 
 
 	/**

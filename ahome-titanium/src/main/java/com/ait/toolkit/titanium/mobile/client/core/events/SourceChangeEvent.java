@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class SourceChangeEvent extends TiEvent {
+public class SourceChangeEvent extends Event {
 
     public static final String SOURCE_CHANGE = "sourceChange";
 

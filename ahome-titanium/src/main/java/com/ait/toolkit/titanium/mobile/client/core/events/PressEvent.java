@@ -16,7 +16,7 @@
 
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class PressEvent extends TiEvent {
+public class PressEvent extends Event {
 
     public static final String LONG_PRESS = "longpress";
 

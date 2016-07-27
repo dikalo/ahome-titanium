@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class WriteErrorEvent extends TiEvent {
+public class WriteErrorEvent extends Event {
 
     public static final String WRITE_ERROR = "writeError";
 

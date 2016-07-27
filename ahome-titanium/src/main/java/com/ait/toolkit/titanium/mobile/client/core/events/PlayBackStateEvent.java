@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class PlayBackStateEvent extends TiEvent {
+public class PlayBackStateEvent extends Event {
 
     public static final String PLAYBACK_STATE = "playbackState";
 

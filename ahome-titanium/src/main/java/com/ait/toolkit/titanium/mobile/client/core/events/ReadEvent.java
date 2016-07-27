@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
 
-public class ReadEvent extends TiEvent {
+public class ReadEvent extends Event {
 
     public static final String READ = "read";
 

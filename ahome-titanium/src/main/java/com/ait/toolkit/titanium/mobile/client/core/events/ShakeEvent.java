@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ShakeEvent extends TiEvent {
+public class ShakeEvent extends Event {
 
     public static final String SHAKE = "shake";
 

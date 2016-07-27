@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.StopHandler;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class StopEvent extends TiEvent {
+public class StopEvent extends Event {
 
     public static final String STOP = "stop";
 

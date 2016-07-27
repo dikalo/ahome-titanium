@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.media.StateChangeHandler;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class StateChangeEvent extends TiEvent {
+public class StateChangeEvent extends Event {
 
     public static final String STATE_CHANGE = "stateChange";
 

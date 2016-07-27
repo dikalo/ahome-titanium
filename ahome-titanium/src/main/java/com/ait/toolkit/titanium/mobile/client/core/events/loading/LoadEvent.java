@@ -16,13 +16,13 @@
 
 package com.ait.toolkit.titanium.mobile.client.core.events.loading;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.loading.LoadHandler;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class LoadEvent extends TiEvent {
+public class LoadEvent extends Event {
 
     public static String LOAD = "load";
     public static String LOADING = "loading";

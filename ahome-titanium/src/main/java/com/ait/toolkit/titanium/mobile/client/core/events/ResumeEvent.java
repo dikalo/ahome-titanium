@@ -19,7 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.ResumeHandl
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class ResumeEvent extends TiEvent {
+public class ResumeEvent extends Event {
 
     public static final String RESUME = "resume";
     public static final String RESUMED = "resumed";

@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.modules.gmap.client;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.core.events.ui.InteractionEvent;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
@@ -65,7 +65,7 @@ public class PinchChangedDragStateEvent extends InteractionEvent {
 		return jso.title;
     }-*/;
 
-    public static PinchChangedDragStateEvent cast(TiEvent event) {
+    public static PinchChangedDragStateEvent cast(Event event) {
         return new PinchChangedDragStateEvent(event.getJsObj());
     }
 

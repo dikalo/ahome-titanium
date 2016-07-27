@@ -17,7 +17,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class NetworkChangeEvent extends TiEvent {
+public class NetworkChangeEvent extends Event {
 
     public static final String CHANGE = "change";
 

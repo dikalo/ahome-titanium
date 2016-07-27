@@ -16,7 +16,7 @@
 package com.ait.toolkit.titanium.mobile.client.android;
 
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.MenuActionHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.CreateHandler;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.DestroyHandler;
@@ -211,7 +211,7 @@ public class Activity extends EventDispatcher {
 	 * @param listener
 	 *            , A event listener that is executed when the Activity has set it's result.
 	 */
-	public void startActivityForResult(Intent intent, TiEventListener<?> listener) {
+	public void startActivityForResult(Intent intent, EventListener<?> listener) {
 		_startActivityForResult(intent.getJsObj(), listener.getJsoPeer());
 	}
 

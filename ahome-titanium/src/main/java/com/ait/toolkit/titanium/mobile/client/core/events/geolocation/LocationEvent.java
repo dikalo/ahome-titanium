@@ -15,14 +15,14 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.geolocation;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.core.handlers.geolocation.GeolocationHandler;
 import com.ait.toolkit.titanium.mobile.client.geolocation.Coordinates;
 import com.ait.toolkit.titanium.mobile.client.geolocation.android.LocationProvider;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class LocationEvent extends TiEvent {
+public class LocationEvent extends Event {
 
     public static final String LOCATION = "location";
 

@@ -17,8 +17,8 @@ package com.ait.toolkit.titanium.mobile.client.yahoo;
 
 import com.ait.toolkit.titanium.mobile.client.core.TiFactory;
 import com.ait.toolkit.titanium.mobile.client.core.TiModule;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -40,7 +40,7 @@ public class Yahoo extends TiModule {
 		createPeer();
 	}
 
-	public void yql(String yql, TiEventListener<TiEvent> listener) {
+	public void yql(String yql, EventListener<Event> listener) {
 		yql(yql, listener.getJsoPeer());
 	}
 

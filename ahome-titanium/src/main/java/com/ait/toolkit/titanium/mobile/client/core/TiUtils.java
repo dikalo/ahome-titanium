@@ -16,8 +16,8 @@
 package com.ait.toolkit.titanium.mobile.client.core;
 
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -39,7 +39,7 @@ public class TiUtils {
      * @param listener
      *            , callback function to invoke when the event is fired
      */
-    public static void addEventListener( String event, TiEventListener<?> listener ) {
+    public static void addEventListener( String event, EventListener<?> listener ) {
         addEventListener( event, listener.getJsoPeer() );
     }
 
@@ -55,7 +55,7 @@ public class TiUtils {
      * @param listener
      *            , EventListner passed in addEventListener
      */
-    public static void removeEventListner( String event, TiEventListener<?> listener ) {
+    public static void removeEventListner( String event, EventListener<?> listener ) {
         removeEventListener( event, listener.getJsoPeer() );
     }
 
@@ -71,7 +71,7 @@ public class TiUtils {
      * @param eventObject
      *            , event object
      */
-    public static native void fireEvent( String name, TiEvent eventObject ) /*-{
+    public static native void fireEvent( String name, Event eventObject ) /*-{
 		Titanium.fireEvent(name, eventObject);
     }-*/;
 

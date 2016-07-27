@@ -16,11 +16,11 @@
 
 package com.ait.toolkit.titanium.mobile.client.core.events.ui;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class UIEvent extends TiEvent {
+public class UIEvent extends Event {
 
     public static String ACTION = "action";
     public static String START = "start";

@@ -18,7 +18,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.android.Menu;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class MenuEvent extends TiEvent {
+public class MenuEvent extends Event {
 
     public MenuEvent(JavaScriptObject obj) {
         jsObj = obj;

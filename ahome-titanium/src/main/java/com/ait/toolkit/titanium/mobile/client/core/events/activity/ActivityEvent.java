@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.activity;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ActivityEvent extends TiEvent {
+public class ActivityEvent extends Event {
 
 	public static final String CREATE = "create";
 	public static final String DESTROY = "destroy";

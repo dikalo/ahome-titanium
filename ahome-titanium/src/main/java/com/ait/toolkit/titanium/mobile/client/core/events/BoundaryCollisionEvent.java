@@ -20,7 +20,7 @@ import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.ait.toolkit.titanium.mobile.client.ui.View;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class BoundaryCollisionEvent extends TiEvent {
+public class BoundaryCollisionEvent extends Event {
 
 	public static final String EVENT_NAME = "boundarycollision";
 

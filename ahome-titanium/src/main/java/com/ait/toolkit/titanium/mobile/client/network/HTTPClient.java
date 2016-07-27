@@ -17,8 +17,8 @@ package com.ait.toolkit.titanium.mobile.client.network;
 
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
 import com.ait.toolkit.titanium.mobile.client.core.events.EventDispatcher;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 import com.ait.toolkit.titanium.mobile.client.xml.Document;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -157,7 +157,7 @@ public class HTTPClient extends EventDispatcher {
 		jso.location = value;
     }-*/;
 
-    public void setOnDataStream(TiEventListener<?> callback) {
+    public void setOnDataStream(EventListener<?> callback) {
         this.setOndataStream(callback.getJsoPeer());
     }
 
@@ -171,7 +171,7 @@ public class HTTPClient extends EventDispatcher {
      * called upon a error response
      */
 
-    public void setOnError(TiEventListener<TiEvent> callBack) {
+    public void setOnError(EventListener<Event> callBack) {
         setOnError(callBack.getJsoPeer());
     }
 
@@ -185,7 +185,7 @@ public class HTTPClient extends EventDispatcher {
      * called upon a successful response
      */
 
-    public void setOnLoad(TiEventListener<?> callback) {
+    public void setOnLoad(EventListener<?> callback) {
         setOnLoad(callback.getJsoPeer());
     }
 
@@ -199,7 +199,7 @@ public class HTTPClient extends EventDispatcher {
      *         to be called for each readystate change
      */
 
-    public void setOnReadyStateChange(TiEventListener<?> callback) {
+    public void setOnReadyStateChange(EventListener<?> callback) {
         setOnReadyStateChange(callback.getJsoPeer());
     }
 
@@ -214,7 +214,7 @@ public class HTTPClient extends EventDispatcher {
      *         transmitted. the `progress` property of the event will contain a
      *         value from 0.0-1.0 with the progress.
      */
-    public void setOnSendStream(TiEventListener<?> callback) {
+    public void setOnSendStream(EventListener<?> callback) {
         setOnSendStream(callback.getJsoPeer());
     }
 

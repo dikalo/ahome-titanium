@@ -15,11 +15,11 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.media.video;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class VideoEvent extends TiEvent {
+public class VideoEvent extends Event {
 
     public static String COMPLETE = "complete";
     public static String DURATION_AVAILABLE = "durationAvailable";

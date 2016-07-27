@@ -16,7 +16,7 @@
 package com.ait.toolkit.titanium.mobile.client.ui.interfaces;
 
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEventListener;
+import com.ait.toolkit.titanium.mobile.client.core.events.EventListener;
 
 public interface HasBlob {
 
@@ -28,6 +28,6 @@ public interface HasBlob {
     /**
      * Return a blob image of the rendered view
      */
-    public void toImage(TiEventListener<?> callback);
+    public void toImage(EventListener<?> callback);
 
 }

@@ -15,8 +15,8 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.handlers;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 
 public interface EventHandler {
-    public void onEvent(TiEvent event);
+    public void onEvent(Event event);
 }

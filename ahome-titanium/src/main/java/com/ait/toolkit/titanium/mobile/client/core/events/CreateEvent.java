@@ -19,7 +19,7 @@ import com.ait.toolkit.titanium.mobile.client.core.handlers.activity.CreateHandl
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class CreateEvent extends TiEvent {
+public class CreateEvent extends Event {
 
     public static final String CREATE = "create";
 

@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class ReadErrorEvent extends TiEvent {
+public class ReadErrorEvent extends Event {
 
     public static final String READ_ERROR = "readError";
 

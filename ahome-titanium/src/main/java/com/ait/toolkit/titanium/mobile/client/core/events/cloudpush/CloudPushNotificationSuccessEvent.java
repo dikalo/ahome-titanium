@@ -16,14 +16,14 @@
 package com.ait.toolkit.titanium.mobile.client.core.events.cloudpush;
 
 import com.ait.toolkit.titanium.mobile.client.cloudpush.CloudPushNotificationSuccessHandler;
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
 /**
  * An event object passed to the retrieveDeviceToken success callback.
  */
-public class CloudPushNotificationSuccessEvent extends TiEvent {
+public class CloudPushNotificationSuccessEvent extends Event {
 
 	/**
 	 * UiBinder implementations

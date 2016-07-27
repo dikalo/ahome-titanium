@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.media;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ProgressEvent extends TiEvent {
+public class ProgressEvent extends Event {
 
     public static final String PROGRESS = "progress";
 

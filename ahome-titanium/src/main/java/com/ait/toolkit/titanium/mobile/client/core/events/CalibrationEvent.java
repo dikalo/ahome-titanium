@@ -15,7 +15,7 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events;
 
-public class CalibrationEvent extends TiEvent {
+public class CalibrationEvent extends Event {
 
     public static final String CALIBRATION = "calibration";
 

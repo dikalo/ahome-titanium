@@ -20,15 +20,15 @@ import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.core.client.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class TiEvent extends JsObject {
+public class Event extends JsObject {
 
 	public static final String POST_LAYOUT = "postlayout";
 
-	public TiEvent() {
+	public Event() {
 		jsObj = JsoHelper.createObject();
 	}
 
-	private TiEvent(JavaScriptObject obj) {
+	private Event(JavaScriptObject obj) {
 		jsObj = obj;
 	}
 

@@ -15,11 +15,11 @@
  */
 package com.ait.toolkit.titanium.mobile.client.core.events.geolocation;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.ait.toolkit.titanium.mobile.client.geolocation.HeadingInfo;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class HeadingEvent extends TiEvent {
+public class HeadingEvent extends Event {
 
     public static final String HEADING = "heading";
 

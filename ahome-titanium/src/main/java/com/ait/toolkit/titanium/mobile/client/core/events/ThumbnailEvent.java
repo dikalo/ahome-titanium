@@ -19,7 +19,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.blob.Blob;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 
-public class ThumbnailEvent extends TiEvent {
+public class ThumbnailEvent extends Event {
 
     public static final String THUMBNAIL = "thumbnail";
 

@@ -15,10 +15,10 @@
  */
 package com.ait.toolkit.titanium.mobile.modules.facebook.client;
 
-import com.ait.toolkit.titanium.mobile.client.core.events.TiEvent;
+import com.ait.toolkit.titanium.mobile.client.core.events.Event;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class FBLoginEvent extends TiEvent {
+public class FBLoginEvent extends Event {
 
     protected FBLoginEvent(JavaScriptObject obj) {
         jsObj = obj;

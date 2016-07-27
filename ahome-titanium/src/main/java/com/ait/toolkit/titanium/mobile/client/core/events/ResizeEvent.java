@@ -19,7 +19,7 @@ package com.ait.toolkit.titanium.mobile.client.core.events;
 import com.ait.toolkit.titanium.mobile.client.ui.Point;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ResizeEvent extends TiEvent {
+public class ResizeEvent extends Event {
 
     public static final String RESIZE = "resize";
 
